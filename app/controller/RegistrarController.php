@@ -22,16 +22,23 @@ class RegistrarController{
         $nacimiento = $_POST["nacimiento"];
         $clave2 = $_POST["psw-repeat"];
 
-        if ($clave == $clave2) {
-        $respuesta =$this->model->registrarUsuario($email,$clave,$nombre,$apellido,$nacimiento);
 
-            if ($respuesta == 1){
-                $data["user"] = $respuesta[0];
-                $this->renderer->render("view/LoginView.php");
-            }
-        } else {
-            $this->renderer->render( "view/registarView.php");
-        }
+        if ($clave == $clave2) {
+            $respuesta = $this->model->VerificarUsuario($email);
+
+                if ($respuesta == 0){
+                    $this->model->registrarUsuario($email,$clave,$nombre,$apellido,$nacimiento);
+                    echo "agrego al usuario";
+                } else {
+                   echo "no agrego al usuario";
+            //    $this->renderer->render( "view/registarView.php");
+                }
+                }
+
+
+
+
+
 
         }
 }

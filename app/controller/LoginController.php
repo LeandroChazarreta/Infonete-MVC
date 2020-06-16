@@ -19,13 +19,13 @@ class LoginController{
             $clave = $_POST["clave"];
             $respuesta = $this->model->VerificarLogin($usuario,$clave);
 
+    echo $respuesta;
 
         if ($respuesta == 1){
-            echo "$usuario $clave";
             $data["user"] = $respuesta[0];
             $this->renderer->render("view/homeView.php", $data);
         } else {
-           echo "no enctro";
+           echo "no encto";
             //$this->renderer->render("view/LoginView.php");
         }
 
