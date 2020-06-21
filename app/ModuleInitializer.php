@@ -36,11 +36,24 @@ class ModuleInitializer
         return new LoginController($model, $this->renderer);
     }
 
+    public function createHomeController()
+    {
+        include_once("model/HomeModel.php");
+        include_once("controller/HomeController.php");
+
+        return new HomeController($this->renderer);
+    }
 
     public function createIndexController()
     {
         include_once("controller/IndexController.php");
         return new IndexController($this->renderer);
+    }
+
+    public function createLogoutController()
+    {
+        include_once("controller/LogoutController.php");
+        return new LogoutController($this->renderer);
     }
 
     public function createDefaultController()

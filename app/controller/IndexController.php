@@ -11,7 +11,4 @@ class IndexController{
         echo $this->renderer->render( "view/IndexView.php" );
     }
 
-    public function home(){
-        echo $this->renderer->render( "view/homeView.php" );
-    }
 }

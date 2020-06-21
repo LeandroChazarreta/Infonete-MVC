@@ -19,11 +19,11 @@ class LoginController{
             $clave = $_POST["clave"];
             $respuesta = $this->model->VerificarLogin($usuario,$clave);
 
-    echo $respuesta;
 
         if ($respuesta == 1){
-            $data["user"] = $respuesta[0];
-            $this->renderer->render("view/homeView.php", $data);
+            $_SESSION["usuario"] = "$usuario";
+            header("location: http://localhost/Infonete/app/home");
+
         } else {
            echo "no encto";
             //$this->renderer->render("view/LoginView.php");

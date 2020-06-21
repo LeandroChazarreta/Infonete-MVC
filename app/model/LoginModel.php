@@ -10,11 +10,10 @@ class LoginModel{
 
     public function VerificarLogin ($usuario,$password){
         $password = md5($password);	// codifico contraseña
-        echo "$usuario - $password";
 
         $query = $this->conexion->query("SELECT * FROM USUARIO WHERE mail='$usuario'and contraseña='$password'");
 
-            $res = count($query);
+            $res = count($query); // cuento registros
 
             if ($res == 1){
                 return 1;
