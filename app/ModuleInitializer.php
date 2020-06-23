@@ -44,6 +44,14 @@ class ModuleInitializer
         return new HomeController($this->renderer);
     }
 
+    public function createNoticiaController()
+    {
+        include_once("model/NoticiaModel.php");
+        include_once("controller/NoticiaController.php");
+
+        return new NoticiaController($this->renderer);
+    }
+
     public function createIndexController()
     {
         include_once("controller/IndexController.php");
@@ -60,4 +68,5 @@ class ModuleInitializer
     {
         return $this->createIndexController();
     }
+
 }
