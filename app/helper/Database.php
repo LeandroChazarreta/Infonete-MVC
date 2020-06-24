@@ -19,7 +19,7 @@ class Database{
     }
 
     public function insert($sql) {
-        $result = mysqli_query($this->connexion, $sql);
+       return $result = mysqli_query($this->connexion, $sql);
     }
     public function __destruct(){
         mysqli_close($this->connexion);

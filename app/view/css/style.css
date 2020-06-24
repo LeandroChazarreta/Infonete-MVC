@@ -6,6 +6,11 @@ body {
   line-height: 1.5;
 }
 
+textarea {
+    resize: vertical;
+    width: 100%;
+}
+
 .topheader {
     list-style-type: none;
     margin: 0;
