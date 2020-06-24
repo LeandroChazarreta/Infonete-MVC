@@ -13,6 +13,10 @@ class RegistrarController{
         echo $this->renderer->render( "view/registarView.php");
     }
 
+    public function exitoso(){
+       echo $this->renderer->render( "view/RegistrookView.php");
+    }
+
 
     public function registrarUsuario(){
         $email = $_POST["email"];
@@ -28,7 +32,7 @@ class RegistrarController{
 
                 if ($respuesta == 0){
                     $this->model->registrarUsuario($email,$clave,$nombre,$apellido,$nacimiento);
-                    echo "agrego al usuario";
+                    $this->exitoso();
                 } else {
                    echo "no agrego al usuario";
             //    $this->renderer->render( "view/registarView.php");

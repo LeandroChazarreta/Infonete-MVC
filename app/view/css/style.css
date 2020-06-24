@@ -231,6 +231,27 @@ span.psw {
     margin-right: auto;
     width: 60%;
 }
+
+.registrook {
+    background-color: #e2e2e2;
+    width: 300px;
+    padding: 50px;
+    height: 50%;
+    border-style: double;
+    border: 5px solid black;
+    margin: auto;
+    font-size: 20px;
+}
+
+.boton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
 .nacimiento {
     width: 100%;
     padding: 12px 20px;
