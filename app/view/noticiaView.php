@@ -2,6 +2,7 @@
 <?php
 echo $_SESSION['usuario'];
 ?>
+
 <div class="w3-container">
 
 
@@ -9,32 +10,49 @@ echo $_SESSION['usuario'];
 
 
         <div class="container login">
-            <h1>Registrar</h1>
-            <p>Crea tu usuario para tener acceso a noticias gratuitas</p>
+
+            <h1>Generar noticia</h1>
+            <p>Creación de noticias para agregar contenido a la página</p>
             <hr>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Ingrese su email" name="email" id="email" required>
+            <div>
+            <label for="seccion"><b>Sección</b></label>
+            <select name="seccion" id="seccion">
+                {{#secciones}}
+                    <option value="{{id_seccion}}">{{descripcion}}</option>
+                {{/secciones}}
+            </select>
+            </div>
 
-            <label for="contraseña"><b>Contraseña</b></label>
-            <input type="password" placeholder="Ingrese su contraseña" name="psw" id="psw" required>
+            <div>
+            <label for="tipoNoticia"><b>Tipo de Nocticia</b></label>
+            <select name="tipoNoticia" id="tipoNoticia">
+                {{#tipoNoticias}}
+                <option value="{{id_tipo_noticia}}">{{descripcion}}</option>
+                {{/tipoNoticias}}
+            </select>
+            </div>
 
-            <label for="psw-repeat"><b>Repetir Contraseña</b></label>
-            <input type="password" placeholder="Repita su contraseña" name="psw-repeat" id="psw-repeat" required>
+            <label for="titulo"><b>Título</b></label>
+            <textarea placeholder="Ingrese el título" name="titulo" id="titulo" required></textarea>
 
-            <label for="nombre"><b>Nombre</b></label>
-            <input type="text" placeholder="Ingrese su nombre" name="nombre" id="nombre" required>
+            <label for="bajada"><b>Bajada</b></label>
+            <textarea placeholder="Ingrese la bajada" name="bajada" id="bajada" ></textarea>
 
-            <label for="apellido"><b>Apellido</b></label>
-            <input type="text" placeholder="Ingrese su apellido" name="apellido" id="apellido" required>
+            <label for="imagen"><b>Imagen</b></label>
+            <input type="file">
 
-            <label for="nacimiento"><b>Fecha de nacimiento</b></label>
-            <input type="date" placeholder="Ingrese su fecha de nacimiento" name="nacimiento" id="nacimiento" required>
+            <div>
+            <label for="epigrafeImagen"><b>Epigrafe de la imagen</b></label>
+            <textarea placeholder="Ingrese el epigrafe" name="epigrafeImagen" id="epigrafeImagen" cols="100%" ></textarea>
+            </div>
+
+            <label for="cuerpo"><b>Cuerpo</b></label>
+            <textarea placeholder="Ingrese el cuerpo" name="cuerpo" id="cuerpo" required></textarea>
 
             <hr>
-            <p>Al crear una cuenta usted acepta nuestros terminos y condiciones.</p>
 
-            <button type="submit" class="registerbtn">Registrar</button>
+            <button type="submit" class="registerbtn">Crear</button>
         </div>
 
         <div class="container signin">

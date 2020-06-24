@@ -49,7 +49,8 @@ class ModuleInitializer
         include_once("model/NoticiaModel.php");
         include_once("controller/NoticiaController.php");
 
-        return new NoticiaController($this->renderer);
+        $model = new NoticiaModel($this->database);
+        return new NoticiaController($model, $this->renderer);
     }
 
     public function createIndexController()
@@ -67,6 +68,13 @@ class ModuleInitializer
     public function createDefaultController()
     {
         return $this->createIndexController();
+    }
+
+    public function createSeccionController()
+    {
+        include_once("controller/SeccionController.php");
+
+        return new SeccionController($this->renderer);
     }
 
 }

@@ -59,11 +59,11 @@ VALUES (1, "Seccion_1", 1),
        (3, "Seccion_3", 2),
 	   (4, "Seccion_4", 2);
        
-INSERT INTO Noticia (id_noticia, descripcion, id_tipo_noticia, id_seccion, id_usuario)
-VALUES (1, "Noticia_1", 1, 1, 4),
-	   (2, "Noticia_2", 1, 1, 4),
-       (3, "Noticia_3", 2, 2, 4),
-	   (4, "Noticia_4", 2, 3, 4);
+INSERT INTO Noticia (id_noticia, titulo, bajada, id_imagen, epigrafe_imagen, cuerpo, id_tipo_noticia, id_seccion, id_usuario)
+VALUES (1, "Noticia_1", "", 1, "", "", 1, 1, 4),
+	   (2, "Noticia_2", "", 1, "", "", 1, 1, 4),
+       (3, "Noticia_3", "", 1, "", "", 2, 2, 4),
+	   (4, "Noticia_4", "", 1, "", "", 2, 3, 4);
        
 INSERT INTO Tipo_Reaccion (id_tipo_reaccion, descripcion)
 VALUES (1, "Tipo_Reaccion_1"),

@@ -9,9 +9,19 @@ class NoticiaModel
         $this->conexion = $database;
     }
 
-    public function crearNoticia($descripcion, $id_tipo_noticia, $id_seccion, $idUsuario)
+    public function guardarNoticia($titulo, $bajada, $idImagen, $epigrafeImagen,$cuerpo, $idTipoNoticia, $idSeccion, $idUsuario)
     {
-        $this->conexion->insert("INSERT INTO Noticia(descripcion, id_tipo_noticia, id_seccion, id_usuario) 
-                                 VALUES ('$descripcion','$id_tipo_noticia','$id_seccion','$idUsuario')");
+        return $this->conexion->insert("INSERT INTO Noticia(titulo, bajada, id_imagen, epigrafe_imagen, cuerpo, id_tipo_noticia, id_seccion, id_usuario) 
+                                       VALUES ('$titulo', '$bajada', '$idImagen', '$epigrafeImagen','$cuerpo', '$idTipoNoticia','$idSeccion','$idUsuario')");
+    }
+
+    public function getSecciones(){
+
+        return $this->conexion->query("SELECT * FROM Seccion");
+    }
+
+    public function getTipoNoticias(){
+
+        return $this->conexion->query("SELECT * FROM Tipo_Noticia");
     }
 }

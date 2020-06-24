@@ -49,7 +49,7 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
              FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
              
         CREATE TABLE Lector
-			(id_usuario INT UNSIGNED),
+			(id_usuario INT UNSIGNED,
 			 PRIMARY KEY (id_usuario),
              FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
         
@@ -97,7 +97,11 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
              
 		CREATE TABLE Noticia
 			(id_noticia INT UNSIGNED AUTO_INCREMENT,
-             descripcion VARCHAR(40) NOT NULL,
+             titulo VARCHAR(40) NOT NULL,
+             bajada VARCHAR(1000),
+             id_imagen INT UNSIGNED,
+             epigrafe_imagen VARCHAR (600),
+             cuerpo VARCHAR (10000),
              id_tipo_noticia SMALLINT UNSIGNED,
              id_seccion SMALLINT UNSIGNED,
              id_usuario INT UNSIGNED,

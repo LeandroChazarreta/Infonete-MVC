@@ -10,33 +10,33 @@ class NoticiaController{
     }
 
     public function index(){
-        echo $this->renderer->render( "view/noticiaView.php");
-    }
 
+        $listaSecciones["secciones"] = $this->model->getSecciones();
+        $listaTipoNoticias["tipoNoticias"] = $this->model->getTipoNoticias();
+
+        $listas = $listaSecciones + $listaTipoNoticias;
+
+        echo $this->renderer->render( "view/noticiaView.php", $listas);
+    }
 
     public function crearNoticia(){
 
-        $descripcion = $_POST["descripcion"];
-        $id_tipo_noticia = $_POST["idTipoNoticia"];
-        $id_seccion = $_POST["idSeccion"];
+        $idTipoNoticia = $_POST["tipoNoticia"];
+        $idSeccion = $_POST["seccion"];
+        $titulo = $_POST["titulo"];
+        $bajada = $_POST["bajada"];
+        $idImagen =1;
+        $epigrafeImagen = $_POST["epigrafeImagen"];
+        $cuerpo = $_POST["cuerpo"];
 
-        //$idUsuario = $_POST["idUsuario"];
+        $idUsuario = 4;
 
+        $respuesta = $this->model->guardarNoticia($titulo, $bajada, $idImagen, $epigrafeImagen,$cuerpo, $idTipoNoticia, $idSeccion, $idUsuario);
 
-        if (count($descripcion) > 20) {
-            $respuesta = $this->model->crearNoticia();
-
-                if ($respuesta != 0){
-                    echo "noticia creada con exito";
+                if ($respuesta == true){
+                    echo "Noticia creada con exito";
                 } else {
-                   echo "no se creó la noticia";
+                   echo "No se creó la noticia";
                 }
-                }
-
-
-
-
-
-
         }
 }
