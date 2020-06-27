@@ -9,7 +9,7 @@ class LogoutController
     }
 
     public function index(){
-        header("location: http://localhost/Infonete/app/");
+        header("location: http://localhost/Infonete-MVC/app/");
     }
 
 }
