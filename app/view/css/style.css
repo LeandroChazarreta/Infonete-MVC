@@ -242,6 +242,7 @@ span.psw {
     width: 300px;
     padding: 50px;
     height: 50%;
+    width: 70%;
     border-style: double;
     border: 5px solid black;
     margin: auto;

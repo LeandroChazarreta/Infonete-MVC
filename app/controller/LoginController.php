@@ -22,7 +22,8 @@ class LoginController{
 
         if ($respuesta == 1){
             $_SESSION["usuario"] = "$usuario";
-            header("location: http://localhost/Infonete/app/home");
+
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
 
         } else {
            echo "no encto";

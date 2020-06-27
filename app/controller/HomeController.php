@@ -8,13 +8,13 @@ class HomeController{
     }
 
     public function index(){
-        if (isset($_SESSION)) {
-            echo $_SESSION['usuario'];
+   //     if (isset($_SESSION)) {
+     //       echo $_SESSION['usuario'];
             echo $this->renderer->render( "view/homeView.php" );
-        } else {
-            header("location: http://localhost/Infonete/app/index");
-        }
+        } //else {
+          //  header("location: http://localhost/Infonete/app/index");
+       // }
 
-    }
+  //  }
 
 }
