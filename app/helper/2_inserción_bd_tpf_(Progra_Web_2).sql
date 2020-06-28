@@ -19,11 +19,16 @@ VALUES (1, "DNI"),
 	   (2, "PASAPORTE"),
 	   (3, "LIBRETA CIVICA");
 
-INSERT INTO Usuario(id_usuario, nombre, apellido, fecha_nac, mail, contraseña, nro_doc, id_tipo_doc, id_domicilio)
-VALUES (1, "nombre1_us", "apellido1_us", "1980-01-01", "email1_us@email.com", "password1_us", 11111111, 1, 1),
-	   (2, "nombre2_us", "apellido2_us", "1980-01-01", "email2_us@email.com", "password2_us", 22222222, 1, 2),
-       (3, "nombre3_us", "apellido3_us", "1980-01-01", "email3_us@email.com", "password3_us", 33333333, 1, 3),
-	   (4, "nombre4_us", "apellido4_us", "1980-01-01", "email4_us@email.com", "password4_us", 44444444, 2, 4);
+INSERT INTO Permiso (id_permiso, descripcion)
+VALUES (1, "Permiso_1", 1),
+	   (2, "Permiso_2", 2);
+
+
+INSERT INTO Usuario(id_usuario, nombre, apellido, fecha_nac, mail, contraseña, nro_doc, id_tipo_doc, id_domicilio,id_permiso)
+VALUES (1, "nombre1_us", "apellido1_us", "1980-01-01", "email1_us@email.com", "password1_us", 11111111, 1, 1,1),
+	   (2, "nombre2_us", "apellido2_us", "1980-01-01", "email2_us@email.com", "password2_us", 22222222, 1, 2,1),
+       (3, "nombre3_us", "apellido3_us", "1980-01-01", "email3_us@email.com", "password3_us", 33333333, 1, 3,2),
+	   (4, "nombre4_us", "apellido4_us", "1980-01-01", "email4_us@email.com", "password4_us", 44444444, 2, 4,2);
 
 INSERT INTO Administrador(id_usuario, legajo)
 VALUES (1, 1);
@@ -37,14 +42,7 @@ VALUES (3);
 INSERT INTO Contenidista (id_usuario, legajo)
 VALUES (4, 2);
 
-INSERT INTO Grupo_Permiso (id_grupo_permiso, descripcion, id_usuario)
-VALUES (1, "Grupo_1", 1),
-	   (2, "Grupo_2", 3);
-       
-INSERT INTO Permiso (id_permiso, descripcion, id_grupo_permiso)
-VALUES (1, "Permiso_1", 1),
-	   (2, "Permiso_2", 2);
-       
+
 INSERT INTO Tipo_Publicacion (id_tipo_publicacion, descripcion)
 VALUES (1, "Tipo_Publicacion_1"),
 	   (2, "Tipo_Publicacion_2");
