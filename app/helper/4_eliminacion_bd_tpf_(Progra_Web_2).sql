@@ -10,7 +10,6 @@ DELETE FROM comentario;
 DELETE FROM contenidista;
 DELETE FROM domicilio;
 DELETE FROM factura;
-DELETE FROM grupo_permiso;
 DELETE FROM interaccion;
 DELETE FROM interaccion_comentario;
 DELETE FROM lector;
