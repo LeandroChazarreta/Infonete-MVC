@@ -26,8 +26,7 @@ class LoginController{
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
 
         } else {
-           echo "no encto";
-            //$this->renderer->render("view/LoginView.php");
+            $this->renderer->render("view/LoginView.php");
         }
 
 
