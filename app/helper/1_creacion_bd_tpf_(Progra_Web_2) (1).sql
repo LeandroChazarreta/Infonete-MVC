@@ -49,7 +49,7 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
              FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
 
         CREATE TABLE Lector
-			(id_usuario INT UNSIGNED),
+			(id_usuario INT UNSIGNED,
 			 PRIMARY KEY (id_usuario),
              FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
 
@@ -78,37 +78,34 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
              PRIMARY KEY (id_permiso),
              FOREIGN KEY (id_grupo_permiso) REFERENCES Grupo_Permiso (id_grupo_permiso));
 
-        CREATE TABLE Tipo_Noticia
-			(id_tipo_noticia SMALLINT UNSIGNED AUTO_INCREMENT,
+        CREATE TABLE Tipo_Publicacion
+			(id_tipo_publicacion SMALLINT UNSIGNED AUTO_INCREMENT,
              descripcion VARCHAR(40) NOT NULL,
-             PRIMARY KEY (id_tipo_noticia));
+             PRIMARY KEY (id_tipo_publicacion));
 
-        CREATE TABLE Publicacion
-			(id_publicacion INT UNSIGNED AUTO_INCREMENT AUTO_INCREMENT,
-             descripcion VARCHAR(40),
-             PRIMARY KEY (id_publicacion));
-
-        CREATE TABLE Seccion
-			(id_seccion SMALLINT UNSIGNED AUTO_INCREMENT AUTO_INCREMENT,
+         CREATE TABLE Seccion
+			(id_seccion SMALLINT UNSIGNED AUTO_INCREMENT,
              descripcion VARCHAR(40) NOT NULL,
              id_publicacion INT UNSIGNED,
-             PRIMARY KEY (id_seccion),
-             FOREIGN KEY (id_publicacion) REFERENCES Publicacion (id_publicacion));
+             PRIMARY KEY (id_seccion));
 
-	    CREATE TABLE Noticia
-			(id_noticia INT UNSIGNED AUTO_INCREMENT,
-             titulo VARCHAR(40) NOT NULL,
-             bajada VARCHAR(1000),
-             id_imagen INT UNSIGNED,
-             epigrafe_imagen VARCHAR (600),
-             cuerpo VARCHAR (10000),
-             id_tipo_noticia SMALLINT UNSIGNED,
-             id_seccion SMALLINT UNSIGNED,
-             id_usuario INT UNSIGNED,
-             PRIMARY KEY (id_noticia),
-             FOREIGN KEY (id_tipo_noticia) REFERENCES Tipo_Noticia (id_tipo_noticia),
-			 FOREIGN KEY (id_seccion) REFERENCES Seccion (id_seccion),
-             FOREIGN KEY (id_usuario) REFERENCES Contenidista (id_usuario));
+		CREATE TABLE Publicacion
+                    (id_publicacion INT UNSIGNED AUTO_INCREMENT,
+                     titulo VARCHAR(40) NOT NULL,
+                     bajada VARCHAR(1000),
+                     id_imagen INT UNSIGNED,
+                     epigrafe_imagen VARCHAR (600),
+                     cuerpo VARCHAR (10000),
+                     id_tipo_publicacion SMALLINT UNSIGNED,
+                     id_seccion SMALLINT UNSIGNED,
+                     id_usuario INT UNSIGNED,
+                     autorizada BOOLEAN ,
+                     PRIMARY KEY (id_publicacion),
+                     FOREIGN KEY (id_tipo_publicacion) REFERENCES Tipo_Publicacion (id_tipo_publicacion),
+                     FOREIGN KEY (id_usuario) REFERENCES Contenidista (id_usuario),
+					 FOREIGN KEY (id_seccion) REFERENCES Seccion (id_seccion));
+
+
 
        CREATE TABLE Tipo_Reaccion
 			(id_tipo_reaccion SMALLINT UNSIGNED AUTO_INCREMENT,
@@ -125,10 +122,10 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
 		CREATE TABLE Interaccion
 			(id_interaccion INT UNSIGNED AUTO_INCREMENT,
              fecha DATE NOT NULL,
-             id_noticia INT UNSIGNED NOT NULL,
+             id_publicacion INT UNSIGNED NOT NULL,
              id_reaccion INT UNSIGNED NOT NULL,
              PRIMARY KEY (id_interaccion),
-             FOREIGN KEY (id_noticia) REFERENCES Noticia (id_noticia),
+             FOREIGN KEY (id_publicacion) REFERENCES Publicacion (id_publicacion),
 			 FOREIGN KEY (id_reaccion) REFERENCES Reaccion (id_reaccion));
 
         CREATE TABLE Comentario
@@ -220,11 +217,10 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
 			 FOREIGN KEY (id_medio_pago) REFERENCES Medio_Pago (id_medio_pago),
              FOREIGN KEY (id_factura) REFERENCES Factura (id_factura));
 
-         CREATE TABLE Noticia_Contenido
-			(id_noticia_contenido INT UNSIGNED AUTO_INCREMENT,
-             id_noticia INT UNSIGNED NOT NULL,
+         CREATE TABLE publicacion_Contenido
+			(id_publicacion_contenido INT UNSIGNED AUTO_INCREMENT,
+             id_publicacion INT UNSIGNED NOT NULL,
              id_contenido_por_suscripcion INT UNSIGNED NOT NULL,
-             PRIMARY KEY (id_noticia_contenido),
-             FOREIGN KEY (id_noticia) REFERENCES Noticia (id_noticia),
+             PRIMARY KEY (id_publicacion_contenido),
+             FOREIGN KEY (id_publicacion) REFERENCES Publicacion (id_publicacion),
 			 FOREIGN KEY (id_contenido_por_suscripcion) REFERENCES Contenido_Por_Suscripcion (id_contenido_por_suscripcion));
-             

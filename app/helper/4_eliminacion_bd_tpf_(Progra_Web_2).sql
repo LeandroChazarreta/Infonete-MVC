@@ -28,7 +28,7 @@ DELETE FROM suscripcion;
 DELETE FROM suscriptor;
 DELETE FROM tipo_doc;
 DELETE FROM tipo_factura;
-DELETE FROM tipo_noticia;
+DELETE FROM tipo_publicacion;
 DELETE FROM tipo_reaccion;
 DELETE FROM tipo_suscripcion;
 DELETE FROM usuario;
