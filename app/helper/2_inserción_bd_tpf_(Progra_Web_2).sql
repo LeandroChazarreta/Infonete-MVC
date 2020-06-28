@@ -45,26 +45,24 @@ INSERT INTO Permiso (id_permiso, descripcion, id_grupo_permiso)
 VALUES (1, "Permiso_1", 1),
 	   (2, "Permiso_2", 2);
        
-INSERT INTO Tipo_Noticia (id_tipo_noticia, descripcion)
-VALUES (1, "Tipo_Noticia_1"),
-	   (2, "Tipo_Noticia_2");      
-       
-INSERT INTO Publicacion (id_publicacion, descripcion)
-VALUES (1, "Publicacion_1"),
-	   (2, "Publicacion_2");     
-       
+INSERT INTO Tipo_Publicacion (id_tipo_publicacion, descripcion)
+VALUES (1, "Tipo_Publicacion_1"),
+	   (2, "Tipo_Publicacion_2");
+
+INSERT INTO Publicacion (id_publicacion, titulo, bajada, id_imagen, epigrafe_imagen, cuerpo, id_tipo_publicacion, id_seccion, id_usuario,autorizada)
+VALUES (1, "Publicacion_1", "", 1, "", "", 1, 1, 4),
+	   (2, "Publicacion_2", "", 1, "", "", 1, 1, 4),
+       (3, "Publicacion_3", "", 1, "", "", 2, 2, 4),
+	   (4, "Publicacion_4", "", 1, "", "", 2, 3, 4);
+
+
 INSERT INTO Seccion (id_seccion, descripcion, id_publicacion)
 VALUES (1, "Seccion_1", 1),
 	   (2, "Seccion_2", 1),
        (3, "Seccion_3", 2),
 	   (4, "Seccion_4", 2);
        
-INSERT INTO Noticia (id_noticia, titulo, bajada, id_imagen, epigrafe_imagen, cuerpo, id_tipo_noticia, id_seccion, id_usuario)
-VALUES (1, "Noticia_1", "", 1, "", "", 1, 1, 4),
-	   (2, "Noticia_2", "", 1, "", "", 1, 1, 4),
-       (3, "Noticia_3", "", 1, "", "", 2, 2, 4),
-	   (4, "Noticia_4", "", 1, "", "", 2, 3, 4);
-       
+
 INSERT INTO Tipo_Reaccion (id_tipo_reaccion, descripcion)
 VALUES (1, "Tipo_Reaccion_1"),
 	   (2, "Tipo_Reaccion_2"),
@@ -77,7 +75,7 @@ VALUES (1, "2020-10-10", 1),
        (3, "2020-10-10", 2),
 	   (4, "2020-10-10", 4);     
        
-INSERT INTO Interaccion (id_interaccion, fecha, id_noticia, id_reaccion)
+INSERT INTO Interaccion (id_interaccion, fecha, id_publicacion, id_reaccion)
 VALUES (1, "2020-10-10", 1, 1),
 	   (2, "2020-10-10", 1, 2),
        (3, "2020-10-10", 2, 3),
