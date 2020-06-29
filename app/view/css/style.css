@@ -1,9 +1,13 @@
 body {
   padding-left: 15%;
   padding-right: 15%;
-  font-family: "Raleway", sans-serif;
+  font-family: "Calibri", sans-serif;
   font-size: 15px;
   line-height: 1.5;
+}
+
+.logo{
+    width: 20%;
 }
 
 textarea {
@@ -14,7 +18,7 @@ textarea {
 .topheader {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 10px;
     overflow: hidden;
 }
 
@@ -31,15 +35,18 @@ textarea {
     text-align: center;
     padding: 10px 10px;
     text-decoration: none;
+}
 
+.topheader a {
+    margin-left: 25px;
 }
 
 .tituloheader {
-    font-family: "Raleway", sans-serif;
-    border-bottom: double;
-    border-top: double;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    font-family: "Calibri", sans-serif;
+    border-bottom: 5px solid #666666;
+    border-top: 5px solid #666666;
+    padding-top: 1%;
+    padding-bottom: 1%;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
     text-align: center!important;
@@ -57,7 +64,7 @@ textarea {
 
 
 .topnav a {
-  float: left;
+    float: left;
   display: block;
   color: #000;
   text-align: center;
