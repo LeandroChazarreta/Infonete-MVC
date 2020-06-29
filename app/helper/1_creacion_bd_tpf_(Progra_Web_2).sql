@@ -216,3 +216,15 @@ CREATE TABLE Localidad
      PRIMARY KEY (id_publicacion_contenido),
      FOREIGN KEY (id_publicacion) REFERENCES Publicacion (id_publicacion),
      FOREIGN KEY (id_contenido_por_suscripcion) REFERENCES Contenido_Por_Suscripcion (id_contenido_por_suscripcion));
+
+
+
+INSERT INTO Permiso (id_permiso, descripcion)
+VALUES (1, "Lector"),
+       (2, "Suscriptor"),
+       (3, "Contenidista"),
+       (4, "Administrador");
+
+INSERT INTO Usuario(mail, contraseña, nombre, apellido, fecha_nac, id_permiso)
+        VALUES ('admin@asd.com','a8f5f167f44f4964e6c998dee827110c','asd','asd','20200101', '4'),
+         ('conte@asd.com','a8f5f167f44f4964e6c998dee827110c','asd','asd','20200101', '3');

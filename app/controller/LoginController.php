@@ -20,15 +20,18 @@ class LoginController{
             $respuesta = $this->model->VerificarLogin($usuario,$clave);
 
 
-        if ($respuesta == 1){
+
+
+       if ($respuesta == 1){
+            $permiso = $this->model->ObtenerPermisos($usuario);
             $_SESSION["usuario"] = "$usuario";
 
+
+           $_SESSION["permiso"] = $permiso[0];
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
-
         } else {
-            $this->renderer->render("view/LoginView.php");
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/login");
         }
-
 
     }
 

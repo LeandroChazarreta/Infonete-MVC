@@ -9,12 +9,10 @@ class IndexController{
 
     public function index(){
 
-
         if (isset($_SESSION['usuario'])) {
-              echo $_SESSION['usuario'];
-        echo $this->renderer->render( "view/homeView.php" );
+              header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
         } else {
-        echo $this->renderer->render( "view/IndexView.php" );
+              echo $this->renderer->render( "view/IndexView.php" );
     }
     }
 

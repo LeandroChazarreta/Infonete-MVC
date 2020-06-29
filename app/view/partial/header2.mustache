@@ -10,6 +10,7 @@
 </head>
 
 
+
 <!-- Menu  -->
 <header>
     <!-- Top Menu  -->
@@ -26,13 +27,19 @@
 <div class="topnav" id="myTopnav">
     <a href="javascript:void(0);" class="icon w3-button w3-white w3-border" onclick="myFunction()">
         <i class="fa fa-bars"></i>
-        <a href="#" class="w3-button w3-white w3-border active">Coronavirus</a>
-        <a href="#" class="w3-button w3-white w3-border">Policiales</a>
-        <a href="#" class="w3-button w3-white w3-border">Politica</a>
-        <a href="#" class="w3-button w3-white w3-border">Mundo</a>
-        <a href="#" class="w3-button w3-white w3-border">Sociedad</a>
-        <a href="#" class="w3-button w3-white w3-border">Ciencia</a>
 
+        {{#menu}}
+            <article>
+                    <a href="{{Coronavirus}}" class="w3-button w3-white w3-border">{{Coronavirus}}</a>
+                    <a href="#" class="w3-button w3-white w3-border">{{Policiales}}</a>
+                    <a href="#" class="w3-button w3-white w3-border">{{Politica}}</a>
+                    <a href="{{Mundo}}" class="w3-button w3-white w3-border">{{Mundo}}</a>
+                    <a href="#" class="w3-button w3-white w3-border">{{Sociedad}}</a>
+                    <a href="#" class="w3-button w3-white w3-border">{{Ciencia}}</a>
+                    <a href="#" class="w3-button w3-white" style="float: right">{{noticia}}</a>
+                    <a href="#" class="w3-button w3-white" style="float: right">{{administrador}}</a>
+            </article>
+        {{/menu}}
     </a>
 </div>
 

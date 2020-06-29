@@ -6,6 +6,9 @@
 		       (3, "Contenidista"),
 		       (4, "Administrador"),
 
+    INSERT INTO Usuario(mail, contraseña, nombre, apellido, fecha_nac, id_permiso)
+	VALUES ('admin@asd.com','asd','asd','asd','20200101', '4'),
+			('conte@asd.com','asd','asd','asd','20200101', '3');
 
 /*	INSERT INTO Provincia (id_provincia, descripcion)
 	VALUES (1, "Provincia_1"),

@@ -1,7 +1,6 @@
 {{> header2}}
-<?php
-echo $_SESSION['usuario'];
-?>
+
+
     <div class="w3-container">
 
 

@@ -15,14 +15,21 @@ class LoginModel{
 
             $res = count($query); // cuento registros
 
-            if ($res == 1){
+            if ($res == 1){ //verificar si encontro registro
                 return 1;
           } else {
                 return 0;
             }
-
     }
 
+    public function ObtenerPermisos ($usuario){
+        $query=  $this->conexion->query("SELECT id_permiso FROM USUARIO WHERE mail='$usuario'");
+
+        foreach ($query as $fila) {
+            return ($fila["id_permiso"]);
+        }
+
+    }
 
 
 }

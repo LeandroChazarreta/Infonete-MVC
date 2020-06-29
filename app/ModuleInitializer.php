@@ -41,7 +41,8 @@ class ModuleInitializer
         include_once("model/HomeModel.php");
         include_once("controller/HomeController.php");
 
-        return new HomeController($this->renderer);
+        $model = new HomeModel($this->database);
+        return new HomeController($model, $this->renderer);
     }
 
     public function createNoticiaController()
