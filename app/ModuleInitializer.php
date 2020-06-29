@@ -78,4 +78,13 @@ class ModuleInitializer
         return new SeccionController($this->renderer);
     }
 
+    public function createSeccionOpinionController()
+    {
+        include_once("model/SeccionOpinionModel.php");
+        include_once("controller/SeccionOpinionController.php");
+
+        $model = new SeccionOpinionModel($this->database);
+        return new SeccionOpinionController($model, $this->renderer);
+    }
+
 }

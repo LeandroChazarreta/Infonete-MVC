@@ -12,7 +12,7 @@ class HomeController{
     public function index(){
         if (isset($_SESSION['usuario']) /*and isset($_SESSION['permiso'])*/) {
 
-            echo $_SESSION['permiso'];
+            //echo $_SESSION['permiso'];
 
             //Arma el menu segun el permiso
             $menu = $this->model->ArmaMenu($_SESSION['permiso']);

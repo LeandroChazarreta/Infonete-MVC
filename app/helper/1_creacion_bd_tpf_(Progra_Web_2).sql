@@ -24,7 +24,7 @@ CREATE TABLE Localidad
      FOREIGN KEY (id_localidad) REFERENCES Localidad (id_localidad));
 
     CREATE TABLE Tipo_Doc
-    (id_tipo_doc SMALLINT UNSIGNED,
+    (id_tipo_doc SMALLINT UNSIGNED AUTO_INCREMENT,
      descripcion VARCHAR(40) NOT NULL,
      PRIMARY KEY (id_tipo_doc));
 
@@ -49,6 +49,7 @@ CREATE TABLE Localidad
      FOREIGN KEY (id_domicilio) REFERENCES Domicilio (id_domicilio),
      FOREIGN KEY (id_permiso) REFERENCES Permiso (id_permiso));
 
+/*	
     CREATE TABLE Contenidista
     (id_usuario INT UNSIGNED,
      legajo VARCHAR(250) UNIQUE NOT NULL,
@@ -70,7 +71,7 @@ CREATE TABLE Localidad
     (id_usuario INT UNSIGNED,
      PRIMARY KEY (id_usuario),
      FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
-
+*/
 
     CREATE TABLE Tipo_Publicacion
     (id_tipo_publicacion SMALLINT UNSIGNED AUTO_INCREMENT,
@@ -80,7 +81,6 @@ CREATE TABLE Localidad
     CREATE TABLE Seccion
     (id_seccion SMALLINT UNSIGNED AUTO_INCREMENT,
      descripcion VARCHAR(40) NOT NULL,
-     id_publicacion INT UNSIGNED,
      PRIMARY KEY (id_seccion));
 
     CREATE TABLE Publicacion
@@ -96,7 +96,7 @@ CREATE TABLE Localidad
      autorizada BOOLEAN ,
      PRIMARY KEY (id_publicacion),
      FOREIGN KEY (id_tipo_publicacion) REFERENCES Tipo_Publicacion (id_tipo_publicacion),
-     FOREIGN KEY (id_usuario) REFERENCES Contenidista (id_usuario),
+     FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario),
      FOREIGN KEY (id_seccion) REFERENCES Seccion (id_seccion));
 
     CREATE TABLE Tipo_Reaccion
@@ -145,14 +145,14 @@ CREATE TABLE Localidad
      fecha DATE NOT NULL,
      id_usuario INT UNSIGNED NOT NULL,
      PRIMARY KEY (id_catalogo),
-     FOREIGN KEY (id_usuario) REFERENCES Administrador (id_usuario));
+     FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
 
     CREATE TABLE Catalogo_Lector
     (id_catalogo_lector INT UNSIGNED AUTO_INCREMENT,
      id_catalogo INT UNSIGNED NOT NULL,
      id_usuario INT UNSIGNED NOT NULL,
      PRIMARY KEY (id_catalogo_lector),
-     FOREIGN KEY (id_usuario) REFERENCES Lector (id_usuario),
+     FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario),
      FOREIGN KEY (id_catalogo) REFERENCES Catalogo (id_catalogo));
 
     CREATE TABLE Catalogo_Suscriptor
@@ -160,7 +160,7 @@ CREATE TABLE Localidad
      id_catalogo INT UNSIGNED NOT NULL,
      id_usuario INT UNSIGNED NOT NULL,
      PRIMARY KEY (id_catalogo_suscriptor),
-     FOREIGN KEY (id_usuario) REFERENCES Suscriptor (id_usuario),
+     FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario),
      FOREIGN KEY (id_catalogo) REFERENCES Catalogo (id_catalogo));
 
     CREATE TABLE Tipo_Suscripcion
@@ -217,7 +217,7 @@ CREATE TABLE Localidad
      FOREIGN KEY (id_publicacion) REFERENCES Publicacion (id_publicacion),
      FOREIGN KEY (id_contenido_por_suscripcion) REFERENCES Contenido_Por_Suscripcion (id_contenido_por_suscripcion));
 
-
+/*
 
 INSERT INTO Permiso (id_permiso, descripcion)
 VALUES (1, "Lector"),
