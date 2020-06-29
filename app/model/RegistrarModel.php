@@ -24,7 +24,7 @@ class RegistrarModel{
     public function registrarUsuario($email,$clave,$nombre,$apellido,$nacimiento)
     {
         $password = md5($clave);
-        $this->conexion->insert("INSERT INTO Usuario(mail, contraseña, nombre, apellido, fecha_nac) VALUES ('$email','$password','$nombre','$apellido','$nacimiento')");
+        $this->conexion->insert("INSERT INTO Usuario(mail, contraseña, nombre, apellido, fecha_nac, id_permiso) VALUES ('$email','$password','$nombre','$apellido','$nacimiento', 1)");
     }
 
     }
