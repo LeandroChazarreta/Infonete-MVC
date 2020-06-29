@@ -28,6 +28,11 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
              descripcion VARCHAR(40) NOT NULL,
              PRIMARY KEY (id_tipo_doc));
 
+        CREATE TABLE Permiso
+					(id_permiso INT UNSIGNED AUTO_INCREMENT,
+					 descripcion VARCHAR(40) NOT NULL,
+					 PRIMARY KEY (id_permiso));
+
 		CREATE TABLE Usuario
 			(id_usuario INT UNSIGNED AUTO_INCREMENT,
              nombre VARCHAR(250) NOT NULL,
@@ -38,9 +43,17 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
              nro_doc INT UNSIGNED UNIQUE,
 			 id_tipo_doc SMALLINT UNSIGNED,
              id_domicilio INT UNSIGNED,
+			 id_permiso INT UNSIGNED,
 			 PRIMARY KEY (id_usuario),
              FOREIGN KEY (id_tipo_doc) REFERENCES Tipo_Doc (id_tipo_doc),
-             FOREIGN KEY (id_domicilio) REFERENCES Domicilio (id_domicilio));
+             FOREIGN KEY (id_domicilio) REFERENCES Domicilio (id_domicilio),
+			 FOREIGN KEY (id_permiso) REFERENCES Permiso (id_permiso));
+
+		CREATE TABLE Contenidista
+					(id_usuario INT UNSIGNED,
+					 legajo VARCHAR(250) UNIQUE NOT NULL,
+					 PRIMARY KEY (id_usuario),
+					 FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
 
 		CREATE TABLE Administrador
 			(id_usuario INT UNSIGNED AUTO_INCREMENT,
@@ -58,27 +71,8 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
 			 PRIMARY KEY (id_usuario),
              FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
 
-        CREATE TABLE Contenidista
-			(id_usuario INT UNSIGNED,
-             legajo VARCHAR(250) UNIQUE NOT NULL,
-			 PRIMARY KEY (id_usuario),
-             FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
 
-		CREATE TABLE Grupo_Permiso
-			(id_grupo_permiso INT UNSIGNED AUTO_INCREMENT,
-             descripcion VARCHAR(40) NOT NULL,
-             id_usuario INT UNSIGNED,
-             PRIMARY KEY (id_grupo_permiso),
-             FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
-
-		CREATE TABLE Permiso
-			(id_permiso INT UNSIGNED AUTO_INCREMENT,
-             descripcion VARCHAR(40) NOT NULL,
-             id_grupo_permiso INT UNSIGNED NOT NULL,
-             PRIMARY KEY (id_permiso),
-             FOREIGN KEY (id_grupo_permiso) REFERENCES Grupo_Permiso (id_grupo_permiso));
-
-        CREATE TABLE Tipo_Publicacion
+		CREATE TABLE Tipo_Publicacion
 			(id_tipo_publicacion SMALLINT UNSIGNED AUTO_INCREMENT,
              descripcion VARCHAR(40) NOT NULL,
              PRIMARY KEY (id_tipo_publicacion));
@@ -104,8 +98,6 @@ CREATE DATABASE IF NOT EXISTS UNLAM_Progra_Web_2_Trabajo_Practico_Final;
                      FOREIGN KEY (id_tipo_publicacion) REFERENCES Tipo_Publicacion (id_tipo_publicacion),
                      FOREIGN KEY (id_usuario) REFERENCES Contenidista (id_usuario),
 					 FOREIGN KEY (id_seccion) REFERENCES Seccion (id_seccion));
-
-
 
        CREATE TABLE Tipo_Reaccion
 			(id_tipo_reaccion SMALLINT UNSIGNED AUTO_INCREMENT,
