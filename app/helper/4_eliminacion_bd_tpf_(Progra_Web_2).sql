@@ -2,6 +2,7 @@ USE UNLAM_Progra_Web_2_Trabajo_Practico_Final;
 
 SET sql_safe_updates=0;
 
+DELETE FROM usuario;
 DELETE FROM administrador;
 DELETE FROM catalogo;
 DELETE FROM catalogo_lector;
@@ -30,4 +31,3 @@ DELETE FROM tipo_factura;
 DELETE FROM tipo_publicacion;
 DELETE FROM tipo_reaccion;
 DELETE FROM tipo_suscripcion;
-DELETE FROM usuario;
