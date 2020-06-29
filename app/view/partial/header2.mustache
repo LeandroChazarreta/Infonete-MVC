@@ -17,7 +17,13 @@
     <ul class="topheader">
         <li><a>30 de Junio de 2020</a></li>
         <li><a href="#">13.5° Capital Federal</a></li>
-        <li style="float:right"><a href="./Logout">Cerrar Sesion </a> </li>
+        <a href="./noticia" class="w3-button w3-white" style="float: right">Cerrar Sesion </a>
+{{#menu}}
+    <a href="./noticia" class="w3-button w3-white" style="float: right">{{noticia}}</a>
+    <a href="#" class="w3-button w3-white" style="float: right">{{administrador}}</a>
+
+{{/menu}}
+
 
     </ul>
 
@@ -42,8 +48,7 @@
                     <a href="./seccion/{{Mundo}}" class="w3-button w3-white w3-border">{{Mundo}}</a>
                     <a href="./seccion/" class="w3-button w3-white w3-border">{{Sociedad}}</a>
                     <a href="./seccion/" class="w3-button w3-white w3-border">{{Ciencia}}</a>
-                    <a href="./noticia" class="w3-button w3-white" style="float: right">{{noticia}}</a>
-                    <a href="#" class="w3-button w3-white" style="float: right">{{administrador}}</a>
+
                     <a href="#" class="w3-button w3-white w3-border">Deportes</a>
                     <a href="#" class="w3-button w3-white w3-border">Espectaculos</a>
                     <a href="#" class="w3-button w3-white w3-border">Opinión</a>
