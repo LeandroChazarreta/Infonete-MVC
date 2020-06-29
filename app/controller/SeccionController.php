@@ -2,13 +2,19 @@
 
 
 class SeccionController
-{   private $renderer;
+{  private $renderer;
+    private $model;
 
-    public function __construct($renderer){
+    public function __construct($model, $renderer){
+        $this->model = $model;
         $this->renderer = $renderer;
     }
 
     public function index(){
-        echo $this->renderer->render( "view/seccionView.php");
+        $nombreSeccion = $_GET["action"];
+
+        $listaSeccion["seccion"] = $this->model->getSeccion($nombreSeccion);
+
+        echo $this->renderer->render("view/seccionView.php", $listaSeccion);
     }
 }

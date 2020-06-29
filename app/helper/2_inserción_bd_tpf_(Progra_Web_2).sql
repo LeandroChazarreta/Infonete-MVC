@@ -19,11 +19,13 @@
 		   ("PASAPORTE"),
 		   ("LIBRETA CIVICA");
 
+/*
 	 INSERT INTO Permiso (descripcion)
 	    VALUES ("Lector"),
 		       ("Suscriptor"),
 		       ("Contenidista"),
 		       ("Administrador");
+*/
 
 	INSERT INTO Usuario(nombre, apellido, fecha_nac, mail, contraseña, nro_doc, id_tipo_doc, id_domicilio, id_permiso)
 	VALUES ("nombre1_us", "apellido1_us", "1980-01-01", "email1_us@email.com", "password1_us", 11111111, 1, 1, 1),
@@ -31,10 +33,6 @@
 		   ("nombre3_us", "apellido3_us", "1980-01-01", "email3_us@email.com", "password3_us", 33333333, 1, 3, 2),
 		   ("nombre4_us", "apellido4_us", "1980-01-01", "email4_us@email.com", "password4_us", 44444444, 2, 4, 2);
            
-	INSERT INTO Usuario(mail, contraseña, nombre, apellido, fecha_nac, id_permiso)
-	VALUES ('admin@asd.com','asd','asd','asd','20200101', '4'),
-		   ('conte@asd.com','asd','asd','asd','20200101', '3');
-
 	INSERT INTO Tipo_Publicacion (descripcion)
 	VALUES ("Tipo_Publicacion_1"),
 		   ("Tipo_Publicacion_2");

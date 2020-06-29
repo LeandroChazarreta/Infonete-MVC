@@ -9,9 +9,13 @@ class SeccionModel
         $this->conexion = $database;
     }
 
-    public function getSecciones(){
+    public function getSeccion($nombreSeccion){
 
-        return $this->conexion->query("SELECT * FROM Seccion");
+        return $this->conexion->query("SELECT * 
+                                       FROM Publicacion pub 
+                                       JOIN Tipo_Publicacion tipo_pub ON pub.id_tipo_publicacion = tipo_pub.id_tipo_publicacion
+					                   JOIN Seccion sec ON pub.id_seccion = sec.id_seccion
+                                       WHERE sec.descripcion = '$nombreSeccion' ");
     }
 
 }

@@ -73,9 +73,11 @@ class ModuleInitializer
 
     public function createSeccionController()
     {
+        include_once("model/SeccionModel.php");
         include_once("controller/SeccionController.php");
 
-        return new SeccionController($this->renderer);
+        $model = new SeccionModel($this->database);
+        return new SeccionController($model, $this->renderer);
     }
 
     public function createSeccionOpinionController()
