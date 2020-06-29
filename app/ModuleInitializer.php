@@ -45,13 +45,13 @@ class ModuleInitializer
         return new HomeController($model, $this->renderer);
     }
 
-    public function createNoticiaController()
+    public function createPublicacionController()
     {
-        include_once("model/NoticiaModel.php");
-        include_once("controller/NoticiaController.php");
+        include_once("model/PublicacionModel.php");
+        include_once("controller/PublicacionController.php");
 
-        $model = new NoticiaModel($this->database);
-        return new NoticiaController($model, $this->renderer);
+        $model = new PublicacionModel($this->database);
+        return new PublicacionController($model, $this->renderer);
     }
 
     public function createIndexController()
