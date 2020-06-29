@@ -1,6 +1,6 @@
 <?php
 
-class NoticiaController{
+class PublicacionController{
     private $renderer;
     private $model;
 
@@ -12,16 +12,16 @@ class NoticiaController{
     public function index(){
 
         $listaSecciones["secciones"] = $this->model->getSecciones();
-        $listaTipoNoticias["tipoNoticias"] = $this->model->getTipoNoticias();
+        $listaTipoPublicaciones["tipoPublicacion"] = $this->model->getTipoPublicaciones();
 
-        $listas = $listaSecciones + $listaTipoNoticias;
+        $listas = $listaSecciones + $listaTipoPublicaciones;
 
-        echo $this->renderer->render( "view/noticiaView.php", $listas);
+        echo $this->renderer->render( "view/publicacionView.php", $listas);
     }
 
-    public function crearNoticia(){
+    public function crearPublicacion(){
 
-        $idTipoNoticia = $_POST["tipoNoticia"];
+        $idTipoPublicacion = $_POST["tipoPublicacion"];
         $idSeccion = $_POST["seccion"];
         $titulo = $_POST["titulo"];
         $bajada = $_POST["bajada"];
@@ -31,7 +31,7 @@ class NoticiaController{
 
         $idUsuario = 4;
 
-        $respuesta = $this->model->guardarNoticia($titulo, $bajada, $idImagen, $epigrafeImagen,$cuerpo, $idTipoNoticia, $idSeccion, $idUsuario);
+        $respuesta = $this->model->guardarPublicacion($titulo, $bajada, $idImagen, $epigrafeImagen,$cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
 
                 if ($respuesta == true){
                     echo "Noticia creada con exito";

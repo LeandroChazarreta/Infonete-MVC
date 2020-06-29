@@ -25,11 +25,11 @@ echo $_SESSION['usuario'];
             </div>
 
             <div>
-            <label for="tipoNoticia"><b>Tipo de Nocticia</b></label>
-            <select name="tipoNoticia" id="tipoNoticia">
-                {{#tipoNoticias}}
-                <option value="{{id_tipo_noticia}}">{{descripcion}}</option>
-                {{/tipoNoticias}}
+            <label for="tipoPublicacion"><b>Tipo de Publicacion</b></label>
+            <select name="tipoPublicacion" id="tipoPublicacion">
+                {{#tipoPublicacion}}
+                <option value="{{id_tipo_publicacion}}">{{descripcion}}</option>
+                {{/tipoPublicacion}}
             </select>
             </div>
 
