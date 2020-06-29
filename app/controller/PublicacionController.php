@@ -16,7 +16,7 @@ class PublicacionController{
 
         $listas = $listaSecciones + $listaTipoPublicaciones;
 
-        echo $this->renderer->render( "view/publicacionView.php", $listas);
+        echo $this->renderer->render( "view/crearPublicacionView.php", $listas);
     }
 
     public function crearPublicacion(){

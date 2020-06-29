@@ -6,15 +6,18 @@ echo $_SESSION['usuario'];
 <div class="w3-container">
 
     {{#seccionOpinion}}
-    <div class="w3-container">
 
-        <div class="w3-row-padding w3-padding-16">
+        <div class="w3-col m4 noticia w3-padding w3-border">
 
-            <div class="w3-col m4 noticia">
-                <div class="cuadrado2"><img src="view/img/{{id}}.jpg" alt="{{titulo}}"></div>
+            <a href="">
+            <div class="">
+                <div class="">
+                    <img class="imgPublicacion" src="view/img/{{id_publicacion}}.jpg" alt="{{id_publicacion}}">
+                </div>
                 <h5><b>{{titulo}}</b></h5>
                 <p><b>{{bajada}}</b></p>
             </div>
+            </a>
         </div>
         {{/seccionOpinion}}
 </div>

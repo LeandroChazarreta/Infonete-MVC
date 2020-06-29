@@ -49,7 +49,7 @@
 	INSERT INTO Publicacion (titulo, bajada, id_imagen, epigrafe_imagen, cuerpo, id_tipo_publicacion, id_seccion, id_usuario, autorizada)
 	VALUES ("Publicacion_1", "Titulo", 1, "epigrafe", "cuerpo", 1, 1, 4, 1),
 		   ("Publicacion_2", "Titulo", 1, "epigrafe", "cuerpo", 1, 1, 4, 1),
-		   ("Publicacion_3", "Titulo", 1, "epigrafe", "cuerpo", 2, 2, 4, 1),
+		   ("Publicacion_3", "Titulo", 1, "epigrafe", "cuerpo", 2, 5, 4, 1),
 		   ("Publicacion_4", "Titulo", 1, "epigrafe", "cuerpo", 2, 5, 4, 1);
 
 	INSERT INTO Tipo_Reaccion (descripcion)

@@ -17,7 +17,7 @@
                 <input type="checkbox" checked="checked" name="remember"> Recordar usuario
             </label>
 
-            <button type="submit" class="w3-button w3-white w3-border">Ingresar</button>
+            <button type="submit" class="registerbtn">Ingresar</button>
 
         </div>
     </form>
