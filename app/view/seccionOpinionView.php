@@ -1,4 +1,4 @@
-{{> header}}
+{{> header2}}
 <?php
 echo $_SESSION['usuario'];
 ?>

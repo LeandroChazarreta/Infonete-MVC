@@ -217,7 +217,6 @@ CREATE TABLE Localidad
      FOREIGN KEY (id_publicacion) REFERENCES Publicacion (id_publicacion),
      FOREIGN KEY (id_contenido_por_suscripcion) REFERENCES Contenido_Por_Suscripcion (id_contenido_por_suscripcion));
 
-/*
 
 INSERT INTO Permiso (id_permiso, descripcion)
 VALUES (1, "Lector"),
