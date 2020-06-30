@@ -3,22 +3,19 @@
 echo $_SESSION['usuario'];
 ?>
 
-<div class="w3-container">
-    {{#seccion}}
-    <div class="w3-col m4 noticia w3-padding w3-border">
+<section class="publicaciones contenedor-publicaciones">
 
-        <a href="">
-            <div class="">
-                <div class="">
-                    <img class="imgPublicacion" src="view/img/{{id_publicacion}}.jpg" alt="{{id_publicacion}}">
-                </div>
-                <h5><b>{{titulo}}</b></h5>
-                <p><b>{{bajada}}</b></p>
-            </div>
+    {{#seccion}}
+    <article class="publicacion">
+        <a href="seccion/{{descripcion}}/{{id_publicacion}}">
+            <img src="view/img/{{id_publicacion}}.jpg" alt="{{epigrafe_imagen}}">
+            <h3>{{titulo}}</h3>
+            <p>{{bajada}}</p>
         </a>
-    </div>
+    </article>
     {{/seccion}}
-</div>
+
+</section>
 
 {{> footer}}
 

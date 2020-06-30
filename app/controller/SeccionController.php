@@ -17,4 +17,12 @@ class SeccionController
 
         echo $this->renderer->render("view/seccionView.php", $listaSeccion);
     }
+
+    public function verPublicacion(){
+
+        $idPublicacion = $_GET["action"];
+        $data["publicacion"] = $this->model->getPublicacion($idPublicacion);
+
+        echo $this->renderer->render("view/verPublicacionView.php", $data);
+    }
 }

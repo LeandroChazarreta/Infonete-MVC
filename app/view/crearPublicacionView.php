@@ -6,7 +6,7 @@ echo $_SESSION['usuario'];
 <div class="w3-container">
 
 
-    <form action="./publicacion/crearPublicacion" method="post" class="formlogin">
+    <form action="./publicacion/validarPublicacion" method="post" class="formlogin">
 
 
         <div class="container w3-col">

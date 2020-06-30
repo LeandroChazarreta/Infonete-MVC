@@ -11,6 +11,11 @@ class PublicacionController{
 
     public function index(){
 
+        echo $this->renderer->render( "view/publicacionView.php");
+    }
+
+    public function crearPublicacion(){
+
         $listaSecciones["secciones"] = $this->model->getSecciones();
         $listaTipoPublicaciones["tipoPublicacion"] = $this->model->getTipoPublicaciones();
 
@@ -19,13 +24,18 @@ class PublicacionController{
         echo $this->renderer->render( "view/crearPublicacionView.php", $listas);
     }
 
-    public function crearPublicacion(){
+    public function creacionExitosa(){
+
+        echo $this->renderer->render( "view/publicacionCreadaView.php");
+    }
+
+    public function validarPublicacion(){
 
         $idTipoPublicacion = $_POST["tipoPublicacion"];
         $idSeccion = $_POST["seccion"];
         $titulo = $_POST["titulo"];
         $bajada = $_POST["bajada"];
-        $idImagen =1;
+        $idImagen = null;
         $epigrafeImagen = $_POST["epigrafeImagen"];
         $cuerpo = $_POST["cuerpo"];
 
@@ -34,9 +44,12 @@ class PublicacionController{
         $respuesta = $this->model->guardarPublicacion($titulo, $bajada, $idImagen, $epigrafeImagen,$cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
 
                 if ($respuesta == true){
-                    echo "Noticia creada con exito";
+
+                    echo $this->creacionExitosa();
                 } else {
-                   echo "No se creó la noticia";
+                    echo $this->index();
                 }
         }
+
+
 }

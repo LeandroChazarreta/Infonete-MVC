@@ -18,4 +18,11 @@ class SeccionModel
                                        WHERE sec.descripcion = '$nombreSeccion' ");
     }
 
+    public function getPublicacion($id){
+
+        return $this->conexion->query(" SELECT * 
+                                        FROM Publicacion p
+                                        WHERE p.id_publicacion = $id ");
+    }
+
 }

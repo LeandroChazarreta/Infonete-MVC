@@ -24,4 +24,5 @@ class PublicacionModel
 
         return $this->conexion->query("SELECT * FROM Tipo_Publicacion");
     }
+
 }
