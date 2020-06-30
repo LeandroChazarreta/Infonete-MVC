@@ -31,6 +31,23 @@
         </div>
     </div>
 
+    <section class="publicaciones">
+        <article class="publicacion">
+            <img src="view/img/2.jpg" alt="">
+            <h2>Noticia</h2>
+            <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+        </article>
+        <article class="publicacion">
+            <img src="view/img/2.jpg" alt="">
+            <h2>Noticia</h2>
+            <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+        </article>
+        <article class="publicacion">
+            <img src="view/img/2.jpg" alt="">
+            <h2>Noticia</h2>
+            <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+        </article>
+    </section>
 
 
 

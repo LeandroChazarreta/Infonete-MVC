@@ -25,7 +25,7 @@ class AdministradorController{
     }
 
     public function Secciones(){
-        $data["Secciones"] = $this->model->GetUsuarios();
+        $data["Secciones"] = $this->model->GetSecciones();
         echo $this->renderer->render( "view/Secciones-adminView.php", $data);
     }
 
