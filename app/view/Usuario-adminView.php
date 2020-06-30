@@ -16,6 +16,31 @@
         <section>
             <h1>Usuarios</h1>
 
+            <table class="w3-table">
+                <tr>
+                    <th>id</th>
+                    <th>nombre</th>
+                    <th>apellido</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>mail</th>
+                    <th>Permiso</th>
+                    <th>Bloquear</th>
+                    <th>Borrar</th>
+                </tr>
+                {{#Usuario}}
+                <tr>
+                    <td>{{id_usuario}}</td>
+                    <td>{{nombre}}</td>
+                    <td>{{apellido}}</td>
+                    <td>{{fecha_nac}}</td>
+                    <td>{{mail}}</td>
+                    <td>{{descripcion}}</td>
+                    <td><button class="w3-btn w3-green">Bloquear</button></td>
+                    <td><button class="w3-btn w3-red">Borrar</button></td>
+
+                </tr>
+                {{/Usuario}}
+            </table>
 
         </section>
 

@@ -25,9 +25,7 @@ class   LoginController{
        if ($respuesta == 1){
             $permiso = $this->model->ObtenerPermisos($usuario);
             $_SESSION["usuario"] = "$usuario";
-
-
-           $_SESSION["permiso"] = $permiso[0];
+            $_SESSION["permiso"] = $permiso[0];
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
         } else {
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/login");

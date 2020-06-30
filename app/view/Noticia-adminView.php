@@ -14,8 +14,37 @@
     </header>
 
         <section>
-            <h1>Usuarios</h1>
+            <h1>Noticias</h1>
 
+            <table class="w3-table">
+                <tr>
+                    <td>Seccion</td>
+                    <th>id</th>
+                    <th>titulo</th>
+                    <th>bajada</th>
+                    <th>epigrafe</th>
+                    <th>Usuario</th>
+                    <th>Subido por:</th>
+                    <th>Estado</th>
+                    <th>Autorizar</th>
+                    <th>Borrar</th>
+                </tr>
+                {{#Noticias}}
+                <tr>
+                    <td>{{descripcion}}</td>
+                    <td>{{id_publicacion}}</td>
+                    <td>{{titulo}}</td>
+                    <td>{{bajada}}</td>
+                    <td>{{epigrafe_imagen}}</td>
+                    <td>{{id_usuario}}</td>
+                    <td>{{nombre}} {{apellido}}</td>
+                    <td>{{autorizado}}</td>
+                    <td><button class="w3-btn w3-green">Autorizar</button></td>
+                    <td><button class="w3-btn w3-red">Borrar</button></td>
+
+                </tr>
+                {{/Noticias}}
+            </table>
 
         </section>
 

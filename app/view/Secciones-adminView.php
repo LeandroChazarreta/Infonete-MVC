@@ -14,8 +14,25 @@
     </header>
 
         <section>
-            <h1>Usuarios</h1>
+            <h1>Secciones</h1>
 
+            <table class="w3-table">
+                <tr>
+                    <th>id</th>
+                    <th>Seccion</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+                {{#Secciones}}
+                    <tr>
+                        <td>{{id_seccion}}</td>
+                        <td>{{descripcion}}</td>
+                        <td><button class="w3-btn w3-green">Editar</button></td>
+                        <td><button class="w3-btn w3-red">Borrar</button></td>
+
+                    </tr>
+                {{/Secciones}}
+            </table>
 
         </section>
 
