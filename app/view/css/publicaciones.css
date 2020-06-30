@@ -1,16 +1,22 @@
+.contenedor-publicaciones{
+    margin-top: 30px;
+}
+
 .imgPublicacion{
     max-width:100%;
 }
 
 .publicacion{
-    border:1px solid #b2b2b2;
-    border-radius: 0.5em;
-    padding: 1em;
     margin-bottom: 1em;
-    box-sizing: border-box;
+    padding: 1em;
 }
 .publicacion img{
+    border:1px solid #b2b2b2;
     max-width: 100%;
+}
+
+.publicacion a{
+    text-decoration: none;
 }
 
 @media screen and (min-width:47em){
@@ -20,6 +26,7 @@
         justify-content: space-around;
     }
     .publicacion{
+        padding: 0;
         width: calc(50% - 1em);
     }
 }

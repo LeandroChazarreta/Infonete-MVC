@@ -56,8 +56,11 @@ class ModuleInitializer
 
     public function createIndexController()
     {
+        include_once("model/IndexModel.php");
         include_once("controller/IndexController.php");
-        return new IndexController($this->renderer);
+
+        $model = new IndexModel($this->database);
+        return new IndexController($model, $this->renderer);
     }
 
     public function createLogoutController()
