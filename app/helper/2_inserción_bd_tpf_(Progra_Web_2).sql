@@ -34,21 +34,27 @@
 		   ("nombre4_us", "apellido4_us", "1980-01-01", "email4_us@email.com", "password4_us", 44444444, 2, 4, 2);
            
 	INSERT INTO Tipo_Publicacion (descripcion)
-	VALUES ("Tipo_Publicacion_1"),
-		   ("Tipo_Publicacion_2");
+	VALUES ("Periodistica"),
+		   ("Revista");
 
 	INSERT INTO Seccion (descripcion)
 	VALUES ("Politica"),
 		   ("Economia"),
 		   ("Policiales"),
 		   ("Mundo"),
+           ("Coronavirus"),
            ("Opinion");
 
 	INSERT INTO Publicacion (titulo, bajada, id_imagen, epigrafe_imagen, cuerpo, id_tipo_publicacion, id_seccion, id_usuario, autorizada)
-	VALUES ("Publicacion_1", "Titulo", 1, "epigrafe", "cuerpo", 1, 1, 4, 1),
-		   ("Publicacion_2", "Titulo", 1, "epigrafe", "cuerpo", 1, 1, 4, 1),
-		   ("Publicacion_3", "Titulo", 1, "epigrafe", "cuerpo", 2, 5, 4, 1),
-		   ("Publicacion_4", "Titulo", 1, "epigrafe", "cuerpo", 2, 5, 4, 1);
+	VALUES ("Valor del dolar en el mundo", "El valor del dolar sorprende en muchos países del mundo", 1, "epigrafe", "cuerpo", 1, 2, 4, 1),
+		   ("Valor del dolar en el mundo", "El valor del dolar sorprende en muchos países del mundo", 1, "epigrafe", "cuerpo", 1, 2, 4, 1),
+		   ("Valor del dolar en el mundo", "El valor del dolar sorprende en muchos países del mundo", 1, "epigrafe", "cuerpo", 1, 2, 4, 1),
+		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", 1, "epigrafe", "cuerpo", 1, 5, 4, 1),
+           ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", 1, "epigrafe", "cuerpo", 1, 5, 4, 1),
+		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", 1, "epigrafe", "cuerpo", 1, 5, 4, 1),
+		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", 1, "epigrafe", "cuerpo", 1, 5, 4, 1),
+		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", 1, "epigrafe", "cuerpo", 1, 5, 4, 1),
+		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", 1, "epigrafe", "cuerpo", 1, 5, 4, 1);
 
 	INSERT INTO Tipo_Reaccion (descripcion)
 	VALUES ("Tipo_Reaccion_1"),
