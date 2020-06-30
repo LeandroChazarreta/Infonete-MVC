@@ -28,7 +28,6 @@ class PublicacionController{
     }
 
     public function creacionExitosa(){
-
         echo $this->renderer->render( "view/publicacionCreadaView.php");
     }
 
@@ -47,7 +46,6 @@ class PublicacionController{
         $respuesta = $this->model->guardarPublicacion($titulo, $bajada, $idImagen, $epigrafeImagen,$cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
 
                 if ($respuesta == true){
-
                     echo $this->creacionExitosa();
                 } else {
                     echo $this->index();
