@@ -15,7 +15,7 @@ class HomeModel
         // Arma el menu
         Switch ($permiso) {
             case '3':
-                $menu = array('link1' => 'publicacion', 'noticia' => 'Crear Noticia');
+                $menu = array('link1' => 'crearPublicacion', 'noticia' => 'Crear Noticia');
                 break;
             case '4':
                 $menu = array('link1' => 'publicacion','noticia' => 'Crear Noticia', 'link2' => 'administrador', 'administrador' => 'Administrar');
@@ -26,6 +26,14 @@ class HomeModel
         }
 
         return $menu;
+    }
+
+    public function getPublicacionesAutorizadas(){
+
+        return $this->conexion->query(" SELECT * 
+                                        FROM Publicacion pub
+					                    JOIN Seccion sec ON pub.id_seccion = sec.id_seccion
+                                        WHERE pub.autorizada = true ");
     }
 
 }

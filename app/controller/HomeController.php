@@ -10,17 +10,17 @@ class HomeController{
     }
 
     public function index(){
+        echo $_SESSION['usuario'], $_SESSION['permiso'];
         if (isset($_SESSION['usuario']) and isset($_SESSION['permiso'])) {
 
-            echo $_SESSION['permiso'];
-
             //Arma el menu segun el permiso
-            $menu = $this->model->ArmaMenu($_SESSION['permiso']);
+            $data['menu'] = $this->model->ArmaMenu($_SESSION['permiso']);
 
-           echo $this->renderer->render( "view/homeView.php", array('menu' => $menu));
+            //publicaciones
+            $data['publicacionesAutorizadas'] = $this->model->getPublicacionesAutorizadas();
+
+           echo $this->renderer->render( "view/homeView.php", $data);
         } else {
-            session_unset();
-            session_destroy();
             header("location: http://".$_SERVER['SERVER_NAME']."/Infonete-MVC/app/index");
         }
     }
