@@ -10,6 +10,9 @@ class AdministradorController{
     $this->model = $model;
 }
 
+    public function index(){
+        echo $this->renderer->render( "view/AdministradorView.php");
+    }
 
 
 }
