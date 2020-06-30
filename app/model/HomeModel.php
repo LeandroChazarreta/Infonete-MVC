@@ -18,7 +18,7 @@ class HomeModel
                 $menu = array('link1' => 'publicacion', 'noticia' => 'Crear Noticia');
                 break;
             case '4':
-                $menu = array('link1' => 'publicacion', 'noticia' => 'Crear Noticia', 'administrador' => 'Administrar');
+                $menu = array('link1' => 'publicacion','noticia' => 'Crear Noticia', 'link2' => 'administrador', 'administrador' => 'Administrar');
                 break;
             default:
                 $menu = array( 'Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales', 'Politica' => 'Politica', 'Mundo' => 'Mundo',
