@@ -18,7 +18,7 @@ class   LoginController{
             $usuario = $_POST["user"];
             $clave = $_POST["clave"];
             $respuesta = $this->model->VerificarLogin($usuario,$clave);
-            
+
 
        if ($respuesta == 1){
             $permiso = $this->model->ObtenerPermisos($usuario);

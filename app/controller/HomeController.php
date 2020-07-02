@@ -14,7 +14,9 @@ class HomeController{
         if (isset($_SESSION['usuario']) and isset($_SESSION['permiso'])) {
 
             //Arma el menu segun el permiso
-            $data['menu'] = $this->model->ArmaMenu($_SESSION['permiso']);
+            $_SESSION['menu']=$this->model->ArmaMenu($_SESSION['permiso']);
+
+            $data['menu'] = $_SESSION['menu'];
 
             //publicaciones
             $data['publicacionesAutorizadas'] = $this->model->getPublicacionesAutorizadas();

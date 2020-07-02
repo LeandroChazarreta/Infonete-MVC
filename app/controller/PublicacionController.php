@@ -12,6 +12,7 @@ class PublicacionController{
     public function index(){
         $listas["secciones"] = $this->model->getSecciones();
         $listas["tipoPublicacion"] = $this->model->getTipoPublicaciones();
+        $listas['menu'] = $_SESSION['menu'];
 
         echo $this->renderer->render( "view/crearPublicacionView.php", $listas);
     }
@@ -21,6 +22,7 @@ class PublicacionController{
 
         $listaSecciones["secciones"] = $this->model->getSecciones();
         $listaTipoPublicaciones["tipoPublicacion"] = $this->model->getTipoPublicaciones();
+        $listas['menu'] = $_SESSION['menu'];
 
         $listas = $listaSecciones + $listaTipoPublicaciones;
 

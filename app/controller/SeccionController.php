@@ -14,6 +14,7 @@ class SeccionController
         $nombreSeccion = $_GET["action"];
 
         $listaSeccion["seccion"] = $this->model->getSeccion($nombreSeccion);
+        $listaSeccion['menu'] = $_SESSION['menu'];
 
         echo $this->renderer->render("view/seccionView.php", $listaSeccion);
     }
@@ -22,6 +23,8 @@ class SeccionController
 
         $idPublicacion = $_GET["action"];
         $data["publicacion"] = $this->model->getPublicacion($idPublicacion);
+        $data['menu'] = $_SESSION['menu'];
+
 
         echo $this->renderer->render("view/verPublicacionView.php", $data);
     }
