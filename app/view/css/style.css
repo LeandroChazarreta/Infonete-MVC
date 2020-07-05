@@ -24,6 +24,10 @@ body {
     height:100%;
 }
 
+.publicacion {
+    padding: 1% !important;
+}
+
 textarea {
     resize: vertical;
     width: 100%;
