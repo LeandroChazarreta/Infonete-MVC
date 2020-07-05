@@ -12,10 +12,10 @@ class PublicacionController{
     public function index(){
         $listas["secciones"] = $this->model->getSecciones();
         $listas["tipoPublicacion"] = $this->model->getTipoPublicaciones();
-        $listas['menu'] = $_SESSION['menu'];
 
         echo $this->renderer->render( "view/crearPublicacionView.php", $listas);
     }
+
 
     public function creacionExitosa(){
         echo $this->renderer->render( "view/publicacionCreadaView.php");

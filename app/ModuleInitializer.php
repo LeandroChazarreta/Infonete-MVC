@@ -54,6 +54,7 @@ class ModuleInitializer
         return new PublicacionController($model, $this->renderer);
     }
 
+
     public function createIndexController()
     {
         include_once("model/IndexModel.php");
