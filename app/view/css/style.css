@@ -321,3 +321,9 @@ span.psw {
     padding-left: 20px;
     display: inline-block;
 }
+
+.centrar {
+    margin-left: auto;
+    margin-right: auto;
+    float: none !important;
+}

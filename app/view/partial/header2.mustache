@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <base href="/Infonete-MVC/app/" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="view/css/style.css">
 <link rel="stylesheet" href="view/css/publicaciones.css">
-
+    <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
 </head>
 
 
@@ -22,6 +22,7 @@
         <li><a href="#">13.5° Capital Federal</a></li>
         <a href="./logout" class="w3-button w3-white" style="float: right">Cerrar Sesion </a>
 {{#menu}}
+    <a href="./{{Suscripcion}}" class="w3-button w3-white" style="float: right">{{Suscripcion}}</a>
     <a href="./{{link1}}" class="w3-button w3-white" style="float: right">{{noticia}}</a>
     <a href="./{{link2}}" class="w3-button w3-white" style="float: right">{{administrador}}</a>
 {{/menu}}
