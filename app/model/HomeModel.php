@@ -14,12 +14,24 @@ class HomeModel
 
         // Arma el menu
         Switch ($permiso) {
+            case '1':
+                $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales', 'Politica' => 'Politica', 'Mundo' => 'Mundo',
+                    'Sociedad' => 'Sociedad', 'Ciencia' => 'Ciencia',
+                    'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista',  'Suscripcion'=>'Suscripcion');
+                break;
+            case '2':
+                $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales', 'Politica' => 'Politica', 'Mundo' => 'Mundo',
+                    'Sociedad' => 'Sociedad', 'Ciencia' => 'Ciencia',
+                    'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista');
+                break;
+                //Contenedista
             case '3':
                 $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales',
                     'Politica' => 'Politica', 'Mundo' => 'Mundo', 'Sociedad' => 'Sociedad',
                     'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista',
                     'Ciencia' => 'Ciencia', 'link1' => 'crearPublicacion', 'noticia' => 'Crear Noticia');
                 break;
+                //Administrador
             case '4':
                 $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales', 'Politica' => 'Politica', 'Mundo' => 'Mundo',
                     'Sociedad' => 'Sociedad', 'Ciencia' => 'Ciencia', 'link1' => 'publicacion',

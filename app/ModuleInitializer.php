@@ -101,4 +101,13 @@ class ModuleInitializer
         return new AdministradorController($model, $this->renderer);
     }
 
+    public function createSuscripcionController()
+    {
+        include_once("model/SuscripcionModel.php");
+        include_once("controller/SuscripcionController.php");
+
+        $model = new SuscripcionModel($this->database);
+        return new SuscripcionController($model, $this->renderer);
+    }
+
 }
