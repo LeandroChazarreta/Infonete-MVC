@@ -10,7 +10,8 @@ class RegistrarController{
     }
 
     public function index(){
-        echo $this->renderer->render( "view/registarView.php");
+        $data['menu'] = $_SESSION['menu'];
+        echo $this->renderer->render( "view/registarView.php", $data);
     }
 
     public function exitoso(){
