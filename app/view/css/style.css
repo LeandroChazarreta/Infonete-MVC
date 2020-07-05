@@ -10,6 +10,15 @@ body {
     width: 20%;
 }
 
+.menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu a{
+    border: none;
+}
+
 .imgPublicacion{
     width:100%;
     height:100%;
@@ -91,7 +100,12 @@ textarea {
   display: none;
 }
 
+body {
+    padding: 0px;
+}
+
 @media screen and (max-width: 600px) {
+
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: left;
@@ -112,11 +126,22 @@ textarea {
 
   }
     body {
-        padding: 0;
+        padding: 0px;
     }
 }
 
 
+@media screen and (min-width: 1000px) {
+    body {
+        padding: 0px 5% 0px 5%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        padding: 0px 10% 0px 10%;
+    }
+}
 
 .container {
     padding-left: 10%;

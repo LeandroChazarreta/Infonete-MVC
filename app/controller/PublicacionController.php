@@ -17,18 +17,6 @@ class PublicacionController{
         echo $this->renderer->render( "view/crearPublicacionView.php", $listas);
     }
 
-
-    public function crearPublicacion(){
-
-        $listaSecciones["secciones"] = $this->model->getSecciones();
-        $listaTipoPublicaciones["tipoPublicacion"] = $this->model->getTipoPublicaciones();
-        $listas['menu'] = $_SESSION['menu'];
-
-        $listas = $listaSecciones + $listaTipoPublicaciones;
-
-        echo $this->renderer->render( "view/crearPublicacionView.php", $listas);
-    }
-
     public function creacionExitosa(){
         echo $this->renderer->render( "view/publicacionCreadaView.php");
     }
@@ -48,7 +36,7 @@ class PublicacionController{
         $respuesta = $this->model->guardarPublicacion($titulo, $bajada, $idImagen, $epigrafeImagen,$cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
 
                 if ($respuesta == true){
-                    echo $this->creacionExitosa();
+                   echo $this->creacionExitosa();
                 } else {
                     echo $this->index();
                 }
