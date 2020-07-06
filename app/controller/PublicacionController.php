@@ -10,8 +10,8 @@ class PublicacionController{
     }
 
     public function index(){
-        $listas["secciones"] = $this->model->getSecciones();
-        $listas["tipoPublicacion"] = $this->model->getTipoPublicaciones();
+        $listas["secciones"] = $this->model["seccionModel"]->getSecciones();
+        $listas["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
         $listas['menu'] = $_SESSION['menu'];
 
         echo $this->renderer->render( "view/crearPublicacionView.php", $listas);
@@ -31,7 +31,9 @@ class PublicacionController{
         $epigrafeImagen = $_POST["epigrafeImagen"];
         $cuerpo = $_POST["cuerpo"];
 
-        $idUsuario = 4;
+        $mail = $_SESSION['usuario'];
+
+        $idUsuario = $this->model->consultarIdUsuarioPorMail($mail);
 
         $respuesta = $this->model->guardarPublicacion($titulo, $bajada, $idImagen, $epigrafeImagen,$cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
 

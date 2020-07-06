@@ -48,9 +48,12 @@ class ModuleInitializer
     public function createPublicacionController()
     {
         include_once("model/PublicacionModel.php");
+        include_once("model/SeccionModel.php");
         include_once("controller/PublicacionController.php");
 
-        $model = new PublicacionModel($this->database);
+        $model["publicacionModel"] = new PublicacionModel($this->database);
+        $model["seccionModel"] = new SeccionModel($this->database);
+
         return new PublicacionController($model, $this->renderer);
     }
 

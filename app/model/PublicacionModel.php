@@ -15,10 +15,6 @@ class PublicacionModel
                                        VALUES ('$titulo', '$bajada', '$idImagen', '$epigrafeImagen','$cuerpo', '$idTipoPublicacion','$idSeccion','$idUsuario')");
     }
 
-    public function getSecciones(){
-
-        return $this->conexion->query("SELECT * FROM Seccion");
-    }
 
     public function getTipoPublicaciones(){
 
