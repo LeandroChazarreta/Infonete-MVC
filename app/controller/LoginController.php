@@ -10,7 +10,8 @@ class   LoginController{
     }
 
     public function index(){
-        echo $this->renderer->render( "view/LoginView.php" );
+        $data['menu'] = $_SESSION['menu'];
+        echo $this->renderer->render( "view/LoginView.php", $data );
     }
 
 

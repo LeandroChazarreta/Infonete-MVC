@@ -13,6 +13,7 @@
 .publicacion img{
     border:1px solid #b2b2b2;
     max-width: 100%;
+    width: 90%;
 }
 
 .publicacion a{
