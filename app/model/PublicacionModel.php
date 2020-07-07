@@ -13,10 +13,43 @@ class PublicacionModel
                                        $idTipoPublicacion, $idSeccion, $idUsuario, $fecha){
 
         return $this->conexion->insert("INSERT INTO Publicacion (titulo, bajada, imagen, epigrafe_imagen, cuerpo, 
-                                                                id_tipo_publicacion, id_seccion, id_usuario, fecha) 
+                                                                id_tipo_publicacion, id_seccion, id_usuario, fecha, autorizada) 
                                        VALUES ('$titulo', '$bajada', '$imagen', '$epigrafeImagen','$cuerpo', 
                                                 '$idTipoPublicacion','$idSeccion',
-                                                '$idUsuario', '$fecha')");
+                                                '$idUsuario', '$fecha', false)");
+
+    }
+
+    public function actualizarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen, $cuerpo,
+                                          $idTipoPublicacion, $idSeccion, $idUsuario, $fecha, $idPublicacion)
+    {
+        $query = $this->conexion->query("UPDATE Publicacion
+                                        SET titulo = '$titulo', bajada = '$bajada', imagen ='$imagen', 
+                                        epigrafe_imagen ='$epigrafeImagen', cuerpo ='$cuerpo', 
+                                        id_tipo_publicacion = '$idTipoPublicacion', id_seccion = '$idSeccion', 
+                                        id_usuario = '$idUsuario', fecha = '$fecha', autorizada = false
+                                        WHERE id_publicacion = '$idPublicacion'");
+
+        $res = count($query);
+        if ($res == 0){
+            return 1;
+        } else {
+            return 0;
+        }
+
+    }
+
+    public function getPublicacionPorId($idPublicacion){
+        return $this->conexion->query("SELECT *
+                                        FROM Publicacion p
+                                        WHERE p.id_publicacion = '$idPublicacion'");
+    }
+
+    public function getPublicacionesDelContenedista($idContenedista){
+
+        return $this->conexion->query("SELECT *
+                                        FROM Publicacion p
+                                        WHERE p.id_usuario = '$idContenedista'");
 
     }
 
