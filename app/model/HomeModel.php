@@ -9,43 +9,32 @@ class HomeModel
         $this->conexion = $database;
     }
 
-    public function ArmaMenu($permiso){
-        $menu = array();
+    public function ArmaMenu(){
+        return $this->conexion->query("select * FROM seccion;");
+    }
 
-        // Arma el menu
-        Switch ($permiso) {
-            case '1':
-                $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales', 'Politica' => 'Politica', 'Mundo' => 'Mundo',
-                    'Sociedad' => 'Sociedad', 'Ciencia' => 'Ciencia',
-                    'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista',  'Suscripcion'=>'Suscripcion');
+    public function Botones($permisos){
+        unset($_SESSION['botones']);
+        session_destroy();
+        switch ($permisos){
+            //lector
+            case 1: $datos1[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
                 break;
-            case '2':
-                $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales', 'Politica' => 'Politica', 'Mundo' => 'Mundo',
-                    'Sociedad' => 'Sociedad', 'Ciencia' => 'Ciencia',
-                    'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista');
+            case 2: $datos1[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
                 break;
-                //Contenedista
-            case '3':
-                $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales',
-                    'Politica' => 'Politica', 'Mundo' => 'Mundo', 'Sociedad' => 'Sociedad',
-                    'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista',
-                    'Ciencia' => 'Ciencia', 'link1' => 'crearPublicacion', 'noticia' => 'Crear Noticia');
+            case 3: $datos1[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
+                    $datos1[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');
                 break;
-                //Administrador
-            case '4':
-                $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales', 'Politica' => 'Politica', 'Mundo' => 'Mundo',
-                    'Sociedad' => 'Sociedad', 'Ciencia' => 'Ciencia', 'link1' => 'publicacion',
-                    'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista',
-                    'noticia' => 'Crear Noticia', 'link2' => 'administrador', 'administrador' => 'Administrar');
+            case 4: $datos1[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
+                    $datos1[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');
+                    $datos1[] = array('link' => 'administrador', 'palabra' => 'Administrar');
                 break;
-            default:
-                $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales', 'Politica' => 'Politica', 'Mundo' => 'Mundo',
-                            'Sociedad' => 'Sociedad', 'Ciencia' => 'Ciencia',
-                    'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista');
+
         }
+        $datos[] = array('link' => 'login', 'palabra' => 'Login');
+        $datos[] = array('link' => 'registrar', 'palabra' => 'Registrarte');
 
-
-        return $menu;
+        return $datos1;
     }
 
     public function getPublicacionesAutorizadas(){

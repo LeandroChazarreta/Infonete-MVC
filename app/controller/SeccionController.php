@@ -12,9 +12,12 @@ class SeccionController
 
     public function index(){
         $nombreSeccion = $_GET["action"];
+        $listaSeccion['botones'] = $_SESSION['botones'];
 
         $listaSeccion["seccion"] = $this->model->getSeccion($nombreSeccion);
         $listaSeccion['menu'] = $_SESSION['menu'];
+
+
 
         echo $this->renderer->render("view/seccionView.php", $listaSeccion);
     }

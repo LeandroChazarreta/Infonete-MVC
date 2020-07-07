@@ -11,6 +11,7 @@ class   LoginController{
 
     public function index(){
         $data['menu'] = $_SESSION['menu'];
+        $data['botones'] = $_SESSION['botones'];
         echo $this->renderer->render( "view/LoginView.php", $data );
     }
 
@@ -22,9 +23,12 @@ class   LoginController{
 
 
        if ($respuesta == 1){
+           unset($_SESSION['botones']);
+
             $permiso = $this->model->ObtenerPermisos($usuario);
             $_SESSION["usuario"] = "$usuario";
             $_SESSION["permiso"] = $permiso[0];
+
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
             exit();
         } else {

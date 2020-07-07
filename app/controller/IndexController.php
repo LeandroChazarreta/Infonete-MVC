@@ -17,6 +17,10 @@ class IndexController{
             $data['publicacionesAutorizadas'] = $this->model->getPublicacionesAutorizadas();
             $_SESSION['menu']=$this->model->ArmaMenu();
             $data['menu'] = $_SESSION['menu'];
+
+            $_SESSION['botones']=$this->model->Botones();
+            $data['botones'] = $_SESSION['botones'];
+
             echo $this->renderer->render( "view/IndexView.php", $data );
     }
     }

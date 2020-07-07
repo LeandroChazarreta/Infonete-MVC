@@ -1,4 +1,4 @@
-{{> header2}}
+{{> header}}
 
 
         <section class="publicaciones contenedor-publicaciones">

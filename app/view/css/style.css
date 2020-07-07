@@ -137,20 +137,19 @@ body {
 
 @media screen and (min-width: 1000px) {
     body {
-        padding: 0px 5% 0px 5%;
+        margin: 0px 5% 0px 5%;
     }
 }
 
 @media screen and (min-width: 1200px) {
     body {
-        padding: 0px 10% 0px 10%;
+        margin: 0px 15% 0px 15%;
     }
 }
 
 .container {
     padding-left: 10%;
     padding-right: 10%;
-
 }
 
 .cuadrado {

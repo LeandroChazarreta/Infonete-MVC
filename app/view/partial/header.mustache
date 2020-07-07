@@ -19,10 +19,9 @@
     <ul class="topheader">
         <li><a>30 de Junio de 2020</a></li>
         <li><a href="#">13.5° Capital Federal</a></li>
-{{#menu}}
-        <li style="float:right"><a  class="icon w3-button w3-white w3-border w3-hover-teal"  href="{{linklog}}">{{Login}}</a></li>
-         <li style="float:right"><a  class="icon w3-button w3-white w3-border w3-hover-teal" href="{{linkreg}}">{{Registrar}}</a></li>
-{{/menu}}
+{{#botones}}
+        <a href="./{{link}}" class="w3-button w3-white" style="float: right">{{palabra}} </a>
+{{/botones}}
     </ul>
 
     <!-- Titulo   -->
@@ -30,21 +29,15 @@
         <a href="index" class="formatolink">
             <b>
                 <img class="logo" src="view/img/logo.png"></img>
+
             </b>
         </a>
       </h1>
 
     <article class="menu">
-        <a href="./seccion/Coronavirus" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Coronavirus</a>
-        <a href="./seccion/Policiales" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Policiales</a>
-        <a href="./seccion/Economía" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Economía</a>
-        <a href="./seccion/Mundo" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Mundo</a>
-        <a href="./seccion/Sociedad" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Sociedad</a>
-        <a href="./seccion/Ciencia" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Ciencia</a>
-        <a href="./seccion/Deportes" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Deportes</a>
-        <a href="./seccion/Espectaculos" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Espectaculos</a>
-        <a href="./seccion/Opinión" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Opinión</a>
-        <a href="./seccion/Revista" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">Revista</a>
+        {{#menu}}
+                <a href="./seccion/{{descripcion}}" class="w3-button w3-white w3-border-bottom w3-border-green w3-hover-teal">{{descripcion}}</a>
+        {{/menu}}
     </article>
 
 </header>

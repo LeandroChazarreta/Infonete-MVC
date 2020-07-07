@@ -49,29 +49,6 @@ CREATE TABLE Localidad
      FOREIGN KEY (id_domicilio) REFERENCES Domicilio (id_domicilio),
      FOREIGN KEY (id_permiso) REFERENCES Permiso (id_permiso));
 
-/*	
-    CREATE TABLE Contenidista
-    (id_usuario INT UNSIGNED,
-     legajo VARCHAR(250) UNIQUE NOT NULL,
-     PRIMARY KEY (id_usuario),
-     FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
-
-    CREATE TABLE Administrador
-    (id_usuario INT UNSIGNED AUTO_INCREMENT,
-     legajo INT UNSIGNED UNIQUE NOT NULL,
-     PRIMARY KEY (id_usuario),
-     FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
-
-    CREATE TABLE Lector
-    (id_usuario INT UNSIGNED,
-     PRIMARY KEY (id_usuario),
-     FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
-
-    CREATE TABLE Suscriptor
-    (id_usuario INT UNSIGNED,
-     PRIMARY KEY (id_usuario),
-     FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario));
-*/
 
     CREATE TABLE Tipo_Publicacion
     (id_tipo_publicacion SMALLINT UNSIGNED AUTO_INCREMENT,
