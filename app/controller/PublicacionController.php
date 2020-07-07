@@ -40,11 +40,12 @@ class PublicacionController{
     public function validarPublicacion(){
 
         $publicacion = $_POST;
+        $fecha = getdate();
 
         /* ---- ARMAR NOMBRE IMAGEN ----- */
-        $fecha = getdate();
+        $fechaFormateada = $this->model["publicacionModel"]->armarFormatoFecha($fecha);
         $titulo = $publicacion["titulo"];
-        $publicacion["imagenNombre"] = $this->model["publicacionModel"]->armarNombreImagen($titulo, $fecha);
+        $publicacion["imagenNombre"] = $this->model["publicacionModel"]->armarNombreImagen($titulo, $fechaFormateada);
 
         /* ---- VALIDAR PUBLICACION ----- */
         $validarPublicacion =  $this->model["publicacionModel"]->validarPublicacion($publicacion);
@@ -76,8 +77,9 @@ class PublicacionController{
         $idUsuario = $idUsuario["id_usuario"];
 
         /* ---- GUARDAR PUBLICACION ----- */
+        $fechaFormateadaBD = $this->model["publicacionModel"]->armarFormatoFechaBD($fecha);
         $guardarPublicacion = $this->model["publicacionModel"]->guardarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen,
-                                                                $cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
+                                                                $cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario, $fechaFormateadaBD);
 
         /* ---- REDIRECCIONAR SEGÚN EL CASO ----- */
         if ($guardarPublicacion == true){

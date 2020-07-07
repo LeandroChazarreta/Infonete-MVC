@@ -14,7 +14,6 @@ class IndexController{
 
          if (isset($_SESSION['usuario'])) {
               header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
-              echo $_SESSION['usuario'];
               exit();
         } else {
             $data['publicacionesAutorizadas'] = $this->model->getPublicacionesAutorizadas();

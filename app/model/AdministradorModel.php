@@ -41,18 +41,32 @@ class AdministradorModel
 
     }
     public function updateAutorizar($id,$valor){
-          return $this->conexion->query("UPDATE publicacion
+
+        $query = $this->conexion->query("UPDATE publicacion
                                         SET autorizada = '$valor'
                                         WHERE id_publicacion = '$id'");
 
+        $res = count($query);
+        if ($res == 1){
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     public function actualizar($seccion,$id)
     {
+        $query=0;
         if ($seccion!="") {
-            return $this->conexion->query("UPDATE seccion
+            $query = $this->conexion->query("UPDATE seccion
                                         SET descripcion = '$seccion'
                                         WHERE id_seccion = '$id'");
+        }
+        $res = count($query);
+        if ($res == 1){
+            return 1;
+        } else {
+            return 0;
         }
 
     }

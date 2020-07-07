@@ -10,13 +10,13 @@ class PublicacionModel
     }
 
     public function guardarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen, $cuerpo,
-                                       $idTipoPublicacion, $idSeccion, $idUsuario){
+                                       $idTipoPublicacion, $idSeccion, $idUsuario, $fecha){
 
         return $this->conexion->insert("INSERT INTO Publicacion (titulo, bajada, imagen, epigrafe_imagen, cuerpo, 
-                                                                id_tipo_publicacion, id_seccion, id_usuario) 
+                                                                id_tipo_publicacion, id_seccion, id_usuario, fecha) 
                                        VALUES ('$titulo', '$bajada', '$imagen', '$epigrafeImagen','$cuerpo', 
                                                 '$idTipoPublicacion','$idSeccion',
-                                                '$idUsuario')");
+                                                '$idUsuario', '$fecha')");
 
     }
 
@@ -26,15 +26,6 @@ class PublicacionModel
                                         WHERE p.titulo = '$titulo'
                                         AND p.bajada = '$bajada'
                                         AND p.epigrafe_imagen = '$epigrafeImagen'");
-    }
-
-    public function guardarIdImagen($idImagen)
-    {
-        $query = $this->conexion->query("UPDATE Publicacion
-                                        SET id_imagen = '$idImagen'
-                                        WHERE id_publicacion = '$idImagen'");
-
-        return $query;
     }
 
     public function validarPublicacion($publicacion){
@@ -94,9 +85,20 @@ class PublicacionModel
 
     public function armarNombreImagen($titulo, $fecha)
     {
-     return $nombreImagen =   $titulo . "-" . $fecha["year"] . "-" . $fecha["mon"] . "-"
+     return $nombreImagen =   $titulo . "-" . $fecha;
+    }
+
+    public function armarFormatoFecha($fecha)
+    {
+        return $fecha =   $fecha["year"] . "-" . $fecha["mon"] . "-"
             . $fecha["wday"] . "-" . $fecha["hours"] . "-" . $fecha["minutes"] . "-"
             . $fecha["seconds"];
     }
 
+    public function armarFormatoFechaBD($fecha)
+    {
+        return $fecha =   $fecha["year"] . "-" . $fecha["mon"] . "-"
+            . $fecha["wday"] . " " . $fecha["hours"] . ":" . $fecha["minutes"] . ":"
+            . $fecha["seconds"];
+    }
 }

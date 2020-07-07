@@ -60,14 +60,14 @@ class AdministradorController{
         $id=$_POST["id_seccion"];
         $seccion=$_POST["seccion"];
         $this->model->actualizar($seccion,$id);
-        $data["Secciones"] = $this->model->getSecciones();
-        echo $this->renderer->render( "view/Seccion-adminView.php",$data);
+        header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/Administrador/Secciones");
+        exit();
     }
     public function borrarSeccion(){
         $id=$_GET["id_seccion"];
         $this->model->borrar($id);
-        $data["Secciones"] = $this->model->getSecciones();
-        echo $this->renderer->render( "view/Seccion-adminView.php",$data);
+        header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/Administrador/Secciones");
+        exit();
     }
 
 
@@ -80,6 +80,7 @@ class AdministradorController{
 
     public function Volver(){
         header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
+        exit();
     }
 
 
