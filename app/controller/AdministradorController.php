@@ -10,9 +10,9 @@ class AdministradorController{
     $this->renderer = $renderer;
     $this->model = $model;
         } else {
-           /* header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/");
-            exit();*/
-            echo $_SESSION['permisos'];
+           header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/");
+            exit();
+
         }
 }
 

@@ -5,13 +5,8 @@ class RegistrarController{
     private $model;
 
     public function __construct($model, $renderer){
-        if (isset($_SESSION['permisos'])){
             $this->renderer = $renderer;
             $this->model = $model;
-        }else {
-            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/");
-            exit();
-        }
     }
 
     public function index(){

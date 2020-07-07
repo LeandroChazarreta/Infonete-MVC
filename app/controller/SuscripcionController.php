@@ -7,7 +7,7 @@ class SuscripcionController
     private $model;
 
     public function __construct($model, $renderer){
-        if ($_SESSION['permisos']==1){
+        if ($_SESSION['permiso']==1){
             $this->renderer = $renderer;
             $this->model = $model;
         } else {
