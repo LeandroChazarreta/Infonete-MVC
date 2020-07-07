@@ -20,6 +20,17 @@
     text-decoration: none;
 }
 
+.verPublicacion{
+    margin-bottom: 1em;
+    padding: 1em;
+}
+.verPublicacion img{
+    border:1px solid #b2b2b2;
+    max-width: 100%;
+    width: 100%;
+}
+
+
 @media screen and (min-width:47em){
     .publicaciones{
         display: flex;
@@ -30,14 +41,25 @@
         padding: 0;
         width: calc(50% - 1em);
     }
+
+    .verPublicacion{
+        padding: 0;
+        width: calc(100% - 1em);
+    }
 }
 @media screen and (min-width:60em){
     .publicacion{
         width: calc(33% - 1em);
     }
+    .verPublicacion{
+        width: calc(100% - 1em);
+    }
 }
 @media screen and (min-width:70em){
     .publicacion{
         width: calc(33% - 1em);
+    }
+    .verPublicacion{
+        width: calc(70% - 1em);
     }
 }
