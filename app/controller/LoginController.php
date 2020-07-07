@@ -5,7 +5,7 @@ class   LoginController{
     private $model;
 
     public function __construct($model, $renderer){
-        if (isset($_SESSION['permisos'])){
+        if (!isset($_SESSION['permiso'])){
         $this->renderer = $renderer;
         $this->model = $model;
         }else {

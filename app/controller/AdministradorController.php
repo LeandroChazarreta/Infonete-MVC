@@ -6,12 +6,13 @@ class AdministradorController{
     private $model;
 
     public function __construct($model, $renderer){
-        if ($_SESSION['permisos']==4){
+        if ($_SESSION['permiso']=='4'){
     $this->renderer = $renderer;
     $this->model = $model;
         } else {
-            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/");
-            exit();
+           /* header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/");
+            exit();*/
+            echo $_SESSION['permisos'];
         }
 }
 
