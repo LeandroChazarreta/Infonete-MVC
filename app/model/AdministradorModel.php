@@ -42,16 +42,10 @@ class AdministradorModel
     }
     public function updateAutorizar($id,$valor){
 
-        $query = $this->conexion->query("UPDATE publicacion
+        return $this->conexion->query("UPDATE publicacion
                                         SET autorizada = '$valor'
                                         WHERE id_publicacion = '$id'");
 
-        $res = count($query);
-        if ($res == 1){
-            return 1;
-        } else {
-            return 0;
-        }
     }
 
     public function actualizar($seccion,$id)

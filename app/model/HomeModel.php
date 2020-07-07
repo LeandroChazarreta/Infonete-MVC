@@ -23,7 +23,7 @@ class HomeModel
                 break;
                 //Contenedista
             case 3: $datos[] = array('link' => 'logout', 'palabra' => ('Cerrar Sesión'));
-                    $datos[] = array('link' => 'publicacion/crearPublicacion', 'palabra' => 'Crear Publicacion');
+                    $datos[] = array('link' => 'publicacion', 'palabra' => 'Crear Publicacion');
                 break;
             case 4: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
                     $datos[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');
