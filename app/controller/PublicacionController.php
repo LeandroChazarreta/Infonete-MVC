@@ -12,6 +12,8 @@ class PublicacionController{
     public function index(){
         $listas["secciones"] = $this->model->getSecciones();
         $listas["tipoPublicacion"] = $this->model->getTipoPublicaciones();
+        $listas['menu'] = $_SESSION['menu'];
+        $listas['botones'] = $_SESSION['botones'];
 
         echo $this->renderer->render( "view/crearPublicacionView.php", $listas);
     }
