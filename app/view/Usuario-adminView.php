@@ -24,7 +24,6 @@
                     <th>Fecha Nacimiento</th>
                     <th>mail</th>
                     <th>Permiso</th>
-                    <th>Bloquear</th>
                     <th>Borrar</th>
                 </tr>
                 {{#Usuario}}
@@ -35,9 +34,9 @@
                     <td>{{fecha_nac}}</td>
                     <td>{{mail}}</td>
                     <td>{{descripcion}}</td>
-                    <td><button class="w3-btn w3-green">Bloquear</button></td>
-                    <td><button class="w3-btn w3-red">Borrar</button></td>
-
+                    <td>
+                    <button class="w3-btn w3-red"><a href="administrador/borrarUser?id_usuario={{id_usuario}}"> Borrar</a></button></td>
+                    </td>
                 </tr>
                 {{/Usuario}}
             </table>

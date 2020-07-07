@@ -25,8 +25,6 @@ class AdministradorModel
 
         return $this->conexion->query("SELECT * FROM Tipo_Publicacion");
     }
-
-// FAALTA
     public function GetReporte(){
         $tipoNoticia = $_POST["tipoPublicacion"];
         $tipoSeccion = $_POST["seccion"];
@@ -42,6 +40,33 @@ class AdministradorModel
                                            AND sc.id_seccion = '$tipoSeccion'");
 
     }
+    public function updateAutorizar($id,$valor){
+          return $this->conexion->query("UPDATE publicacion
+                                        SET autorizada = '$valor'
+                                        WHERE id_publicacion = '$id'");
+
+    }
+
+    public function actualizar($seccion,$id)
+    {
+        if ($seccion!="") {
+            return $this->conexion->query("UPDATE seccion
+                                        SET descripcion = '$seccion'
+                                        WHERE id_seccion = '$id'");
+        }
+
+    }
+
+    public function borrar($id)
+    {
+            return $this->conexion->query("DELETE FROM  seccion
+                                           WHERE id_seccion = '$id'");
+    }
 
 
+   public function borrarUs($id)
+    {
+        return $this->conexion->query("DELETE FROM  usuario
+                                           WHERE id_usuario = '$id'");
+    }
 }

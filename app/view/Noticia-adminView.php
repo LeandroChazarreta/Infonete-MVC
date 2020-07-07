@@ -27,8 +27,8 @@
                     <th>Subido por:</th>
                     <th>Estado</th>
                     <th>Autorizar</th>
-                    <th>Borrar</th>
-                </tr>
+                    <th>Quitar</th>
+                    </tr>
                 {{#Noticias}}
                 <tr>
                     <td>{{descripcion}}</td>
@@ -38,11 +38,15 @@
                     <td>{{epigrafe_imagen}}</td>
                     <td>{{id_usuario}}</td>
                     <td>{{nombre}} {{apellido}}</td>
-                    <td>{{autorizado}}</td>
-                    <td><button class="w3-btn w3-green">Autorizar</button></td>
-                    <td><button class="w3-btn w3-red">Borrar</button></td>
-
+                    <td>{{autorizada}}</td>
+                    <td>
+                        <button class="w3-btn w3-green"><a href="administrador/validarAutorizacion?id_publicacion={{id_publicacion}}&autorizada={{autorizada}}"> Autorizar</a></button></td>
+                    </td>
+                    <td>
+                        <button class="w3-btn w3-red"><a href="administrador/validarDesAutorizacion?id_publicacion={{id_publicacion}}&autorizada={{autorizada}}"> Quitar</a></button></td>
+                    </td>
                 </tr>
+
                 {{/Noticias}}
             </table>
 
