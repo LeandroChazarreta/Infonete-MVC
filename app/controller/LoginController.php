@@ -30,9 +30,8 @@ class   LoginController{
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
             exit();
         } else {
-          /*  header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/login");
-            exit();*/
-           ECHO "ASD";
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/login");
+            exit();
         }
 
     }
