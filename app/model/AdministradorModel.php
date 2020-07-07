@@ -21,7 +21,27 @@ class AdministradorModel
     public function GetSecciones(){
         return $this->conexion->query("SELECT * FROM Seccion;");
     }
+    public function getTipoPublicaciones(){
 
+        return $this->conexion->query("SELECT * FROM Tipo_Publicacion");
+    }
+
+// FAALTA
+    public function GetReporte(){
+        $tipoNoticia = $_POST["tipoPublicacion"];
+        $tipoSeccion = $_POST["seccion"];
+        return $this->conexion->query("SELECT DISTINCT tp.descripcion as tipo, sc.descripcion seccion, pb.titulo,pb.cuerpo
+                                       FROM publicacion pb JOIN 
+                                       seccion sc ON
+                                       sc.id_seccion=pb.id_seccion
+                                       JOIN tipo_publicacion tp ON
+                                       tp.id_tipo_publicacion = pb.id_tipo_publicacion
+                                       WHERE 
+                                           1 = 1
+                                           AND tp.id_tipo_publicacion = '$tipoNoticia'
+                                           AND sc.id_seccion = '$tipoSeccion'");
+
+    }
 
 
 }

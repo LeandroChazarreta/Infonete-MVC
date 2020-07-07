@@ -29,6 +29,17 @@ class AdministradorController{
         echo $this->renderer->render( "view/Secciones-adminView.php", $data);
     }
 
+    public function Reporte(){
+        $listas["tipoPublicacion"] = $this->model->getTipoPublicaciones();
+        $listas["secciones"] = $this->model->getSecciones();
+        echo $this->renderer->render( "view/Reporte-adminView.php",$listas);
+    }
+
+    public function ListadoReporte(){
+        $data["Reporte"] = $this->model->GetReporte();
+        echo $this->renderer->render( "view/ReporteListado-adminView.php", $data);
+    }
+
 
 
     public function Volver(){
