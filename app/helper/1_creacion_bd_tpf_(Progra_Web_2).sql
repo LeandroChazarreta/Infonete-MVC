@@ -71,6 +71,7 @@ CREATE TABLE Localidad
      id_seccion SMALLINT UNSIGNED,
      id_usuario INT UNSIGNED,
      autorizada BOOLEAN ,
+     fecha DATETIME,
      PRIMARY KEY (id_publicacion),
      FOREIGN KEY (id_tipo_publicacion) REFERENCES Tipo_Publicacion (id_tipo_publicacion),
      FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario),
