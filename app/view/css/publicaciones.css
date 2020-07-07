@@ -11,9 +11,10 @@
     padding: 1em;
 }
 .publicacion img{
+    justify-content: center;
     border:1px solid #b2b2b2;
     max-width: 100%;
-    width: 90%;
+    width: 100%;
 }
 
 .publicacion a{
@@ -49,7 +50,7 @@
 }
 @media screen and (min-width:60em){
     .publicacion{
-        width: calc(33% - 1em);
+        width: calc(33% - 0em);
     }
     .verPublicacion{
         width: calc(100% - 1em);
@@ -57,7 +58,7 @@
 }
 @media screen and (min-width:70em){
     .publicacion{
-        width: calc(33% - 1em);
+        width: calc(33% - 0em);
     }
     .verPublicacion{
         width: calc(70% - 1em);

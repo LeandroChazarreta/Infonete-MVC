@@ -11,8 +11,8 @@ class PublicacionController{
 
     public function index(){
 
-        $listas["secciones"] = $this->model->getSecciones();
-        $listas["tipoPublicacion"] = $this->model->getTipoPublicaciones();
+        $listas["secciones"] = $this->model["seccionModel"]->getSecciones();
+        $listas["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
         $listas['menu'] = $_SESSION['menu'];
         $listas['botones'] = $_SESSION['botones'];
 
@@ -39,29 +39,46 @@ class PublicacionController{
     public function validarPublicacion(){
 
         $publicacion = $_POST;
-        $publicacion["imagenNombre"] = "50";
+
+        /* ---- ARMAR NOMBRE IMAGEN ----- */
+        $fecha = getdate();
+        $titulo = $publicacion["titulo"];
+        $publicacion["imagenNombre"] = $this->model["publicacionModel"]->armarNombreImagen($titulo, $fecha);
+
+        /* ---- VALIDAR PUBLICACION ----- */
         $validarPublicacion =  $this->model["publicacionModel"]->validarPublicacion($publicacion);
-        if ($validarPublicacion != true) {
-            $error = "Publicacion Inválida";
-            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/crearPublicacion?error=$error");
+        if ($validarPublicacion != null) {
+            header("location: http://".$_SERVER['SERVER_NAME'].
+                    "/Infonete-MVC/app/publicacion/crearPublicacion?error=$validarPublicacion");
             exit();
         }
 
+        /* ---- VALIDAR IMAGEN ----- */
+        $imagen =  $this->model["publicacionModel"]->validarImagenPublicacion($publicacion["imagenNombre"], $_FILES);
+        if ($imagen == false) {
+            header("location: http://".$_SERVER['SERVER_NAME'].
+                    "/Infonete-MVC/app/publicacion/crearPublicacion?error=Imagen incorrecta");
+            exit();
+        }
+
+        /* ---- RESTO DEL FORMULARIO ----- */
         $idTipoPublicacion = $_POST["tipoPublicacion"];
         $idSeccion = $_POST["seccion"];
-        $titulo = $_POST["titulo"];
         $bajada = $_POST["bajada"];
         $epigrafeImagen = $_POST["epigrafeImagen"];
         $cuerpo = $_POST["cuerpo"];
 
+        /* ---- OBTENER ID USUARIO ----- */
         $mail = $_SESSION['usuario'];
         $idUsuario = $this->model["usuarioModel"]->consultarIdUsuarioPorMail($mail);
         $idUsuario = $idUsuario[0];
         $idUsuario = $idUsuario["id_usuario"];
 
-        $guardarPublicacion = $this->model["publicacionModel"]->guardarPublicacion($titulo, $bajada, $epigrafeImagen,
+        /* ---- GUARDAR PUBLICACION ----- */
+        $guardarPublicacion = $this->model["publicacionModel"]->guardarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen,
                                                                 $cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
 
+        /* ---- REDIRECCIONAR SEGÚN EL CASO ----- */
         if ($guardarPublicacion == true){
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/publicacionCreada");
             exit();

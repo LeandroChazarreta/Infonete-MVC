@@ -22,13 +22,8 @@ class HomeModel
             case 2: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
                 break;
                 //Contenedista
-            case '3':
-                $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales',
-                    'Politica' => 'Politica', 'Mundo' => 'Mundo', 'Sociedad' => 'Sociedad',
-                    'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista',
-                    'Ciencia' => 'Ciencia', 'link1' => 'publicacion/crearPublicacion', 'noticia' => 'Crear Noticia');
             case 3: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
-                    $datos[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');
+                    $datos[] = array('link' => 'publicacion/crearPublicacion', 'palabra' => 'Crear Publicacion');
                 break;
             case 4: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
                     $datos[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');

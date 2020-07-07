@@ -9,12 +9,12 @@ class PublicacionModel
         $this->conexion = $database;
     }
 
-    public function guardarPublicacion($titulo, $bajada, $epigrafeImagen, $cuerpo,
+    public function guardarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen, $cuerpo,
                                        $idTipoPublicacion, $idSeccion, $idUsuario){
 
-        return $this->conexion->insert("INSERT INTO Publicacion (titulo, bajada, id_imagen, epigrafe_imagen, cuerpo, 
+        return $this->conexion->insert("INSERT INTO Publicacion (titulo, bajada, imagen, epigrafe_imagen, cuerpo, 
                                                                 id_tipo_publicacion, id_seccion, id_usuario) 
-                                       VALUES ('$titulo', '$bajada', null, '$epigrafeImagen','$cuerpo', 
+                                       VALUES ('$titulo', '$bajada', '$imagen', '$epigrafeImagen','$cuerpo', 
                                                 '$idTipoPublicacion','$idSeccion',
                                                 '$idUsuario')");
 
@@ -39,52 +39,50 @@ class PublicacionModel
 
     public function validarPublicacion($publicacion){
 
-        $error=0;
+        $error = null;
 
         if($publicacion["tipoPublicacion"] == null){
-            $error++;
+            $error = "No ha elejido un tipo de publicación.";
         }
         if($publicacion["seccion"] == null){
-          $error++;
+            $error .= ' No ha elejido una sección.';
         }
-        if(count($publicacion["titulo"]) < 5){
-           $error ++;
+        if(strlen($publicacion["titulo"]) < 5){
+            $error .= " Titulo de menos de 5 letras.";
         }
-        if($publicacion["bajada"] < 5){
-            $error++;
+        if(strlen($publicacion["bajada"]) < 8){
+            $error .= " Bajada de menos de 8 letras. ";
         }
-        if ($this->validarImagenPublicacion($publicacion["imagenNombre"])){
-            $error++;
+        if(strlen($publicacion["epigrafeImagen"]) < 8){
+            $error .= " Epigrafe de menos de 8 letras.";
         }
-        if($publicacion["epigrafeImagen"]){
-            $error++;
-        }
-        if( $publicacion["cuerpo"] < 50){
-            $error++;
+        if( strlen($publicacion["cuerpo"]) < 8){
+            $error .= " Cuerpo de menos de 8 letras.";
         }
 
-        if ($error == 0){
-            return true;
-        }
-        return false;
+        return $error;
     }
 
-    public function validarImagenPublicacion($nombre){
+    public function validarImagenPublicacion($nombre, $file){
 
+        $_FILES = $file;
         if ($_FILES["file"]["error"] > 0) {
             echo "Error: " . $_FILES["file"]["error"] . "<br />";
+            return false;
         } else {
             $_FILES["file"]["name"] = $nombre . "." . pathinfo($_FILES["file"]["name"], 4);
             echo "Upload: " . $_FILES["file"]["name"] . "<br />";
             echo "Type: " . $_FILES["file"]["type"] . "<br />";
             echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
             echo "Stored in: " . $_FILES["file"]["tmp_name"];
-            if (file_exists("img/" . $_FILES["file"]["name"])) {
+            if (file_exists("view/img/" . $_FILES["file"]["name"])) {
                 echo $_FILES["file"]["name"] . " ya existe. ";
+                return false;
             } else {
                 move_uploaded_file($_FILES["file"]["tmp_name"],
-                    "img/" . $_FILES["file"]["name"]);
-                echo "Almacenado en: " . "img/" . $_FILES["file"]["name"];
+                    "view/img/" . $_FILES["file"]["name"]);
+                echo "Almacenado en: " . "view/img/" . $_FILES["file"]["name"];
+                return $_FILES["file"]["name"];
             }
         }
     }
@@ -92,6 +90,13 @@ class PublicacionModel
     public function getTipoPublicaciones(){
 
         return $this->conexion->query("SELECT * FROM Tipo_Publicacion");
+    }
+
+    public function armarNombreImagen($titulo, $fecha)
+    {
+     return $nombreImagen =   $titulo . "-" . $fecha["year"] . "-" . $fecha["mon"] . "-"
+            . $fecha["wday"] . "-" . $fecha["hours"] . "-" . $fecha["minutes"] . "-"
+            . $fecha["seconds"];
     }
 
 }

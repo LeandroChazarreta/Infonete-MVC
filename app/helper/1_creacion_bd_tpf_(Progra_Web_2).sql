@@ -62,11 +62,11 @@ CREATE TABLE Localidad
 
     CREATE TABLE Publicacion
     (id_publicacion INT UNSIGNED AUTO_INCREMENT,
-     titulo VARCHAR(40) NOT NULL,
+     titulo VARCHAR(200) NOT NULL,
      bajada VARCHAR(1000),
-     id_imagen INT UNSIGNED,
+     imagen VARCHAR(300),
      epigrafe_imagen VARCHAR (600),
-     cuerpo VARCHAR (10000),
+     cuerpo VARCHAR (20000),
      id_tipo_publicacion SMALLINT UNSIGNED,
      id_seccion SMALLINT UNSIGNED,
      id_usuario INT UNSIGNED,
@@ -202,5 +202,5 @@ VALUES (1, "Lector"),
        (4, "Administrador");
 
 INSERT INTO Usuario(mail, contraseña, nombre, apellido, fecha_nac, id_permiso)
-        VALUES ('admin@asd.com','a8f5f167f44f4964e6c998dee827110c','asd','asd','20200101', '4'),
-         ('conte@asd.com','a8f5f167f44f4964e6c998dee827110c','asd','asd','20200101', '3');
+        VALUES ('admin@asd.com','a8f5f167f44f4964e6c998dee827110c','Juan','Sebastian','19800101', '4'),
+         ('conte@asd.com','a8f5f167f44f4964e6c998dee827110c','Victor','Wooten','19800101', '3');

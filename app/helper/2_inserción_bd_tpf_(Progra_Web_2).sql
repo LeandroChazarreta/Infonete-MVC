@@ -1,18 +1,27 @@
 	USE UNLAM_Progra_Web_2_Trabajo_Practico_Final;
 
-	INSERT INTO Provincia (descripcion)
-	VALUES ("Provincia_1"),
-		   ("Provincia_2");
+INSERT INTO provincia (id, nombreProvincia)
+VALUES (1, "BUENOS_AIRES"),
+	   (2, "CORDOBA"),
+       (3, "SANTA_FE");
 
-	INSERT INTO Localidad (descripcion, id_provincia)
-	VALUES ("Localidad_1", 1),
-		   ("Localidad_2", 1);
+INSERT INTO partido (id, nombrePartido ,provincia_id)
+VALUES (1, "MORON", 1),
+	   (2, "EZEIZA", 1),
+       (3, "AVELLANEDA", 1),
+       (4, "TRES_DE_FEBRERO", 1),
+       (5, "SAN_JUSTO", 1),
+       (6, "MONSERRAT", 1);
 
-	INSERT INTO Domicilio(calle, altura, piso, id_localidad)
-	VALUES ("Domicilio_1", "1111", "1", 1),
-		   ("Domicilio_2", "2222", "2", 1),
-		   ("Domicilio_3", "3333", "3", 1),
-		   ("Domicilio_4", "4444", "4", 2);
+INSERT INTO domicilio(id, calle, altura, piso, localidad_id)
+VALUES (1, "Las Heras", 1200, null, 1),
+	   (2, "Los Arcos", 3300, "1", 1),
+	   (3, "Peribebuy", 450, null, 6),
+	   (4, "Ingeniero Huergo", 1550, "2",  6),
+       (5, "Hipólito Yrigoyen", 1650, null, 4),
+       (6, "Pilar", 950, null, 6),
+       (7, "Av. Rivadavia", 17961, null, 5),
+       (8, "Solís", 463, "4", 5);
 
 	INSERT INTO Tipo_Doc(descripcion)
 	VALUES ("DNI"),
@@ -28,10 +37,10 @@
 */
 
 	INSERT INTO Usuario(nombre, apellido, fecha_nac, mail, contraseña, nro_doc, id_tipo_doc, id_domicilio, id_permiso)
-	VALUES ("nombre1_us", "apellido1_us", "1980-01-01", "email1_us@email.com", "password1_us", 11111111, 1, 1, 1),
-		   ("nombre2_us", "apellido2_us", "1980-01-01", "email2_us@email.com", "password2_us", 22222222, 1, 2, 1),
-		   ("nombre3_us", "apellido3_us", "1980-01-01", "email3_us@email.com", "password3_us", 33333333, 1, 3, 2),
-		   ("nombre4_us", "apellido4_us", "1980-01-01", "email4_us@email.com", "password4_us", 44444444, 2, 4, 2);
+	VALUES ("Alberto", "Rodriguez", "1980-01-01", "alberto@email.com", "1234", 11111111, 1, 1, 1),
+		   ("Alan", "Rodriguez", "1980-01-01", "alan@email.com", "1234", 22222222, 1, 2, 1),
+		   ("Carla", "Rodriguez", "1980-01-01", "carla@email.com", "1234", 33333333, 1, 3, 2),
+		   ("Celeste", "Rodriguez", "1980-01-01", "celeste@email.com", "1234", 44444444, 2, 4, 2);
            
 	INSERT INTO Tipo_Publicacion (descripcion)
 	VALUES ("Periodistica"),
@@ -49,16 +58,16 @@
            ("Espectaculos"),
            ("Revista");
 
-	INSERT INTO Publicacion (titulo, bajada, id_imagen, epigrafe_imagen, cuerpo, id_tipo_publicacion, id_seccion, id_usuario, autorizada)
-	VALUES ("Valor del dolar en el mundo", "El valor del dolar sorprende en muchos países del mundo", null, "epigrafe", "cuerpo", 1, 2, 4, 1),
-		   ("Valor del dolar en el mundo", "El valor del dolar sorprende en muchos países del mundo", null, "epigrafe", "cuerpo", 1, 2, 4, 1),
-		   ("Valor del dolar en el mundo", "El valor del dolar sorprende en muchos países del mundo", null, "epigrafe", "cuerpo", 1, 2, 4, 1),
-		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", null, "epigrafe", "cuerpo", 1, 5, 4, 1),
-           ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", null, "epigrafe", "cuerpo", 1, 5, 4, 1),
-		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", null, "epigrafe", "cuerpo", 1, 5, 4, 1),
-		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", null, "epigrafe", "cuerpo", 1, 5, 4, 1),
-		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", null, "epigrafe", "cuerpo", 1, 5, 4, 1),
-		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", null, "epigrafe", "cuerpo", 1, 5, 4, 1);
+	INSERT INTO Publicacion (titulo, bajada, imagen, epigrafe_imagen, cuerpo, id_tipo_publicacion, id_seccion, id_usuario, autorizada)
+	VALUES ("Caida del peso en la argentina", "En la actualidad la caída de la moneda nacional sorprende en muchos países del mundo, pero en la Argentina es cosa común", "economia-1.jpg", "epigrafe", "cuerpo", 1, 2, 4, 1),
+		   ("Así cuidan sus bolsillos los argentinos", "El valor del dolar sorprende en muchos países del mundo", "economia-2.jpg", "epigrafe", "cuerpo", 1, 2, 4, 1),
+		   ("Se ampia la desigualdad económica", "El valor del dolar sorprende en muchos países del mundo", "economia-3.jpg", "epigrafe", "cuerpo", 1, 2, 4, 1),
+		   ("Situación de  la pandeia mundial", "La situación de  la pandeia mundial ha generado cambios en todos los aspectos de la vida humana", "covid-1.jpg", "epigrafe", "cuerpo", 1, 5, 4, 1),
+           ("Anuncian estudios esperanzadores acerca del tratamiento ante el covid", "Recientes estudios de la organización de médicos internacionales ha presentado un estudio que podría cambiar el panorama actual", "covid-2.jpg", "epigrafe", "cuerpo", 1, 5, 4, 1),
+		   ("Se refuerzan los controles", "Con los nuevos controles más estrictos se espera aplanar la curva de contagios", "covid-3.jpg", "epigrafe", "cuerpo", 1, 5, 4, 1),
+		   ("Se reanudan los deportes", "Muchos deportes se reanudan luego de meses sin actividad", "deportes-1.jpg", "epigrafe", "cuerpo", 1, 5, 4, 1),
+		   ("Volver a entrenar", "Se abren las puertas de muchos clubes para retomar con los entrenamientos", "deportes-2.jpg", "epigrafe", "cuerpo", 1, 5, 4, 1),
+		   ("Tribunas vacias", "A puertas cerradas, los partidos vuelven a disputarse aunque con sensaciones extrañas", "deportes-3.jpg", "epigrafe", "cuerpo", 1, 5, 4, 1);
 
 	INSERT INTO Tipo_Reaccion (descripcion)
 	VALUES ("Tipo_Reaccion_1"),

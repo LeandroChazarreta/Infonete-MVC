@@ -11,10 +11,12 @@ class IndexController{
 
 
     public function index(){
+
          if (isset($_SESSION['usuario'])) {
               header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
+              echo $_SESSION['usuario'];
+              exit();
         } else {
-            echo $_SESSION['usuario'];
             $data['publicacionesAutorizadas'] = $this->model->getPublicacionesAutorizadas();
             $_SESSION['menu']=$this->model->ArmaMenu();
             $data['menu'] = $_SESSION['menu'];

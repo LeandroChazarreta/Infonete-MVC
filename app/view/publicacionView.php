@@ -1,4 +1,4 @@
-{{> header2}}
+{{> header}}
 
 <div class="w3-container">
 

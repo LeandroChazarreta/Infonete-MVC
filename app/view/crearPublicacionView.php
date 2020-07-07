@@ -6,7 +6,7 @@ echo $_SESSION['usuario'];
 <div class="w3-container">
 
 
-    <form action="./publicacion/validarPublicacion" method="post" class="formlogin">
+    <form action="./publicacion/validarPublicacion" method="post" enctype="multipart/form-data" class="formlogin">
 
 
         <div class="container w3-col">
@@ -16,6 +16,12 @@ echo $_SESSION['usuario'];
             <hr>
 
             <div>
+                {{#error}}
+                <div class="w3-panel w3-red">
+                    <h4>{{error}}</h4>
+                </div>
+                {{/error}}
+
                 <h4 for="tipoPublicacion"><b>Tipo de Publicacion</b></h4>
                 <select name="tipoPublicacion" id="tipoPublicacion">
                     {{#tipoPublicacion}}
@@ -40,7 +46,7 @@ echo $_SESSION['usuario'];
             <textarea placeholder="Ingrese la breve descripcion dispuesta debajo del titulo de la publicacion" name="bajada" id="bajada" ></textarea>
 
             <h4 for="imagen"><b>Imagen</b></h4>
-            <input type="file" name="imagen" id="imagen">
+            <input type="file" name="file" id="imagen">
 
             <div>
             <h4 for="epigrafeImagen"><b>Epigrafe de la imagen</b></h4>

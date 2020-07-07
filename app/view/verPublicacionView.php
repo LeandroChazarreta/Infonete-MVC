@@ -14,7 +14,7 @@ echo $_SESSION['usuario'];
             <hr>
             <div class="publicaciones">
             <div class="verPublicacion">
-                <img src="view/img/{{id_publicacion}}.jpg" alt="{{epigrafe_imagen}}">
+                <img src="view/img/{{imagen}}" alt="{{epigrafe_imagen}}">
                 <p for="epigrafeImagen"><b>{{epigrafe_imagen}}</b></p>
             </div>
             </div>
