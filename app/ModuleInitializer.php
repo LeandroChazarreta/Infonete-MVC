@@ -49,10 +49,12 @@ class ModuleInitializer
     {
         include_once("model/PublicacionModel.php");
         include_once("model/SeccionModel.php");
+        include_once("model/UsuarioModel.php");
         include_once("controller/PublicacionController.php");
 
         $model["publicacionModel"] = new PublicacionModel($this->database);
         $model["seccionModel"] = new SeccionModel($this->database);
+        $model["usuarioModel"] = new UsuarioModel($this->database);
 
         return new PublicacionController($model, $this->renderer);
     }

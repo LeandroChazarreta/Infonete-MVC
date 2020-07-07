@@ -40,7 +40,7 @@ echo $_SESSION['usuario'];
             <textarea placeholder="Ingrese la breve descripcion dispuesta debajo del titulo de la publicacion" name="bajada" id="bajada" ></textarea>
 
             <h4 for="imagen"><b>Imagen</b></h4>
-            <input type="file">
+            <input type="file" name="imagen" id="imagen">
 
             <div>
             <h4 for="epigrafeImagen"><b>Epigrafe de la imagen</b></h4>

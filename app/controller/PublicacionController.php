@@ -10,39 +10,65 @@ class PublicacionController{
     }
 
     public function index(){
-        $listas["secciones"] = $this->model["seccionModel"]->getSecciones();
-        $listas["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
-        $listas['menu'] = $_SESSION['menu'];
+        $array["secciones"] = $this->model["seccionModel"]->getSecciones();
+        $array["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
+        $array['menu'] = $_SESSION['menu'];
 
-        echo $this->renderer->render( "view/crearPublicacionView.php", $listas);
+        echo $this->renderer->render( "view/publicacionView.php", $array);
     }
 
-    public function creacionExitosa(){
+    public function crearPublicacion(){
+
+        $array["secciones"] = $this->model["seccionModel"]->getSecciones();
+        $array["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
+        $array['menu'] = $_SESSION['menu'];
+
+        if (isset($_GET["error"])){
+            $array["error"] = $_GET["error"];
+        }
+
+        echo $this->renderer->render( "view/crearPublicacionView.php", $array);
+    }
+
+    public function publicacionCreada(){
         echo $this->renderer->render( "view/publicacionCreadaView.php");
     }
 
     public function validarPublicacion(){
 
+        $publicacion = $_POST;
+        $publicacion["imagenNombre"] = "50";
+        $validarPublicacion =  $this->model["publicacionModel"]->validarPublicacion($publicacion);
+        if ($validarPublicacion != true) {
+            $error = "Publicacion Inválida";
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/crearPublicacion?error=$error");
+            exit();
+        }
+
         $idTipoPublicacion = $_POST["tipoPublicacion"];
         $idSeccion = $_POST["seccion"];
         $titulo = $_POST["titulo"];
         $bajada = $_POST["bajada"];
-        $idImagen = null;
         $epigrafeImagen = $_POST["epigrafeImagen"];
         $cuerpo = $_POST["cuerpo"];
 
         $mail = $_SESSION['usuario'];
+        $idUsuario = $this->model["usuarioModel"]->consultarIdUsuarioPorMail($mail);
+        $idUsuario = $idUsuario[0];
+        $idUsuario = $idUsuario["id_usuario"];
 
-        $idUsuario = $this->model->consultarIdUsuarioPorMail($mail);
+        $guardarPublicacion = $this->model["publicacionModel"]->guardarPublicacion($titulo, $bajada, $epigrafeImagen,
+                                                                $cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
 
-        $respuesta = $this->model->guardarPublicacion($titulo, $bajada, $idImagen, $epigrafeImagen,$cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
-
-                if ($respuesta == true){
-                   echo $this->creacionExitosa();
-                } else {
-                    echo $this->index();
-                }
+        if ($guardarPublicacion == true){
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/publicacionCreada");
+            exit();
+        } else {
+            $error = "No se pudo guardar la publicación";
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/crearPublicacion?error=$error");
+            exit();
         }
+    }
 
 
 }

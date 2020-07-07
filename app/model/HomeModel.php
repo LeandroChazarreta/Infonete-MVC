@@ -29,7 +29,7 @@ class HomeModel
                 $menu = array('Coronavirus' => 'Coronavirus', 'Policiales' => 'Policiales',
                     'Politica' => 'Politica', 'Mundo' => 'Mundo', 'Sociedad' => 'Sociedad',
                     'Economia'=>'Economia' , 'Deportes'=>'Deportes', 'Espectaculos'=>'Espectaculos', 'Opinion'=>'Opinion', 'Revista'=>'Revista',
-                    'Ciencia' => 'Ciencia', 'link1' => 'crearPublicacion', 'noticia' => 'Crear Noticia');
+                    'Ciencia' => 'Ciencia', 'link1' => 'publicacion/crearPublicacion', 'noticia' => 'Crear Noticia');
                 break;
                 //Administrador
             case '4':

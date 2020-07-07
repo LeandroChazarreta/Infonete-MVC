@@ -5,7 +5,7 @@
 
             {{#publicacionesAutorizadas}}
             <article class="publicacion">
-                <a href="seccion/{{descripcion}}/{{id_publicacion}}">
+                <a href="seccion/verPublicacion?id_publicacion={{id_publicacion}}">
                     <img src="view/img/{{id_publicacion}}.jpg" alt="{{epigrafe_imagen}}">
                     <h3>{{titulo}}</h3>
                     <p>{{bajada}}</p>
