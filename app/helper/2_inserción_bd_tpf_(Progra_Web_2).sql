@@ -38,12 +38,16 @@
 		   ("Revista");
 
 	INSERT INTO Seccion (descripcion)
-	VALUES ("Politica"),
+	VALUES ("Coronavirus"),
+	       ("Politica"),
 		   ("Economia"),
 		   ("Policiales"),
 		   ("Mundo"),
-           ("Coronavirus"),
-           ("Opinion");
+           ("Policiales"),
+           ("Deportes"),
+           ("Opinion"),
+           ("Espectaculos"),
+           ("Revista");
 
 	INSERT INTO Publicacion (titulo, bajada, id_imagen, epigrafe_imagen, cuerpo, id_tipo_publicacion, id_seccion, id_usuario, autorizada)
 	VALUES ("Valor del dolar en el mundo", "El valor del dolar sorprende en muchos países del mundo", null, "epigrafe", "cuerpo", 1, 2, 4, 1),

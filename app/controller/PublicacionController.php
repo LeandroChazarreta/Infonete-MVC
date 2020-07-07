@@ -10,11 +10,13 @@ class PublicacionController{
     }
 
     public function index(){
-        $array["secciones"] = $this->model["seccionModel"]->getSecciones();
-        $array["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
-        $array['menu'] = $_SESSION['menu'];
 
-        echo $this->renderer->render( "view/publicacionView.php", $array);
+        $listas["secciones"] = $this->model->getSecciones();
+        $listas["tipoPublicacion"] = $this->model->getTipoPublicaciones();
+        $listas['menu'] = $_SESSION['menu'];
+        $listas['botones'] = $_SESSION['botones'];
+
+        echo $this->renderer->render( "view/publicacionView.php", $listas);
     }
 
     public function crearPublicacion(){

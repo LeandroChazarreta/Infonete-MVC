@@ -13,6 +13,8 @@ class SuscripcionController
 
     public function index(){
         $data['menu'] = $_SESSION['menu'];
+        $data['botones'] = $_SESSION['botones'];
+
         echo $this->renderer->render( "view/SuscripcionView.php", $data );
 
     }

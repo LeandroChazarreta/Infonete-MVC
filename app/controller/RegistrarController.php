@@ -11,6 +11,7 @@ class RegistrarController{
 
     public function index(){
         $data['menu'] = $_SESSION['menu'];
+        $data['botones'] = $_SESSION['botones'];
         echo $this->renderer->render( "view/registarView.php", $data);
     }
 
