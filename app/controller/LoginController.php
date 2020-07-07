@@ -23,8 +23,6 @@ class   LoginController{
 
 
        if ($respuesta == 1){
-           unset($_SESSION['botones']);
-
             $permiso = $this->model->ObtenerPermisos($usuario);
             $_SESSION["usuario"] = "$usuario";
             $_SESSION["permiso"] = $permiso[0];
@@ -32,8 +30,9 @@ class   LoginController{
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
             exit();
         } else {
-            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/login");
-            exit();
+          /*  header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/login");
+            exit();*/
+           ECHO "ASD";
         }
 
     }

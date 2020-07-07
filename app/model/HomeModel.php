@@ -14,27 +14,23 @@ class HomeModel
     }
 
     public function Botones($permisos){
-        unset($_SESSION['botones']);
-        session_destroy();
         switch ($permisos){
             //lector
-            case 1: $datos1[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
+            case 1: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
                 break;
-            case 2: $datos1[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
+            case 2: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
                 break;
-            case 3: $datos1[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
-                    $datos1[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');
+            case 3: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
+                    $datos[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');
                 break;
-            case 4: $datos1[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
-                    $datos1[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');
-                    $datos1[] = array('link' => 'administrador', 'palabra' => 'Administrar');
+            case 4: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
+                    $datos[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');
+                    $datos[] = array('link' => 'administrador', 'palabra' => 'Administrar');
                 break;
 
         }
-        $datos[] = array('link' => 'login', 'palabra' => 'Login');
-        $datos[] = array('link' => 'registrar', 'palabra' => 'Registrarte');
 
-        return $datos1;
+        return $datos;
     }
 
     public function getPublicacionesAutorizadas(){
