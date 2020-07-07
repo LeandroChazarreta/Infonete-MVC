@@ -40,7 +40,43 @@ class AdministradorController{
         echo $this->renderer->render( "view/ReporteListado-adminView.php", $data);
     }
 
+    public function validarAutorizacion(){
+        $id=$_GET["id_publicacion"];
+        $valor=1;
+        $this->model->updateAutorizar($id,$valor);
+        $data["Noticias"] = $this->model->GetNoticias();
+        echo $this->renderer->render( "view/Noticia-adminView.php",$data);
+   }
 
+    public function validarDesAutorizacion(){
+        $id=$_GET["id_publicacion"];
+        $valor=0;
+        $this->model->updateAutorizar($id,$valor);
+        $data["Noticias"] = $this->model->GetNoticias();
+        echo $this->renderer->render( "view/Noticia-adminView.php",$data);
+    }
+
+    public function editarSeccion(){
+        $id=$_POST["id_seccion"];
+        $seccion=$_POST["seccion"];
+        $this->model->actualizar($seccion,$id);
+        $data["Secciones"] = $this->model->getSecciones();
+        echo $this->renderer->render( "view/Seccion-adminView.php",$data);
+    }
+    public function borrarSeccion(){
+        $id=$_GET["id_seccion"];
+        $this->model->borrar($id);
+        $data["Secciones"] = $this->model->getSecciones();
+        echo $this->renderer->render( "view/Seccion-adminView.php",$data);
+    }
+
+
+    public function borrarUser(){
+        $id=$_GET["id_usuario"];
+        $this->model->borrarUs($id);
+        $data["Usuario"] = $this->model->getUsuarios();
+        echo $this->renderer->render( "view/Usuario-adminView.php",$data);
+    }
 
     public function Volver(){
         header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");

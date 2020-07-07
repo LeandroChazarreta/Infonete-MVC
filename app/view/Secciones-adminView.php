@@ -18,19 +18,28 @@
 
             <table class="w3-table">
                 <tr>
-                    <th>id</th>
+                    <th>Código</th>
                     <th>Seccion</th>
+                    <th>Sección Actualizada</th>
                     <th>Editar</th>
                     <th>Borrar</th>
                 </tr>
                 {{#Secciones}}
+                <form action="./administrador/editarSeccion" method="post" class="formlogin">
                     <tr>
-                        <td>{{id_seccion}}</td>
+                        <td>
+                        <input type="text" placeholder="" name="id_seccion" id="id_seccion" value="{{id_seccion}}"></input>
+                        </td>
+                        <td>
+                        <input type="text" placeholder="" name="seccion" id="descripcion" value="{{descripcion}}"></input>
+                        </td>
                         <td>{{descripcion}}</td>
-                        <td><button class="w3-btn w3-green">Editar</button></td>
-                        <td><button class="w3-btn w3-red">Borrar</button></td>
-
+                        <td><button type="submit" class="w3-btn w3-green">Editar</button></td>
+                        <td>
+                            <button class="w3-btn w3-red"><a href="administrador/borrarSeccion?id_seccion={{id_seccion}}"> Quitar</a></button></td>
+                        </td>
                     </tr>
+                </form>
                 {{/Secciones}}
             </table>
 
