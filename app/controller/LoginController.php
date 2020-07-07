@@ -5,13 +5,13 @@ class   LoginController{
     private $model;
 
     public function __construct($model, $renderer){
-    /*    if (!isset($_SESSION['permiso'])){*/
-        $this->renderer = $renderer;
-        $this->model = $model;
-      /* }else {
+        if (isset($_SESSION['permiso'])){
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/");
             exit();
-        }*/
+       }else {
+            $this->renderer = $renderer;
+            $this->model = $model;
+        }
     }
 
     public function index(){
