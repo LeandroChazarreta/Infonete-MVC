@@ -183,7 +183,7 @@ body {
 
 .Catalogonoticias {
     list-style: none;
-    border: #000 1px solid;
+    border: #dcdcdc 1px solid;
     width: auto;
     height: 10em;
     margin-bottom: 1%;
@@ -356,6 +356,10 @@ span.psw {
     float: none !important;
 }
 
+.epigrafe {
+    margin-top: 5px !important;
+}
+
 .footer{
    height: 120px;
 }
@@ -363,3 +367,5 @@ span.psw {
 .footer i{
     width: 40px;
 }
+
+
