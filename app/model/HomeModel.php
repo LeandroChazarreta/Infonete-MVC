@@ -17,6 +17,7 @@ class HomeModel
         switch ($permisos){
             //lector
             case 1: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
+                    $datos[] = array('link' => 'Suscripcion', 'palabra' => 'Suscribirse');
                 break;
             case 2: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
                 break;
