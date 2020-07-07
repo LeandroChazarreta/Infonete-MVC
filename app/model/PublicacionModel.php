@@ -13,10 +13,10 @@ class PublicacionModel
                                        $idTipoPublicacion, $idSeccion, $idUsuario, $fecha){
 
         return $this->conexion->insert("INSERT INTO Publicacion (titulo, bajada, imagen, epigrafe_imagen, cuerpo, 
-                                                                id_tipo_publicacion, id_seccion, id_usuario, fecha) 
+                                                                id_tipo_publicacion, id_seccion, id_usuario, fecha, autorizada) 
                                        VALUES ('$titulo', '$bajada', '$imagen', '$epigrafeImagen','$cuerpo', 
                                                 '$idTipoPublicacion','$idSeccion',
-                                                '$idUsuario', '$fecha')");
+                                                '$idUsuario', '$fecha', false)");
 
     }
 
@@ -27,7 +27,7 @@ class PublicacionModel
                                         SET titulo = '$titulo', bajada = '$bajada', imagen ='$imagen', 
                                         epigrafe_imagen ='$epigrafeImagen', cuerpo ='$cuerpo', 
                                         id_tipo_publicacion = '$idTipoPublicacion', id_seccion = '$idSeccion', 
-                                        id_usuario = '$idUsuario', fecha = '$fecha'
+                                        id_usuario = '$idUsuario', fecha = '$fecha', autorizada = false
                                         WHERE id_publicacion = '$idPublicacion'");
 
         $res = count($query);

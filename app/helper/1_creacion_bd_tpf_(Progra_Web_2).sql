@@ -70,7 +70,7 @@ CREATE TABLE Localidad
      id_tipo_publicacion SMALLINT UNSIGNED,
      id_seccion SMALLINT UNSIGNED,
      id_usuario INT UNSIGNED,
-     autorizada BOOLEAN ,
+     autorizada BOOLEAN,
      fecha DATETIME,
      PRIMARY KEY (id_publicacion),
      FOREIGN KEY (id_tipo_publicacion) REFERENCES Tipo_Publicacion (id_tipo_publicacion),
