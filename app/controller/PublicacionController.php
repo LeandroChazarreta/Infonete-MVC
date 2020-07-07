@@ -24,6 +24,7 @@ class PublicacionController{
         $array["secciones"] = $this->model["seccionModel"]->getSecciones();
         $array["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
         $array['menu'] = $_SESSION['menu'];
+        $array['botones'] = $_SESSION['botones'];
 
         if (isset($_GET["error"])){
             $array["error"] = $_GET["error"];

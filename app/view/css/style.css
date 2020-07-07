@@ -183,7 +183,7 @@ body {
 
 .Catalogonoticias {
     list-style: none;
-    border: #666666 1px solid;
+    border: #000 1px solid;
     width: auto;
     height: 10em;
     margin-bottom: 1%;
@@ -227,7 +227,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-    background-color: #08afa0;
+    background-color: #197cf4;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -284,13 +284,13 @@ span.psw {
     height: 50%;
     width: 70%;
     border-style: double;
-    border: 5px solid black;
+    border: 1px solid black;
     margin: auto;
     font-size: 20px;
 }
 
 .boton {
-    background-color: #4CAF50;
+    background-color: #197cf4;
     color: white;
     padding: 14px 20px;
     margin: 10px 0;
