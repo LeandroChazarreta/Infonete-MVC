@@ -41,8 +41,7 @@ class RegistrarController{
                     $this->model->registrarUsuario($email,$clave,$nombre,$apellido,$nacimiento);
                     $this->exitoso();
                 } else {
-                   echo "no agrego al usuario";
-            //    $this->renderer->render( "view/registarView.php");
+                    header("location: http://".$_SERVER['SERVER_NAME']."/Infonete-MVC/app/registrar");
                 }
                 }
 

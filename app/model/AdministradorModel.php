@@ -22,7 +22,6 @@ class AdministradorModel
         return $this->conexion->query("SELECT * FROM Seccion;");
     }
     public function getTipoPublicaciones(){
-
         return $this->conexion->query("SELECT * FROM Tipo_Publicacion");
     }
     public function GetReporte(){

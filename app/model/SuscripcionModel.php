@@ -9,18 +9,12 @@ class SuscripcionModel
         $this->conexion = $database;
     }
 
-    public function ObtenerFecha()
-    {
-        for ($i=1; $i<=12; $i++) {
-           $datos[$i]=$i;
-        }
-       return $datos;
+    public function ActualizaSuscripcion(){
+        $user = $_SESSION['usuario'];
+
+        return $this->conexion->insert("UPDATE usuario
+                                        SET id_permiso = '2'
+                                        WHERE mail = '$user'");
     }
 
-    public function ObtenerAño(){
-        for($i = 1950 ; $i < date('Y'); $i++){
-            $datos=array('mes' => $i);
-        }
-        return $datos;
-    }
 }
