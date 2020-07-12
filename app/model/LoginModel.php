@@ -28,8 +28,14 @@ class LoginModel{
         foreach ($query as $fila) {
             return ($fila["id_permiso"]);
         }
-
     }
 
+    public function ObtenerID ($usuario){
+       $query=  $this->conexion->query("SELECT id_usuario FROM USUARIO WHERE mail='$usuario'");
+
+        foreach ($query as $fila) {
+            return ($fila["id_usuario"]);
+        }
+        }
 
 }

@@ -279,7 +279,7 @@ span.psw {
 }
 
 .registrook {
-    background-color: #e2e2e2;
+    background-color: #ececec;
     width: 300px;
     padding: 50px;
     height: 50%;
@@ -354,6 +354,7 @@ span.psw {
 .centrar {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2%;
     float: none !important;
 }
 

@@ -28,8 +28,11 @@ class   LoginController{
 
 
        if ($respuesta == 1){
+
             $permiso = $this->model->ObtenerPermisos($usuario);
+            $id = $this->model->ObtenerID($usuario);
             $_SESSION["usuario"] = "$usuario";
+            $_SESSION["id"] = "$id";
             $_SESSION["permiso"] = $permiso[0];
 
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/home");
