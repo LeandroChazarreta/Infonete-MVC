@@ -7,20 +7,20 @@ class SuscripcionController
     private $model;
 
     public function __construct($model, $renderer){
-        if ($_SESSION['permiso']==1){
             $this->renderer = $renderer;
             $this->model = $model;
+    }
+
+    public function index(){
+        if ($_SESSION['permiso']==1){
+            $data['menu'] = $_SESSION['menu'];
+            $data['botones'] = $_SESSION['botones'];
+
+            echo $this->renderer->render( "view/SuscripcionView.php", $data );
         } else {
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/");
             exit();
         }
-    }
-
-    public function index(){
-        $data['menu'] = $_SESSION['menu'];
-        $data['botones'] = $_SESSION['botones'];
-
-       echo $this->renderer->render( "view/SuscripcionView.php", $data );
     }
 
     public function ProcesaPago(){
@@ -51,6 +51,21 @@ class SuscripcionController
                header("location: http://".$_SERVER['SERVER_NAME']."/Infonete-MVC/app/Suscripcion");
                exit();
            }
+    }
+
+
+    public function Activas(){
+        if ($_SESSION['permiso']==2){
+
+            $data['menu'] = $_SESSION['menu'];
+            $data['botones'] = $_SESSION['botones'];
+            $data['Suscripciones'] = $this->model->GetSuscripciones();
+            
+            echo $this->renderer->render( "view/SuscripcionesActivasView.php", $data);
+        } else {
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/suscripcion");
+            exit();
+        }
     }
 
 }

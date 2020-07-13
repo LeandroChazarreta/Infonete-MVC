@@ -33,4 +33,11 @@ class SuscripcionModel
                                                 VALUES ('$fechaActual','$FechaSub','1','$id_tipo_suscripcion','$id')");
     }
 
+
+    public function GetSuscripciones(){
+        $id = $_SESSION['id'];
+        return $this->conexion->query("SELECT * FROM suscripcion s JOIN tipo_suscripcion t ON s.id_tipo_suscripcion = t.id_tipo_suscripcion 
+                                        WHERE s.id_usuario = '$id' ORDER BY fecha_expiracion;");
+    }
+
 }
