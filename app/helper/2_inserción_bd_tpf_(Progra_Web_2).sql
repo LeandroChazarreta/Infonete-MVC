@@ -35,12 +35,12 @@ VALUES (1, "Las Heras", 1200, null, 1),
 		       ("Contenidista"),
 		       ("Administrador");
 */
-
+/*----------- Usuarios con password: "1234" -------------*/
 	INSERT INTO Usuario(nombre, apellido, fecha_nac, mail, contraseña, nro_doc, id_tipo_doc, id_domicilio, id_permiso)
-	VALUES ("Alberto", "Rodriguez", "1980-01-01", "alberto@email.com", "1234", 11111111, 1, 1, 1),
-		   ("Alan", "Rodriguez", "1980-01-01", "alan@email.com", "1234", 22222222, 1, 2, 1),
-		   ("Carla", "Rodriguez", "1980-01-01", "carla@email.com", "1234", 33333333, 1, 3, 2),
-		   ("Celeste", "Rodriguez", "1980-01-01", "celeste@email.com", "1234", 44444444, 2, 4, 2);
+	VALUES ("Alberto", "Rodriguez", "1980-01-01", "alberto@email.com", '81dc9bdb52d04dc20036dbd8313ed055', 11111111, 1, 1, 1),
+		   ("Alan", "Rodriguez", "1980-01-01", "alan@email.com", '81dc9bdb52d04dc20036dbd8313ed055', 22222222, 1, 2, 1),
+		   ("Carla", "Rodriguez", "1980-01-01", "carla@email.com", '81dc9bdb52d04dc20036dbd8313ed055', 33333333, 1, 3, 2),
+		   ("Celeste", "Rodriguez", "1980-01-01", "celeste@email.com", '81dc9bdb52d04dc20036dbd8313ed055', 44444444, 2, 4, 2);
            
 	INSERT INTO Tipo_Publicacion (descripcion)
 	VALUES ("Periodistica"),
@@ -55,7 +55,8 @@ VALUES (1, "Las Heras", 1200, null, 1),
            ("Cultura"),
            ("Deportes"),
            ("Opinion"),
-           ("Espectaculos");
+           ("Espectaculos"),
+           ("Revista");
 
 	INSERT INTO Publicacion (titulo, bajada, imagen, epigrafe_imagen, cuerpo, id_tipo_publicacion, id_seccion, id_usuario, autorizada, fecha)
 	VALUES ("Caida del peso en la argentina", "En la actualidad la caída de la moneda nacional sorprende en muchos países del mundo, pero en la Argentina es cosa común", "economia-1.jpg", "Caida del peso en la argentina", 

@@ -8,17 +8,8 @@ body {
 
 
 .logo{
-    width: 30%;
+    width: 300px;
     margin: 30px;
-}
-
-.menu{
-    display: flex;
-    justify-content: space-between;
-}
-
-.menu a{
-    border: none;
 }
 
 .imgPublicacion{
