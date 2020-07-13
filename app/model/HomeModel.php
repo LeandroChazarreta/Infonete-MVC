@@ -20,6 +20,7 @@ class HomeModel
                     $datos[] = array('link' => 'Suscripcion', 'palabra' => 'Suscribirse');
                 break;
             case 2: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
+                $datos[] = array('link' => 'suscripcion/Activas', 'palabra' => 'Suscripciones');
                 break;
                 //Contenedista
             case 3: $datos[] = array('link' => 'logout', 'palabra' => ('Cerrar Sesión'));
@@ -35,7 +36,6 @@ class HomeModel
     }
 
     public function getPublicacionesAutorizadas(){
-
         return $this->conexion->query(" SELECT * 
                                         FROM Publicacion pub
 					                    JOIN Seccion sec ON pub.id_seccion = sec.id_seccion

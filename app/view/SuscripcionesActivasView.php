@@ -17,7 +17,7 @@
                 <th>Fecha expiracion</th>
                 <th>Promocion</th>
                 <th>Precio</th>
-                <th>Estado</th>
+
             </tr>
             {{#Suscripciones}}
             <tr>
@@ -26,7 +26,6 @@
                 <td>{{fecha_expiracion}}</td>
                 <td>{{descripcion}}</td>
                 <td>{{precio}}</td>
-                <td>{{estado}}</td>
 
             </tr>
             {{/Suscripciones}}

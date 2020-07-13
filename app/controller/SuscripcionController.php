@@ -60,7 +60,7 @@ class SuscripcionController
             $data['menu'] = $_SESSION['menu'];
             $data['botones'] = $_SESSION['botones'];
             $data['Suscripciones'] = $this->model->GetSuscripciones();
-            
+
             echo $this->renderer->render( "view/SuscripcionesActivasView.php", $data);
         } else {
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/suscripcion");
