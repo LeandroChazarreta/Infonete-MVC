@@ -21,11 +21,19 @@ class SeccionController
 
     public function verPublicacion(){
 
-        $idPublicacion = $_GET["id_publicacion"];
-        $data["publicacion"] = $this->model->getPublicacion($idPublicacion);
-        $data['menu'] = $_SESSION['menu'];
-        $data['botones'] = $_SESSION['botones'];
+        if (isset($_SESSION['permiso'])){
+                $idPublicacion = $_GET["id_publicacion"];
+                $data["publicacion"] = $this->model->getPublicacion($idPublicacion);
+                $data['menu'] = $_SESSION['menu'];
+                $data['botones'] = $_SESSION['botones'];
 
-        echo $this->renderer->render("view/verPublicacionView.php", $data);
+                echo $this->renderer->render("view/verPublicacionView.php", $data);
+        } else if ($_SESSION['permiso']==1){
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/suscripcion");
+            exit();
+        } else {
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/login");
+            exit();
+        }
     }
 }

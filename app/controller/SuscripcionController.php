@@ -62,7 +62,7 @@ class SuscripcionController
             $data['Suscripciones'] = $this->model->GetSuscripciones();
 
             echo $this->renderer->render( "view/SuscripcionesActivasView.php", $data);
-        } else {
+        } else if ($_SESSION['permiso']==1){
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/suscripcion");
             exit();
         }
