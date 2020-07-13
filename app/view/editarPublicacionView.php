@@ -25,19 +25,33 @@ echo $_SESSION['usuario'];
 
                 <h5 class="w3-padding-16" for="tipoPublicacion">Tipo de Publicacion</h5>
                 <select name="tipoPublicacion" id="tipoPublicacion" required>
-                    <option value=""></option>
-                    {{#tipoPublicacion}}
+                    {{#tipoPublicaciones}}
+
+                    {{#seleccionada}}
+                    <option selected value="{{id_tipo_publicacion}}">{{descripcion}}</option>
+                    {{/seleccionada}}
+
+                    {{^seleccionada}}
                     <option value="{{id_tipo_publicacion}}">{{descripcion}}</option>
-                    {{/tipoPublicacion}}
+                    {{/seleccionada}}
+
+                    {{/tipoPublicaciones}}
                 </select>
             </div>
 
             <div>
             <h5 class="w3-padding-16" for="seccion">Sección</h5>
             <select name="seccion" id="seccion" required>
-                <option value=""></option>
                 {{#secciones}}
-                    <option value="{{id_seccion}}">{{descripcion}}</option>
+
+                {{#seleccionada}}
+                <option selected value="{{id_seccion}}">{{descripcion}}</option>
+                {{/seleccionada}}
+
+                {{^seleccionada}}
+                <option value="{{id_seccion}}">{{descripcion}}</option>
+                {{/seleccionada}}
+
                 {{/secciones}}
             </select>
             </div>
@@ -49,8 +63,11 @@ echo $_SESSION['usuario'];
             <h5 class="w3-padding-16" for="bajada">Bajada</h5>
             <textarea placeholder="Ingrese la breve descripcion dispuesta debajo del titulo de la publicacion" name="bajada" id="bajada" >{{bajada}}</textarea>
 
-            <h5 class="w3-padding-16" for="imagen">Imagen</h5>
-            <input type="file" name="file" id="imagen" required>
+            <h5 class="w3-padding-16">Imagen de la publicación</h5>
+            <img class="imgPublicacion" src="view/img/{{imagen}}" alt="Error al leer la imagen">
+
+            <h5 class="w3-padding-16" for="imagen">Cambiar imagen</h5>
+            <input type="file" name="file" id="imagen">
 
             <div>
             <h5 class="w3-padding-16" for="epigrafeImagen">Epigrafe de la imagen</h5>
@@ -62,7 +79,7 @@ echo $_SESSION['usuario'];
             {{/publicacionAEditar}}
             <hr>
 
-            <button type="submit" class="registerbtn">Generar Publicacion</button>
+            <button type="submit" class="registerbtn">Guardar Publicacion</button>
         </div>
 
     </form>

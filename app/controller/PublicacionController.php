@@ -39,11 +39,18 @@ class PublicacionController{
 
     public function editarPublicacion(){
 
-        $array["secciones"] = $this->model["seccionModel"]->getSecciones();
-        $array["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
         $array['menu'] = $_SESSION['menu'];
         $array['botones'] = $_SESSION['botones'];
         $array['publicacionAEditar'] = $this->model["publicacionModel"]->getPublicacionPorId($_GET['id_publicacion']);
+
+        $publicacion = $this->model["publicacionModel"]->getPublicacionPorId($_GET['id_publicacion']);
+        $publicacion = $publicacion[0];
+        $idSeccion = $publicacion["id_seccion"];
+        $idTipoPublicacion = $publicacion["id_tipo_publicacion"];
+
+        $array['tipoPublicaciones'] = $this->model["publicacionModel"]->getTipoPublicacionesConSeleccionada($idTipoPublicacion);
+        $array['secciones'] = $this->model["seccionModel"]->getSeccionesConSeleccionada($idSeccion);
+
         $_SESSION["id_publicacion"] = $_GET['id_publicacion'];
 
         if (isset($_GET["error"])){
@@ -127,7 +134,7 @@ class PublicacionController{
         $validarPublicacion =  $this->model["publicacionModel"]->validarPublicacion($publicacion);
         if ($validarPublicacion != null) {
             header("location: http://".$_SERVER['SERVER_NAME'].
-                "/Infonete-MVC/app/publicacion/crearPublicacion?error=$validarPublicacion");
+                "/Infonete-MVC/app/publicacion/editarPublicacion?id_publicacion=$idPublicacion&error=$validarPublicacion");
             exit();
         }
 
@@ -163,7 +170,7 @@ class PublicacionController{
             exit();
         } else {
             $error = "No se pudo guardar la publicación";
-            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/crearPublicacion?error=$error");
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/editarPublicacion?d_publicacion=$idPublicacion&error=$error");
             exit();
         }
     }

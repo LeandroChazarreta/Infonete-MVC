@@ -45,6 +45,14 @@ class PublicacionModel
                                         WHERE p.id_publicacion = '$idPublicacion'");
     }
 
+    public function consultarIdPublicacion($titulo, $bajada, $epigrafeImagen){
+        return $this->conexion->query("SELECT p.id_publicacion
+                                        FROM Publicacion p
+                                        WHERE p.titulo = '$titulo'
+                                        AND p.bajada = '$bajada'
+                                        AND p.epigrafe_imagen = '$epigrafeImagen'");
+    }
+
     public function getPublicacionesDelContenedista($idContenedista){
 
         return $this->conexion->query("SELECT *
@@ -53,12 +61,24 @@ class PublicacionModel
 
     }
 
-    public function consultarIdPublicacion($titulo, $bajada, $epigrafeImagen){
-        return $this->conexion->query("SELECT p.id_publicacion
-                                        FROM Publicacion p
-                                        WHERE p.titulo = '$titulo'
-                                        AND p.bajada = '$bajada'
-                                        AND p.epigrafe_imagen = '$epigrafeImagen'");
+    public function getTipoPublicaciones(){
+
+        return $this->conexion->query("SELECT * FROM Tipo_Publicacion");
+    }
+
+    public function getTipoPublicacionesConSeleccionada($idTipoPublicacion){
+
+        $array = $this->conexion->query("SELECT * FROM Tipo_Publicacion");
+
+        foreach ($array as $elemento){
+        if ($elemento["id_tipo_publicacion"] == $idTipoPublicacion){
+        $datos[] = array('id_tipo_publicacion' => $elemento["id_tipo_publicacion"], 'descripcion' => $elemento["descripcion"], 'seleccionada' => true);
+        }else{
+        $datos[] = array('id_tipo_publicacion' => $elemento["id_tipo_publicacion"], 'descripcion' => $elemento["descripcion"], 'seleccionada' => null);
+        }
+        }
+
+        return $datos;
     }
 
     public function validarPublicacion($publicacion){
@@ -109,11 +129,6 @@ class PublicacionModel
                 return $_FILES["file"]["name"];
             }
         }
-    }
-
-    public function getTipoPublicaciones(){
-
-        return $this->conexion->query("SELECT * FROM Tipo_Publicacion");
     }
 
     public function armarNombreImagen($titulo, $fecha)

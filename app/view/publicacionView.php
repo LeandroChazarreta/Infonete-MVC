@@ -18,22 +18,20 @@
             </div>
 
             <table class="w3-table-all w3-bordered w3-small w3-hoverable">
-                <tr class="w3-large w3-orange">
-                    <th>Identificador</th>
+                <tr class="w3-medium">
                     <th>Título</th>
                     <th>Fecha</th>
                     <th>Sección</th>
-                    <th>Autorizada</th>
+                    <th class="w3-center">Autorizada</th>
                     <th>Acción</th>
                 </tr>
                 {{#publicaciones}}
                 <tr>
-                    <td>{{id_publicacion}}</td>
                     <td>{{titulo}}</td>
                     <td>{{fecha}}</td>
                     <td>{{id_seccion}}</td>
 
-                    <td>
+                    <td class="w3-center">
                         {{#autorizada}}
                             Si
                         {{/autorizada}}

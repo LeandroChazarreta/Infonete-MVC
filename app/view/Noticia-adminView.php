@@ -21,6 +21,7 @@
                     <th>Título</th>
                     <th>Bajada</th>
                     <th>Sección</th>
+                    <th>Fecha</th>
                     <th>Autor</th>
                     <th class="w3-center">Autorizada</th>
                     <th class="w3-center">Acción</th>
@@ -30,6 +31,7 @@
                     <td>{{titulo}}</td>
                     <td>{{bajada}}</td>
                     <td>{{descripcion}}</td>
+                    <td>{{fecha}}</td>
                     <td>{{nombre}} {{apellido}}</td>
 
                     <td class="w3-center">

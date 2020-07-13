@@ -168,7 +168,7 @@ VALUES (1, "Lector"),
        (4, "Administrador");
 
 INSERT INTO Usuario(mail, contraseña, nombre, apellido, fecha_nac, id_permiso)
-VALUES ('admin@asd.com','a8f5f167f44f4964e6c998dee827110c','Juan','Sebastian','19800101', '4'),
+VALUES ('admin@asd.com','a8f5f167f44f4964e6c998dee827110c','Juan Sebastian','Bach','19800101', '4'),
        ('conte@asd.com','a8f5f167f44f4964e6c998dee827110c','Victor','Wooten','19800101', '3');
 
 INSERT INTO Tipo_Suscripcion(id_tipo_suscripcion, descripcion, precio)

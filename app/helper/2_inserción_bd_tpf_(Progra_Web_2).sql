@@ -55,8 +55,7 @@ VALUES (1, "Las Heras", 1200, null, 1),
            ("Cultura"),
            ("Deportes"),
            ("Opinion"),
-           ("Espectaculos"),
-           ("Revista");
+           ("Espectaculos");
 
 	INSERT INTO Publicacion (titulo, bajada, imagen, epigrafe_imagen, cuerpo, id_tipo_publicacion, id_seccion, id_usuario, autorizada, fecha)
 	VALUES ("Caida del peso en la argentina", "En la actualidad la caída de la moneda nacional sorprende en muchos países del mundo, pero en la Argentina es cosa común", "economia-1.jpg", "Caida del peso en la argentina", 
@@ -91,7 +90,7 @@ VALUES (1, "Las Heras", 1200, null, 1),
            , 1, 7, 2, 1, "2020-01-09 01:00:00.000000");
 
 	INSERT INTO Tipo_Reaccion (descripcion)
-	VALUES ("Tipo_Reaccion_1"),
+	VALUES ("Tipo_Reaccion_1publicacion"),
 		   ("Tipo_Reaccion_2"),
 		   ("Tipo_Reaccion_3"),
 		   ("Tipo_Reaccion_4");

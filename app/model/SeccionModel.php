@@ -25,6 +25,21 @@ class SeccionModel
         return $this->conexion->query("SELECT * FROM Seccion");
     }
 
+    public function getSeccionesConSeleccionada($idSeccion){
+
+        $array = $this->conexion->query("SELECT * FROM Seccion");
+
+        foreach ($array as $elemento){
+            if ($elemento["id_seccion"] == $idSeccion){
+                $datos[] = array('id_seccion' => $elemento["id_seccion"], 'descripcion' => $elemento["descripcion"], 'seleccionada' => true);
+            }else{
+                $datos[] = array('id_seccion' => $elemento["id_seccion"], 'descripcion' => $elemento["descripcion"], 'seleccionada' => null);
+            }
+        }
+
+        return $datos;
+    }
+
     public function getPublicacion($id){
 
         return $this->conexion->query(" SELECT * 

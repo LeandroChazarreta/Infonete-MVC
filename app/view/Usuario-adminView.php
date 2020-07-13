@@ -19,21 +19,20 @@
             <table class="w3-table-all w3-bordered w3-hoverable">
                 <tr class=" w3-large">
                     <th>Nombre</th>
-                    <th>Apellido</th>
                     <th>Fecha Nacimiento</th>
                     <th>Mail</th>
                     <th>Permiso</th>
-                    <th>Borrar</th>
+                    <th>Acción</th>
                 </tr>
                 {{#Usuario}}
                 <tr>
-                    <td>{{nombre}}</td>
-                    <td>{{apellido}}</td>
+                    <td>{{apellido}}, {{nombre}}</td>
                     <td>{{fecha_nac}}</td>
                     <td>{{mail}}</td>
                     <td>{{descripcion}}</td>
                     <td>
-                    <button class="w3-btn w3-red"><a href="administrador/borrarUser?id_usuario={{id_usuario}}"> Borrar</a></button></td>
+                        <a href="administrador/borrarUser?id_usuario={{id_usuario}}" class="w3-btn w3-red"> Borrar</a>
+                    </td>
                     </td>
                 </tr>
                 {{/Usuario}}

@@ -35,6 +35,10 @@ textarea {
     width: 100%;
 }
 
+#cuerpo{
+    height: 400px;
+}
+
 .topheader {
     list-style-type: none;
     margin: 0;

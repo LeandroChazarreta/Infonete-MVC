@@ -55,7 +55,7 @@ echo $_SESSION['usuario'];
             </div>
 
             <h5 class="w3-padding-8" for="cuerpo">Cuerpo</h5>
-            <textarea placeholder="Ingrese el cuerpo" name="cuerpo" id="cuerpo" required  style="height: 50em;"></textarea>
+            <textarea placeholder="Ingrese el cuerpo" name="cuerpo" id="cuerpo" required"></textarea>
 
             <hr>
 
