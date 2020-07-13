@@ -6,41 +6,42 @@
 
     <div id="myTop" class="w3-container w3-top w3-theme w3-large">
         <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-            <span id="myIntro" class="w3-hide">W3.CSS: Introduction</span></p>
+            <span id="myIntro" class="w3-hide">Portal Administrativo</span></p>
     </div>
 
     <header class="w3-container w3-theme" style="padding:64px 32px">
-        <h1 class="w3-xxxlarge">InfoNete - Portal Administrativo</h1>
+        <h1 class="w3-xxxlarge">Portal Administrativo</h1>
     </header>
 
-        <section>
+        <section style="margin: 30px 50px;">
             <h1>Secciones</h1>
 
-            <table class="w3-table">
-                <tr>
+            <table class="w3-table-all w3-bordered w3-hoverable">
+                <tr class=" w3-large">
                     <th>Código</th>
                     <th>Seccion</th>
-                    <th>Sección Actualizada</th>
-                    <th>Editar</th>
-                    <th>Borrar</th>
+                    <th>Actualizar descripción</th>
+                    <th class="w3-center">Acciones</th>
                 </tr>
                 {{#Secciones}}
                 <form action="./administrador/editarSeccion" method="post" class="formlogin">
                     <tr>
                         <td>
-                        <input type="text" placeholder="" name="id_seccion" id="id_seccion" value="{{id_seccion}}"></input>
-                        </td>
-                        <td>
-                        <input type="text" placeholder="" name="seccion" id="descripcion" value="{{descripcion}}"></input>
+                        {{id_seccion}}
                         </td>
                         <td>{{descripcion}}</td>
-                        <td><button type="submit" class="w3-btn w3-green">Editar</button></td>
                         <td>
-                            <button class="w3-btn w3-red"><a href="administrador/borrarSeccion?id_seccion={{id_seccion}}"> Quitar</a></button></td>
+                        <input class="w3-padding w3-input w3-border" type="text" placeholder="Ingrese la nueva descripción..." name="seccion" id="descripcion"></input>
                         </td>
-                    </tr>
-                </form>
+                        <td class="w3-center">
+                            <button type="submit" class="w3-btn w3-green">Actualizar</button>
+
+                            <a class="w3-btn w3-red" href="administrador/borrarSeccion?id_seccion={{id_seccion}}"> Quitar</a>
+                        </td>
+
                 {{/Secciones}}
+                </tr>
+            </form>
             </table>
 
         </section>

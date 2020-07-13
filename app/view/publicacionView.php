@@ -17,8 +17,8 @@
                        class="w3-button w3-blue w3-hover-orange w3-small">Crear Publicacion </a></div>
             </div>
 
-            <table class="w3-table-all w3-bordered w3-small">
-                <tr>
+            <table class="w3-table-all w3-bordered w3-small w3-hoverable">
+                <tr class="w3-large w3-orange">
                     <th>Identificador</th>
                     <th>Título</th>
                     <th>Fecha</th>
@@ -32,7 +32,16 @@
                     <td>{{titulo}}</td>
                     <td>{{fecha}}</td>
                     <td>{{id_seccion}}</td>
-                    <td>{{autorizada}}</td>
+
+                    <td>
+                        {{#autorizada}}
+                            Si
+                        {{/autorizada}}
+                        {{^autorizada}}
+                            No
+                        {{/autorizada}}
+                    </td>
+
                     <td>
                         <a href="./publicacion/editarPublicacion?id_publicacion={{id_publicacion}}"
                            class="w3-button w3-blue w3-hover-orange">Editar</a>

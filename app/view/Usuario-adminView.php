@@ -6,29 +6,27 @@
 
     <div id="myTop" class="w3-container w3-top w3-theme w3-large">
         <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-            <span id="myIntro" class="w3-hide">W3.CSS: Introduction</span></p>
+            <span id="myIntro" class="w3-hide">Portal Administrativo</span></p>
     </div>
 
     <header class="w3-container w3-theme" style="padding:64px 32px">
-        <h1 class="w3-xxxlarge">InfoNete - Portal Administrativo</h1>
+        <h1 class="w3-xxxlarge">Portal Administrativo</h1>
     </header>
 
-        <section>
+        <section style="margin: 30px 50px;">
             <h1>Usuarios</h1>
 
-            <table class="w3-table">
-                <tr>
-                    <th>id</th>
-                    <th>nombre</th>
-                    <th>apellido</th>
+            <table class="w3-table-all w3-bordered w3-hoverable">
+                <tr class=" w3-large">
+                    <th>Nombre</th>
+                    <th>Apellido</th>
                     <th>Fecha Nacimiento</th>
-                    <th>mail</th>
+                    <th>Mail</th>
                     <th>Permiso</th>
                     <th>Borrar</th>
                 </tr>
                 {{#Usuario}}
                 <tr>
-                    <td>{{id_usuario}}</td>
                     <td>{{nombre}}</td>
                     <td>{{apellido}}</td>
                     <td>{{fecha_nac}}</td>

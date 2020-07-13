@@ -11,7 +11,9 @@ class AdministradorModel
 
 
     public function GetNoticias(){
-        return $this->conexion->query("SELECT * FROM publicacion p join usuario u on p.id_usuario = u.id_usuario join Seccion s on s.id_seccion = p.id_seccion;");
+        return $this->conexion->query("SELECT * FROM publicacion p 
+                                        join usuario u on p.id_usuario = u.id_usuario 
+                                        join Seccion s on s.id_seccion = p.id_seccion;");
     }
 
     public function GetUsuarios(){
@@ -39,9 +41,10 @@ class AdministradorModel
                                            AND sc.id_seccion = '$tipoSeccion'");
 
     }
+
     public function updateAutorizar($id,$valor){
 
-        return $this->conexion->query("UPDATE publicacion
+        return $this->conexion->insert("UPDATE publicacion
                                         SET autorizada = '$valor'
                                         WHERE id_publicacion = '$id'");
 
@@ -51,7 +54,7 @@ class AdministradorModel
     {
         $query=0;
         if ($seccion!="") {
-            $query = $this->conexion->query("UPDATE seccion
+            $query = $this->conexion->insert("UPDATE seccion
                                         SET descripcion = '$seccion'
                                         WHERE id_seccion = '$id'");
         }

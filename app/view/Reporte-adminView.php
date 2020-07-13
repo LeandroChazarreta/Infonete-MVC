@@ -6,47 +6,49 @@
 
     <div id="myTop" class="w3-container w3-top w3-theme w3-large">
         <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-            <span id="myIntro" class="w3-hide">W3.CSS: Introduction</span></p>
+            <span id="myIntro" class="w3-hide">Portal Administrativo</span></p>
     </div>
 
     <header class="w3-container w3-theme" style="padding:64px 32px">
-        <h1 class="w3-xxxlarge">InfoNete - Portal Administrativo</h1>
+        <h1 class="w3-xxxlarge">Portal Administrativo</h1>
     </header>
-    <section>
 
-       <form action="./administrador/ListadoReporte" method="post" class="formlogin">
+    <section style="margin: 30px 50px;">
 
-                <div class="container w3-col">
+           <h1>Reportes</h1>
+           <hr>
+           <p>Seleccione criterios para armar el reporte</p>
 
-                    <h1><b>Generar Reportes</b></h1>
-                    <p>Seleccione criterios para armar el reporte</p>
-                    <hr>
-                    <div>
-                        <h4 for="tipoPublicacion"><b>Tipo de Publicacion</b></h4>
-                        <select name="tipoPublicacion" id="tipoPublicacion">
-                            {{#tipoPublicacion}}
-                            <option value="{{id_tipo_publicacion}}">{{descripcion}}</option>
-                            {{/tipoPublicacion}}
-                        </select>
-                   </div>
-                    <div>
-                        <h4 for="seccion"><b>Sección</b></h4>
-                        <select name="seccion" id="seccion">
-                            {{#secciones}}
-                            <option value="{{id_seccion}}">{{descripcion}}</option>
-                            {{/secciones}}
-                        </select>
-                    </div>
-                    <br>
-                     <div>
-                     <button type="submit" class="registerbtn">Generar Reporte</button>
-                     </div>
-                    <hr>
-       </form>
+        <form action="./administrador/ListadoReporte" method="post">
+        <table class="w3-table-all w3-bordered">
+            <tr>
+                <th>Tipo de Publicación</th>
+                <th>Sección</th>
+                <th>Acción</th>
+            </tr>
+            <tr>
+                <td>
+                <select name="tipoPublicacion" id="tipoPublicacion">
+                    {{#tipoPublicacion}}
+                    <option value="{{id_tipo_publicacion}}">{{descripcion}}</option>
+                    {{/tipoPublicacion}}
+                </select>
+                </td>
+                <td>
+                    <select name="seccion" id="seccion">
+                        {{#secciones}}
+                        <option value="{{id_seccion}}">{{descripcion}}</option>
+                        {{/secciones}}
+                    </select></td>
+                <td>
+                    <button type="submit" class="w3-btn w3-blue">Generar Reporte</button>
+                </td>
+            </tr>
+
+        </table>
+        </form>
+
     </section>
-
-
-        <h1>Resultado de la consulta</h1>
 
 </div>
 

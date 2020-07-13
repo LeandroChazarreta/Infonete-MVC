@@ -27,8 +27,7 @@ class HomeModel
                     $datos[] = array('link' => 'publicacion', 'palabra' => 'Crear Publicacion');
                 break;
             case 4: $datos[] = array('link' => 'logout', 'palabra' => 'Cerrar Sesión');
-                    $datos[] = array('link' => 'publicacion', 'palabra' => 'Crear Noticia');
-                    $datos[] = array('link' => 'administrador', 'palabra' => 'Administrar');
+                    $datos[] = array('link' => 'administrador/Usuarios', 'palabra' => 'Administrar');
                 break;
         }
 

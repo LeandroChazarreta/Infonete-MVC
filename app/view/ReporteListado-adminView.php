@@ -13,13 +13,13 @@
         <h1 class="w3-xxxlarge">InfoNete - Portal Administrativo</h1>
     </header>
 
-    <section>
+    <section style="margin: 30px 50px;">
 
         <h1>Reportes obtenidos</h1>
         <hr>
-            <table class="w3-table">
+            <table class="w3-table-all w3-bordered w3-hoverable">
                 <tr>
-                    <th>Tipo de Suscripción</th>
+                    <th>Tipo de Publicación</th>
                     <th>Sección</th>
                     <th>Descripción</th>
                 </tr>
@@ -31,12 +31,15 @@
                 </tr>
                 {{/Reporte}}
             </table>
+
+
+        <hr>
+        <form action="administrador/Reporte" method="post" enctype="application/x-www-form-urlencoded">
+            <button class="w3-button w3-blue w3-hover-orange" type="submit">Generar otro reporte</button>
+        </form>
+
       </section>
 
-    <hr>
-    <form action="administrador/Reporte" method="post" enctype="application/x-www-form-urlencoded">
-        <input type="submit" value="Generar otro reporte">
-    </form>
 
 </div>
 
