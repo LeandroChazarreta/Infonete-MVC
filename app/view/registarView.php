@@ -26,7 +26,7 @@
             <input type="text" placeholder="Ingrese su apellido" name="apellido" id="apellido" required>
 
             <label for="nacimiento"><b>Fecha de nacimiento</b></label>
-            <input type="date" placeholder="Ingrese su fecha de nacimiento" name="nacimiento" id="nacimiento" required>
+            <input type="date" placeholder="Ingrese su fecha de nacimiento" name="nacimiento" id="nacimiento" class="imput" required>
 
             <hr>
             <p>Al crear una cuenta usted acepta nuestros terminos y condiciones.</p>

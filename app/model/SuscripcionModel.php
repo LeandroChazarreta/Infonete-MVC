@@ -19,9 +19,9 @@ class SuscripcionModel
 
     public function ObtenerFechaActualizacion($promocion, $fechaActual){
         if ($promocion == '1'){
-            return date("Y-m-d H:i:s",strtotime($fechaActual."+ 30 days"));
+            return date("Y-m-d H:i:s",strtotime($fechaActual."+ 1 month"));
         } else {
-            return date("Y-m-d H:i:s",strtotime($fechaActual."+ 360 days"));
+            return date("Y-m-d H:i:s",strtotime($fechaActual."+ 1 year"));
         }
     }
 
