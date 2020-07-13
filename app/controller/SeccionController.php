@@ -21,7 +21,7 @@ class SeccionController
 
     public function verPublicacion(){
 
-        if (isset($_SESSION['permiso'])){
+        if ($_SESSION['permiso'] > '1'){
                 $idPublicacion = $_GET["id_publicacion"];
                 $data["publicacion"] = $this->model->getPublicacion($idPublicacion);
                 $data['menu'] = $_SESSION['menu'];
