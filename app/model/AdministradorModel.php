@@ -70,15 +70,17 @@ class AdministradorModel
         $pdf->Cell(87,10, utf8_decode("Sección"),1,0,'C', 1);
         $pdf->Cell(87,10, utf8_decode("Título"),1,1,'C', 1);
 
-
+        $margenIzq = 20;
         foreach ($array as $element){
-            $pdf->Cell(87,10,  utf8_decode($element['tipo']),1,0,'C');
-            $pdf->Cell(87,10,  utf8_decode($element['seccion']),1,0,'C');
-            $pdf->Cell(87,10, utf8_decode($element['titulo']),1,0,'C');
-            $pdf->Ln();
+            $pdf->SetY($pdf->GetY());
+            $pdf->MultiCell(87,10,  utf8_decode($element['tipo']),1,'C');
+            $pdf->SetY($pdf->GetY()-10);
+            $pdf->SetX(87 + $margenIzq);
+            $pdf->MultiCell(87,10,  utf8_decode($element['seccion']),1,'C');
+            $pdf->SetY($pdf->GetY()-10);
+            $pdf->SetX(174 + $margenIzq);
+            $pdf->MultiCell(87,10, utf8_decode($element['titulo']),1,'C');
         }
-
-
 
         $pdf->Output();
     }
