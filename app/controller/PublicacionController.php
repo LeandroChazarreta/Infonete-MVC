@@ -3,20 +3,20 @@
 class PublicacionController{
     private $renderer;
     private $model;
-
     public function __construct($model, $renderer){
-        $this->model = $model;
-        $this->renderer = $renderer;
+        if ($_SESSION['permiso']>='3'){
+            $this->model = $model;
+            $this->renderer = $renderer;
+        } else {
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/");
+            exit();
+        }
     }
-
     public function index(){
-
         $listas['botones'] = $_SESSION['botones'];
-        $listas["secciones"] = $this->model["seccionModel"]->getSecciones();
-        $listas["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
-        $listas["publicaciones"] = $this->model["publicacionModel"]->getPublicacionesDelContenedista($_SESSION['id']);
-
-
+        $listas['menu'] = $_SESSION['menu'];
+        $idUsuario = $_SESSION['id'];
+        $listas["publicaciones"] = $this->model["publicacionModel"]->getPublicacionesDelContenedista($idUsuario);
         echo $this->renderer->render( "view/publicacionView.php", $listas);
     }
 
