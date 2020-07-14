@@ -119,7 +119,7 @@
 
                     <div class="row">
                         <div class="col-50">
-                            <h3 class="icon-container">Suscripción Mensual</h3>
+                            <h3 class="icon-container">Suscripción Anual</h3>
 
                             <label for="fname"><i class="fa fa-user"></i> Nombre y apellido</label>
                             <input type="text" id="fname" name="firstname" placeholder="John M. Doe" required>
@@ -142,8 +142,8 @@
 
                             <label for="promocion">Suscripcion</label>
                             <select name="promocion" class="imput" required>
-                                <option value="1" selected>Mensual</option>
-                                <option value="2">Anual</option>
+                                <option value="1">Mensual</option>
+                                <option value="2" selected>Anual</option>
                             </select>
 
                         </div>
