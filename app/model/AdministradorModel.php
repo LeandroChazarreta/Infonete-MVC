@@ -70,18 +70,15 @@ class AdministradorModel
         $pdf->Cell(87,10, utf8_decode("Sección"),1,0,'C', 1);
         $pdf->Cell(87,10, utf8_decode("Título"),1,1,'C', 1);
 
-//        for ($i=0; $i<count($array); $i++){
-//            $array = $array[$i];
-//            $pdf->Cell(87,10, $array["tipo"],1,0,'C');
-//            $pdf->Cell(87,10, utf8_decode($array["seccion"]),1,0,'C');
-//            $pdf->Cell(87,10, utf8_decode($array["titulo"]),1,1,'C');
-//        }
 
-//        foreach ($array as $element){
-//            $pdf->Cell(87,10, $element,1,0,'C');
-//            $pdf->Cell(87,10, utf8_decode($element),1,0,'C');
-//            $pdf->Cell(87,10, utf8_decode($element),1,1,'C');
-//        }
+        foreach ($array as $element){
+            $pdf->Cell(87,10,  utf8_decode($element['tipo']),1,0,'C');
+            $pdf->Cell(87,10,  utf8_decode($element['seccion']),1,0,'C');
+            $pdf->Cell(87,10, utf8_decode($element['titulo']),1,0,'C');
+            $pdf->Ln();
+        }
+
+
 
         $pdf->Output();
     }
