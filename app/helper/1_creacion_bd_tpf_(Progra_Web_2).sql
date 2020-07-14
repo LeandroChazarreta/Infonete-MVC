@@ -119,15 +119,21 @@ CREATE TABLE Tipo_Suscripcion
  precio FLOAT NOT NULL,
  PRIMARY KEY (id_tipo_suscripcion));
 
+CREATE TABLE Estado_suscripcion
+(id_estado_suscripcion SMALLINT UNSIGNED AUTO_INCREMENT,
+ estado VARCHAR(40) NOT NULL,
+ PRIMARY KEY (id_estado_suscripcion));
+
 CREATE TABLE Suscripcion
 (id_suscripcion INT UNSIGNED AUTO_INCREMENT,
  fecha_adquirida DATETIME NOT NULL,
  fecha_expiracion DATETIME NOT NULL,
- estado Boolean default(0),
+ id_estado_suscripcion SMALLINT UNSIGNED default(1),
  id_tipo_suscripcion SMALLINT UNSIGNED NOT NULL,
  id_usuario INT UNSIGNED NOT NULL ,
  PRIMARY KEY (id_suscripcion),
  FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario),
+ FOREIGN KEY (id_estado_suscripcion) REFERENCES Estado_suscripcion (id_estado_suscripcion),
  FOREIGN KEY (id_tipo_suscripcion) REFERENCES Tipo_Suscripcion (id_tipo_suscripcion));
 
 CREATE TABLE Tipo_Factura
@@ -168,9 +174,14 @@ VALUES (1, "Lector"),
        (4, "Administrador");
 
 INSERT INTO Usuario(mail, contraseña, nombre, apellido, fecha_nac, id_permiso)
-VALUES ('admin@asd.com','a8f5f167f44f4964e6c998dee827110c','Juan Sebastian','Bach','19800101', '4'),
+VALUES ('admin@asd.com','a8f5f167f44f4964e6c998dee827110c','Juan','Sebastian','19800101', '4'),
        ('conte@asd.com','a8f5f167f44f4964e6c998dee827110c','Victor','Wooten','19800101', '3');
 
 INSERT INTO Tipo_Suscripcion(id_tipo_suscripcion, descripcion, precio)
 VALUES (1, "Mensual", "12.00"),
        (2, "Anual", "100.00");
+
+
+INSERT INTO Estado_suscripcion()
+VALUES ('1', 'EXPIRADO'),
+       ('2', 'ACTIVO');
