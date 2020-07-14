@@ -16,6 +16,7 @@ class PublicacionController{
         $listas["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
         $listas["publicaciones"] = $this->model["publicacionModel"]->getPublicacionesDelContenedista($_SESSION['id']);
 
+
         echo $this->renderer->render( "view/publicacionView.php", $listas);
     }
 
@@ -53,7 +54,10 @@ class PublicacionController{
     }
 
     public function publicacionCreada(){
-        echo $this->renderer->render( "view/publicacionCreadaView.php");
+        $data['menu'] = $_SESSION['menu'];
+        $data['botones'] = $_SESSION['botones'];
+
+        echo $this->renderer->render( "view/publicacionCreadaView.php", $data);
     }
 
     public function validarPublicacion(){

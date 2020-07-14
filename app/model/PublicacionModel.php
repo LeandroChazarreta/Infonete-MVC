@@ -59,9 +59,9 @@ class PublicacionModel
 
     public function getPublicacionesDelContenedista($idContenedista){
 
-        return $this->conexion->query("SELECT *
-                                        FROM Publicacion p
-                                        WHERE p.id_usuario = '$idContenedista'");
+        return $this->conexion->query(" SELECT *
+	                                    FROM Publicacion p JOIN seccion s ON p.id_seccion = s.id_seccion
+                                        WHERE p.id_usuario = '$idContenedista';");
 
     }
 
