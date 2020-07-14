@@ -149,4 +149,47 @@ class PublicacionModel
             . $fecha["wday"] . " " . $fecha["hours"] . ":" . $fecha["minutes"] . ":"
             . $fecha["seconds"];
     }
+
+    public function generarPublicacionPDF(){
+
+        $id = $_SESSION["idPublicacionPDF"];
+
+        $array= $this->getPublicacionPorId($id);
+        $a = $array[0];
+        $titulo = $a['titulo'];
+
+        $pdf = new PlantillaPDF();
+        $pdf->AliasNbPages();
+        $pdf->AddPage("P", "A4");
+
+        $ancho = $pdf->GetPageWidth() - 40;
+
+        $pdf->SetFont('Calibri','B',20);
+        $pdf->Ln(5);
+        $pdf->Cell(0,20, utf8_decode('PUBLICACIÓN EN PDF'),0,0,'L');
+        $pdf->Ln(8);
+
+        $pdf->SetFont('Calibri','',12);
+        $pdf->Cell(0,20, utf8_decode("Servicio exclusivo de generación de PDF"),0,0,'L');
+        $pdf->Ln(30);
+
+        $pdf->SetFont('Calibri','',12);
+        foreach ($array as $element){
+            $pdf->SetFont('Calibri','B',18);
+            $pdf->MultiCell($ancho,10,  utf8_decode($element['titulo']),0,'L');
+            $pdf->Ln(8);
+            $pdf->SetFont('Calibri','',14);
+            $pdf->MultiCell($ancho,10,  utf8_decode($element['bajada']),0,'L');
+            $pdf->Ln(8);
+            $pdf->Image("view/img/" . utf8_decode($element['imagen']), null, null, $ancho*0.75 );
+            $pdf->Ln(2);
+            $pdf->SetFont('Calibri','B',10);
+            $pdf->MultiCell($ancho*0.75,10, utf8_decode($element['epigrafe_imagen']),0,'L');
+            $pdf->Ln(8);
+            $pdf->SetFont('Calibri','',12);
+            $pdf->MultiCell($ancho,10, utf8_decode($element['cuerpo']),0,'L');
+        }
+
+        $pdf->Output();
+    }
 }

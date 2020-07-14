@@ -8,7 +8,15 @@ echo $_SESSION['usuario'];
         <div class="container">
             {{#publicacion}}
 
-            <h2><b>{{titulo}}</b></h2>
+            <table class="w3-table">
+                <tr>
+                    <th> <h2><b>{{titulo}}</b></h2></th>
+
+                    <th class="w3-right"> <a class="w3-btn w3-blue w3-margin" href="publicacion/generarPublicacionPDF">GENERAR PDF</a></th>
+
+                </tr>
+            </table>
+
 
             <h6>{{bajada}}</h6>
             <hr>

@@ -16,9 +16,13 @@ class PlantillaPDF extends FPDF
         $this->AddFont("Heading", "EB", "headingeb.php");
         $this->AddFont("Heading", "L", "headingl.php");
 
-        $this->SetMargins(20,20,20);
+        $this->SetMargins(20,40,20);
 
-        $this->Image('view/img/logo.png', 220, 15, 60 );
+        if ($this->GetPageWidth() > 212){
+            $this->Image('view/img/logo.png', 225, 15, 50 );
+        }else{
+            $this->Image('view/img/logo.png', 140, 15, 50 );
+        }
 
     }
 

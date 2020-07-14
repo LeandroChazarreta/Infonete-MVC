@@ -27,6 +27,7 @@ class SeccionController
                 $data['menu'] = $_SESSION['menu'];
                 $data['botones'] = $_SESSION['botones'];
 
+                 $_SESSION['idPublicacionPDF'] = $idPublicacion;
                 echo $this->renderer->render("view/verPublicacionView.php", $data);
         } else if ($_SESSION['permiso']==1){
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/suscripcion");

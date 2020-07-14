@@ -175,5 +175,7 @@ class PublicacionController{
         }
     }
 
-
+    public function generarPublicacionPDF(){
+        $this->model["publicacionModel"]->generarPublicacionPDF();
+    }
 }
