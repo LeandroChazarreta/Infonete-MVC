@@ -112,13 +112,13 @@ class AdministradorModel
 
     public function borrar($id)
     {
-            return $this->conexion->query("DELETE FROM  seccion
+            return $this->conexion->insert("DELETE FROM  seccion
                                            WHERE id_seccion = '$id'");
     }
 
     public function borrarUs($id)
     {
-        return $this->conexion->query("DELETE FROM  usuario
+        return $this->conexion->insert("DELETE FROM  usuario
                                            WHERE id_usuario = '$id'");
     }
 }
