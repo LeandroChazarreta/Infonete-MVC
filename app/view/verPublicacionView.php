@@ -12,7 +12,7 @@ echo $_SESSION['usuario'];
                 <tr>
                     <th> <h2><b>{{titulo}}</b></h2></th>
 
-                    <th class="w3-right"> <a class="w3-btn w3-blue w3-margin" href="publicacion/generarPublicacionPDF">GENERAR PDF</a></th>
+                    <th class="w3-right"> <a class="w3-margin" href="publicacion/generarPublicacionPDF"><span class="material-icons">vertical_align_bottom</span></a></th>
 
                 </tr>
             </table>
