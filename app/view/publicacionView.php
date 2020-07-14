@@ -29,7 +29,7 @@
                 <tr>
                     <td>{{titulo}}</td>
                     <td>{{fecha}}</td>
-                    <td>{{id_seccion}}</td>
+                    <td>{{descripcion}}</td>
 
                     <td class="w3-center">
                         {{#autorizada}}
