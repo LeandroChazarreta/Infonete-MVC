@@ -19,7 +19,7 @@
            <hr>
            <p>Seleccione criterios para armar el reporte</p>
 
-        <form action="./administrador/ListadoReporte" method="post">
+        <form action="./administrador/ListadoReporte" method="get">
         <table class="w3-table-all w3-bordered">
             <tr>
                 <th>Tipo de Publicación</th>
@@ -41,7 +41,7 @@
                         {{/secciones}}
                     </select></td>
                 <td>
-                    <button type="submit" class="w3-btn w3-blue">Generar Reporte</button>
+                   <button type="submit" class="w3-btn w3-blue">Generar Reporte</button>
                 </td>
             </tr>
 

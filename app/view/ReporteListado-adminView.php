@@ -10,13 +10,20 @@
     </div>
 
     <header class="w3-container w3-theme" style="padding:64px 32px">
-        <h1 class="w3-xxxlarge">InfoNete - Portal Administrativo</h1>
+        <h1 class="w3-xxxlarge">Portal Administrativo</h1>
     </header>
 
     <section style="margin: 30px 50px;">
 
-        <h1>Reportes obtenidos</h1>
-        <hr>
+        <table class="w3-table">
+            <tr>
+                <th> <h1>Reporte obtenido</h1></th>
+
+                <th class="w3-right"> <a class="w3-btn w3-blue w3-margin" href="administrador/generarPDF">GENERAR PDF</a></th>
+
+            </tr>
+        </table>
+        <hr style="margin: 0 0 20px 0;">
             <table class="w3-table-all w3-bordered w3-hoverable">
                 <tr>
                     <th>Tipo de Publicación</th>
@@ -35,7 +42,7 @@
 
         <hr>
         <form action="administrador/Reporte" method="post" enctype="application/x-www-form-urlencoded">
-            <button class="w3-button w3-blue w3-hover-orange" type="submit">Generar otro reporte</button>
+            <button class="w3-button w3-blue w3-hover-orange" type="submit">Volver</button>
         </form>
 
       </section>

@@ -41,7 +41,13 @@ class AdministradorController{
         echo $this->renderer->render( "view/Reporte-adminView.php",$listas);
     }
 
+    public function generarPDF(){
+        $pdf = $this->model->generarPDF();
+    }
+
     public function ListadoReporte(){
+        $_SESSION["tipoPDF"] = $_GET["tipoPublicacion"];
+        $_SESSION["seccionPDF"] = $_GET["seccion"];
         $data["Reporte"] = $this->model->GetReporte();
         echo $this->renderer->render( "view/ReporteListado-adminView.php", $data);
     }

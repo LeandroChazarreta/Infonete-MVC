@@ -1,6 +1,5 @@
 <?php
 
-
 class AdministradorModel
 {
     private $conexion;
@@ -8,7 +7,6 @@ class AdministradorModel
     public function __construct($database){
         $this->conexion = $database;
     }
-
 
     public function GetNoticias(){
         return $this->conexion->query("SELECT * FROM publicacion p 
@@ -23,12 +21,16 @@ class AdministradorModel
     public function GetSecciones(){
         return $this->conexion->query("SELECT * FROM Seccion;");
     }
+
     public function getTipoPublicaciones(){
         return $this->conexion->query("SELECT * FROM Tipo_Publicacion");
     }
+
     public function GetReporte(){
-        $tipoNoticia = $_POST["tipoPublicacion"];
-        $tipoSeccion = $_POST["seccion"];
+
+        $tipoNoticia = $_GET["tipoPublicacion"];
+        $tipoSeccion = $_GET["seccion"];
+
         return $this->conexion->query("SELECT DISTINCT tp.descripcion as tipo, sc.descripcion seccion, pb.titulo,pb.cuerpo
                                        FROM publicacion pb JOIN 
                                        seccion sc ON
@@ -40,6 +42,48 @@ class AdministradorModel
                                            AND tp.id_tipo_publicacion = '$tipoNoticia'
                                            AND sc.id_seccion = '$tipoSeccion'");
 
+    }
+
+    public function generarPDF(){
+
+        $_GET["tipoPublicacion"] = $_SESSION["tipoPDF"];
+        $_GET["seccion"] = $_SESSION["seccionPDF"];
+
+        $array= $this->GetReporte();
+
+        $pdf=new PlantillaPDF();
+        $pdf->AliasNbPages();
+        $pdf->AddPage("L", "A4");
+
+        $pdf->SetFont('Heading','B',20);
+        $pdf->Ln(8);
+        $pdf->Cell(0,20, 'REPORTE',0,0,'L');
+        $pdf->Ln(8);
+
+        $pdf->SetFont('Heading','B',12);
+        $pdf->Cell(0,20, utf8_decode('Publicaciones según Tipo de Publicación y Sección'),0,0,'L');
+        $pdf->Ln(30);
+
+        $pdf->SetFillColor(232,232,232);
+        $pdf->SetFont('Heading','B',12);
+        $pdf->Cell(87,10, utf8_decode("Tipo de Publicación"),1,0,'C',1);
+        $pdf->Cell(87,10, utf8_decode("Sección"),1,0,'C', 1);
+        $pdf->Cell(87,10, utf8_decode("Título"),1,1,'C', 1);
+
+//        for ($i=0; $i<count($array); $i++){
+//            $array = $array[$i];
+//            $pdf->Cell(87,10, $array["tipo"],1,0,'C');
+//            $pdf->Cell(87,10, utf8_decode($array["seccion"]),1,0,'C');
+//            $pdf->Cell(87,10, utf8_decode($array["titulo"]),1,1,'C');
+//        }
+
+//        foreach ($array as $element){
+//            $pdf->Cell(87,10, $element,1,0,'C');
+//            $pdf->Cell(87,10, utf8_decode($element),1,0,'C');
+//            $pdf->Cell(87,10, utf8_decode($element),1,1,'C');
+//        }
+
+        $pdf->Output();
     }
 
     public function updateAutorizar($id,$valor){
@@ -73,8 +117,7 @@ class AdministradorModel
                                            WHERE id_seccion = '$id'");
     }
 
-
-   public function borrarUs($id)
+    public function borrarUs($id)
     {
         return $this->conexion->query("DELETE FROM  usuario
                                            WHERE id_usuario = '$id'");
