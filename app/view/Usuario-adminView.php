@@ -14,18 +14,25 @@
     </header>
 
         <section style="margin: 30px 50px;">
+
             <h1>Usuarios</h1>
 
-            <table class="w3-table-all w3-bordered w3-hoverable">
-                <tr class=" w3-large">
+            <input id="buscar" type="text" class="w3-input w3-border w3-padding" placeholder="Escriba algo para filtrar" />
+
+            <br>
+
+            <table id="tabla " class="table table-striped w3-table-all w3-bordered w3-hoverable">
+                <thead>
+                <tr>
                     <th>Nombre</th>
                     <th>Fecha Nacimiento</th>
                     <th>Mail</th>
                     <th>Permiso</th>
                     <th>Acción</th>
                 </tr>
+                </thead>
                 {{#Usuario}}
-                <tr>
+                <tr class="tbody">
                     <td>{{apellido}}, {{nombre}}</td>
                     <td>{{fecha_nac}}</td>
                     <td>{{mail}}</td>
@@ -39,6 +46,51 @@
             </table>
 
         </section>
+
+    <script>
+        function myFunction2() {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput2");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable2");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+
+</div>
+</div>
+</div>
+
+<script>
+    document.getElementById("buscar").onkeyup = function() {
+        var buscar_= this.value.toLowerCase() ;
+        document.querySelectorAll('.table tbody tr').forEach(function(e){
+            var encontro_ =false;
+            e.querySelectorAll('td').forEach(function(e){
+                if (e.innerHTML.toLowerCase().indexOf(buscar_)>=0){
+                    encontro_=true;
+                }
+            });
+            if (encontro_){
+                e.style.display = '';
+            }else{
+                e.style.display = 'none';
+            }
+        });
+    }
+</script>
 
 </div>
 

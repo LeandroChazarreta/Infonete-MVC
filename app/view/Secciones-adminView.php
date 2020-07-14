@@ -24,9 +24,13 @@
                     <th class="w3-center">Acciones</th>
                 </tr>
                 {{#Secciones}}
-                <form action="./administrador/editarSeccion" method="post" class="formlogin">
                     <tr>
-                        <td>
+
+                        <form action="./administrador/editarSeccion" method="post" class="formlogin">
+
+                        <input type="hidden"  value="{{id_seccion}}" name="id_seccion" id="id_seccion">
+
+                        <td name="id_seccion" id="id_seccion">
                         {{id_seccion}}
                         </td>
                         <td>{{descripcion}}</td>
@@ -39,9 +43,10 @@
                             <a class="w3-btn w3-red" href="administrador/borrarSeccion?id_seccion={{id_seccion}}"> Quitar</a>
                         </td>
 
-                {{/Secciones}}
+                        </form>
+
                 </tr>
-            </form>
+                {{/Secciones}}
             </table>
 
         </section>
