@@ -11,24 +11,19 @@ class PublicacionController{
 
     public function index(){
 
+        $listas['botones'] = $_SESSION['botones'];
         $listas["secciones"] = $this->model["seccionModel"]->getSecciones();
         $listas["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
-        $listas['botones'] = $_SESSION['botones'];
-        $mail = $_SESSION['usuario'];
-        $idUsuario = $this->model["usuarioModel"]->consultarIdUsuarioPorMail($mail);
-        $idUsuario = $idUsuario[0];
-        $idUsuario = $idUsuario["id_usuario"];
-        $listas["publicaciones"] = $this->model["publicacionModel"]->getPublicacionesDelContenedista($idUsuario);
+        $listas["publicaciones"] = $this->model["publicacionModel"]->getPublicacionesDelContenedista($_SESSION['id']);
 
         echo $this->renderer->render( "view/publicacionView.php", $listas);
     }
 
     public function crearPublicacion(){
 
+        $array['botones'] = $_SESSION['botones'];
         $array["secciones"] = $this->model["seccionModel"]->getSecciones();
         $array["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
-        $array['botones'] = $_SESSION['botones'];
-
 
         if (isset($_GET["error"])){
             $array["error"] = $_GET["error"];
@@ -39,17 +34,14 @@ class PublicacionController{
 
     public function editarPublicacion(){
 
-        $array['menu'] = $_SESSION['menu'];
         $array['botones'] = $_SESSION['botones'];
         $array['publicacionAEditar'] = $this->model["publicacionModel"]->getPublicacionPorId($_GET['id_publicacion']);
 
-        $publicacion = $this->model["publicacionModel"]->getPublicacionPorId($_GET['id_publicacion']);
+        $publicacion = $array['publicacionAEditar'];
         $publicacion = $publicacion[0];
-        $idSeccion = $publicacion["id_seccion"];
-        $idTipoPublicacion = $publicacion["id_tipo_publicacion"];
 
-        $array['tipoPublicaciones'] = $this->model["publicacionModel"]->getTipoPublicacionesConSeleccionada($idTipoPublicacion);
-        $array['secciones'] = $this->model["seccionModel"]->getSeccionesConSeleccionada($idSeccion);
+        $array['tipoPublicaciones'] = $this->model["publicacionModel"]->getTipoPublicacionesConSeleccionada($publicacion["id_tipo_publicacion"]);
+        $array['secciones'] = $this->model["seccionModel"]->getSeccionesConSeleccionada($publicacion["id_seccion"]);
 
         $_SESSION["id_publicacion"] = $_GET['id_publicacion'];
 
@@ -148,9 +140,13 @@ class PublicacionController{
             exit();
         }
 
-        $imagen = $this->validarImagenPublicacion();
+        if (isset($_FILES)){
+            $imagen = $_POST["imagen"];
+        }else{
+            $imagen = $this->validarImagenPublicacion();
+        }
 
-        $this->actualizarPublicacion($imagen);
+       $this->actualizarPublicacion($imagen);
     }
 
     public function generarPublicacionPDF(){
