@@ -36,28 +36,7 @@
         {{/menu}}
     </div>
 
-    <!-- Page Content -->
-    <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
-    <div class="w3-hide-large">
-        <button class="w3-button w3-white w3-left-align"  onclick="w3_open()">
-            <span class="w3-small"></span> &#9776;</button>
-        <div class="w3-container">
-
-
-    <script>
-        function w3_open() {
-            document.getElementById("mySidebar").style.display = "block";
-            document.getElementById("myOverlay").style.display = "block";
-        }
-
-        function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
-            document.getElementById("myOverlay").style.display = "none";
-        }
-    </script>
-        </div>
-    </div>
 
     <!-- Logo   -->
     <h1 class="tituloheader w3-center">
@@ -67,7 +46,28 @@
             </b>
         </a>
       </h1>
+    <!-- Page Content -->
+    <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
+    <div class="w3-hide-large">
+        <button class="w3-button w3-white w3-left-align"  onclick="w3_open()">
+            <span class="w3-small"></span> &#9776;</button>
+        <div class="w3-container">
+
+
+            <script>
+                function w3_open() {
+                    document.getElementById("mySidebar").style.display = "block";
+                    document.getElementById("myOverlay").style.display = "block";
+                }
+
+                function w3_close() {
+                    document.getElementById("mySidebar").style.display = "none";
+                    document.getElementById("myOverlay").style.display = "none";
+                }
+            </script>
+        </div>
+    </div>
     <article class="menu w3-hide-small w3-hide-medium ">
         {{#menu}}
                 <a href="./seccion/{{descripcion}}" class="w3-button w3-border-bottom w3-border-green w3-hover-blue">{{descripcion}}</a>
