@@ -14,6 +14,7 @@ class PublicacionController{
         $listas["secciones"] = $this->model["seccionModel"]->getSecciones();
         $listas["tipoPublicacion"] = $this->model["publicacionModel"]->getTipoPublicaciones();
         $listas['botones'] = $_SESSION['botones'];
+        $listas['menu'] = $_SESSION['menu'];
         $mail = $_SESSION['usuario'];
         $idUsuario = $this->model["usuarioModel"]->consultarIdUsuarioPorMail($mail);
         $idUsuario = $idUsuario[0];
@@ -61,7 +62,10 @@ class PublicacionController{
     }
 
     public function publicacionCreada(){
-        echo $this->renderer->render( "view/publicacionCreadaView.php");
+        $data['menu'] = $_SESSION['menu'];
+        $data['botones'] = $_SESSION['botones'];
+
+        echo $this->renderer->render( "view/publicacionCreadaView.php", $data);
     }
 
     public function validarPublicacion(){
