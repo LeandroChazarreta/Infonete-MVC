@@ -10,24 +10,28 @@ class PublicacionModel
     }
 
     public function guardarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen, $cuerpo,
-                                       $idTipoPublicacion, $idSeccion, $idUsuario, $fecha){
+                                       $idTipoPublicacion, $idSeccion, $idUsuario){
+
+        $fechaFormateadaBD = $this->armarFormatoFechaBD();
 
         return $this->conexion->insert("INSERT INTO Publicacion (titulo, bajada, imagen, epigrafe_imagen, cuerpo, 
                                                                 id_tipo_publicacion, id_seccion, id_usuario, fecha, autorizada) 
                                        VALUES ('$titulo', '$bajada', '$imagen', '$epigrafeImagen','$cuerpo', 
                                                 '$idTipoPublicacion','$idSeccion',
-                                                '$idUsuario', '$fecha', false)");
+                                                '$idUsuario', '$fechaFormateadaBD', false)");
 
     }
 
     public function actualizarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen, $cuerpo,
-                                          $idTipoPublicacion, $idSeccion, $idUsuario, $fecha, $idPublicacion)
+                                          $idTipoPublicacion, $idSeccion, $idUsuario, $idPublicacion)
     {
-        $query = $this->conexion->query("UPDATE Publicacion
+        $fechaFormateadaBD = $this->armarFormatoFechaBD();
+
+        $query = $this->conexion->insert("UPDATE Publicacion
                                         SET titulo = '$titulo', bajada = '$bajada', imagen ='$imagen', 
                                         epigrafe_imagen ='$epigrafeImagen', cuerpo ='$cuerpo', 
                                         id_tipo_publicacion = '$idTipoPublicacion', id_seccion = '$idSeccion', 
-                                        id_usuario = '$idUsuario', fecha = '$fecha', autorizada = false
+                                        id_usuario = '$idUsuario', fecha = '$fechaFormateadaBD', autorizada = false
                                         WHERE id_publicacion = '$idPublicacion'");
 
         $res = count($query);
@@ -91,17 +95,17 @@ class PublicacionModel
         if($publicacion["seccion"] == null){
             $error .= ' No ha elejido una sección.';
         }
-        if(strlen($publicacion["titulo"]) < 5){
-            $error .= " Titulo de menos de 5 letras.";
+        if(strlen($publicacion["titulo"]) < 3){
+            $error .= " Titulo de menos de 3 letras.";
         }
-        if(strlen($publicacion["bajada"]) < 8){
-            $error .= " Bajada de menos de 8 letras. ";
+        if(strlen($publicacion["bajada"]) < 3){
+            $error .= " Bajada de menos de 3 letras. ";
         }
-        if(strlen($publicacion["epigrafeImagen"]) < 8){
-            $error .= " Epigrafe de menos de 8 letras.";
+        if(strlen($publicacion["epigrafeImagen"]) < 3){
+            $error .= " Epigrafe de menos de 3 letras.";
         }
-        if( strlen($publicacion["cuerpo"]) < 8){
-            $error .= " Cuerpo de menos de 8 letras.";
+        if( strlen($publicacion["cuerpo"]) < 3){
+            $error .= " Cuerpo de menos de 3 letras.";
         }
 
         return $error;
@@ -131,20 +135,29 @@ class PublicacionModel
         }
     }
 
-    public function armarNombreImagen($titulo, $fecha)
+    public function armarNombreImagen()
     {
-     return $nombreImagen =   $titulo . "-" . $fecha;
+    $fecha = $this->armarFormatoFecha();
+    $titulo = $_POST["titulo"];
+
+     return $_POST["imagenNombre"] =   $titulo . "-" . $fecha;
     }
 
-    public function armarFormatoFecha($fecha)
+    public function armarFormatoFecha()
     {
+
+        $fecha = getdate();
+
         return $fecha =   $fecha["year"] . "-" . $fecha["mon"] . "-"
             . $fecha["wday"] . "-" . $fecha["hours"] . "-" . $fecha["minutes"] . "-"
             . $fecha["seconds"];
     }
 
-    public function armarFormatoFechaBD($fecha)
+    public function armarFormatoFechaBD()
     {
+
+        $fecha = getdate();
+
         return $fecha =   $fecha["year"] . "-" . $fecha["mon"] . "-"
             . $fecha["wday"] . " " . $fecha["hours"] . ":" . $fecha["minutes"] . ":"
             . $fecha["seconds"];

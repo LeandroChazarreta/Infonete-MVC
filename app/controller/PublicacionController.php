@@ -66,49 +66,44 @@ class PublicacionController{
 
     public function validarPublicacion(){
 
-        $publicacion = $_POST;
-        $fecha = getdate();
+        $this->model["publicacionModel"]->armarNombreImagen();
 
-        /* ---- ARMAR NOMBRE IMAGEN ----- */
-        $fechaFormateada = $this->model["publicacionModel"]->armarFormatoFecha($fecha);
-        $titulo = $publicacion["titulo"];
-        $publicacion["imagenNombre"] = $this->model["publicacionModel"]->armarNombreImagen($titulo, $fechaFormateada);
-
-        /* ---- VALIDAR PUBLICACION ----- */
-        $validarPublicacion =  $this->model["publicacionModel"]->validarPublicacion($publicacion);
+        $validarPublicacion =  $this->model["publicacionModel"]->validarPublicacion($_POST);
         if ($validarPublicacion != null) {
             header("location: http://".$_SERVER['SERVER_NAME'].
                     "/Infonete-MVC/app/publicacion/crearPublicacion?error=$validarPublicacion");
             exit();
         }
 
-        /* ---- VALIDAR IMAGEN ----- */
-        $imagen =  $this->model["publicacionModel"]->validarImagenPublicacion($publicacion["imagenNombre"], $_FILES);
+        $imagen = $this->validarImagenPublicacion();
+
+        $this->guardarPublicacion($imagen);
+    }
+
+    public function validarImagenPublicacion()
+    {
+        $imagen =  $this->model["publicacionModel"]->validarImagenPublicacion($_POST["imagenNombre"], $_FILES);
         if ($imagen == false) {
             header("location: http://".$_SERVER['SERVER_NAME'].
-                    "/Infonete-MVC/app/publicacion/crearPublicacion?error=Imagen incorrecta");
+                "/Infonete-MVC/app/publicacion/crearPublicacion?error=Imagen incorrecta");
             exit();
         }
+        return $imagen;
+    }
 
-        /* ---- RESTO DEL FORMULARIO ----- */
+    public function guardarPublicacion($imagen)
+    {
+        $titulo = $_POST["titulo"];
         $idTipoPublicacion = $_POST["tipoPublicacion"];
         $idSeccion = $_POST["seccion"];
         $bajada = $_POST["bajada"];
         $epigrafeImagen = $_POST["epigrafeImagen"];
         $cuerpo = $_POST["cuerpo"];
+        $idUsuario = $_SESSION['id'];
 
-        /* ---- OBTENER ID USUARIO ----- */
-        $mail = $_SESSION['usuario'];
-        $idUsuario = $this->model["usuarioModel"]->consultarIdUsuarioPorMail($mail);
-        $idUsuario = $idUsuario[0];
-        $idUsuario = $idUsuario["id_usuario"];
-
-        /* ---- GUARDAR PUBLICACION ----- */
-        $fechaFormateadaBD = $this->model["publicacionModel"]->armarFormatoFechaBD($fecha);
         $guardarPublicacion = $this->model["publicacionModel"]->guardarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen,
-                                                                $cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario, $fechaFormateadaBD);
+            $cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
 
-        /* ---- REDIRECCIONAR SEGÚN EL CASO ----- */
         if ($guardarPublicacion == true){
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/publicacionCreada");
             exit();
@@ -116,63 +111,46 @@ class PublicacionController{
             $error = "No se pudo guardar la publicación";
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/crearPublicacion?error=$error");
             exit();
-        }
+        };
     }
 
-    public function validarPublicacionParaActualizar(){
-
-        $publicacion = $_POST;
-        $fecha = getdate();
-        $idPublicacion = $_SESSION["id_publicacion"];
-
-        /* ---- ARMAR NOMBRE IMAGEN ----- */
-        $fechaFormateada = $this->model["publicacionModel"]->armarFormatoFecha($fecha);
-        $titulo = $publicacion["titulo"];
-        $publicacion["imagenNombre"] = $this->model["publicacionModel"]->armarNombreImagen($titulo, $fechaFormateada);
-
-        /* ---- VALIDAR PUBLICACION ----- */
-        $validarPublicacion =  $this->model["publicacionModel"]->validarPublicacion($publicacion);
-        if ($validarPublicacion != null) {
-            header("location: http://".$_SERVER['SERVER_NAME'].
-                "/Infonete-MVC/app/publicacion/editarPublicacion?id_publicacion=$idPublicacion&error=$validarPublicacion");
-            exit();
-        }
-
-        /* ---- VALIDAR IMAGEN ----- */
-        $imagen =  $this->model["publicacionModel"]->validarImagenPublicacion($publicacion["imagenNombre"], $_FILES);
-        if ($imagen == false) {
-            header("location: http://".$_SERVER['SERVER_NAME'].
-                "/Infonete-MVC/app/publicacion/crearPublicacion?error=Imagen incorrecta");
-            exit();
-        }
-
-        /* ---- RESTO DEL FORMULARIO ----- */
+    public function actualizarPublicacion($imagen)
+    {
+        $titulo = $_POST["titulo"];
         $idTipoPublicacion = $_POST["tipoPublicacion"];
         $idSeccion = $_POST["seccion"];
         $bajada = $_POST["bajada"];
         $epigrafeImagen = $_POST["epigrafeImagen"];
         $cuerpo = $_POST["cuerpo"];
+        $idUsuario = $_SESSION['id'];
 
-        /* ---- OBTENER ID USUARIO ----- */
-        $mail = $_SESSION['usuario'];
-        $idUsuario = $this->model["usuarioModel"]->consultarIdUsuarioPorMail($mail);
-        $idUsuario = $idUsuario[0];
-        $idUsuario = $idUsuario["id_usuario"];
+        $guardarPublicacion = $this->model["publicacionModel"]->guardarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen,
+            $cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario);
 
-        /* ---- GUARDAR PUBLICACION ----- */
-        $fechaFormateadaBD = $this->model["publicacionModel"]->armarFormatoFechaBD($fecha);
-        $guardarPublicacion = $this->model["publicacionModel"]->actualizarPublicacion($titulo, $bajada, $imagen, $epigrafeImagen,
-            $cuerpo, $idTipoPublicacion, $idSeccion, $idUsuario, $fechaFormateadaBD, $idPublicacion);
-
-        /* ---- REDIRECCIONAR SEGÚN EL CASO ----- */
         if ($guardarPublicacion == true){
             header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/publicacionCreada");
             exit();
         } else {
             $error = "No se pudo guardar la publicación";
-            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/editarPublicacion?d_publicacion=$idPublicacion&error=$error");
+            header("location: http://".$_SERVER['SERVER_NAME']. "/Infonete-MVC/app/publicacion/crearPublicacion?error=$error");
+            exit();
+        };
+    }
+
+    public function validarPublicacionParaActualizar(){
+
+        $this->model["publicacionModel"]->armarNombreImagen();
+
+        $validarPublicacion =  $this->model["publicacionModel"]->validarPublicacion($_POST);
+        if ($validarPublicacion != null) {
+            header("location: http://".$_SERVER['SERVER_NAME'].
+                "/Infonete-MVC/app/publicacion/crearPublicacion?error=$validarPublicacion");
             exit();
         }
+
+        $imagen = $this->validarImagenPublicacion();
+
+        $this->actualizarPublicacion($imagen);
     }
 
     public function generarPublicacionPDF(){
