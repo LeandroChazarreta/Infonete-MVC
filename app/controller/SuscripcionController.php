@@ -15,6 +15,7 @@ class SuscripcionController
         if ($_SESSION['permiso']==1){
             $data['menu'] = $_SESSION['menu'];
             $data['botones'] = $_SESSION['botones'];
+            $data['promocion'] = $this->model->promociones();
 
             echo $this->renderer->render( "view/SuscripcionView.php", $data );
         } else {
@@ -41,10 +42,9 @@ class SuscripcionController
 
 
 
-         IF ($cantCodigo==3 AND $cantNumero==12){
+         IF ($cantCodigo==3){
                $this->model->ActualizaPermiso();
                $this->model->ActualizaSuscripcion($fechaActual, $FechaSub, $promocion);
-
                header("location: http://".$_SERVER['SERVER_NAME']."/Infonete-MVC/app/home");
                exit();
            } else {
@@ -53,10 +53,8 @@ class SuscripcionController
            }
     }
 
-
     public function Activas(){
         if ($_SESSION['permiso']==2){
-
             $data['menu'] = $_SESSION['menu'];
             $data['botones'] = $_SESSION['botones'];
             $data['Suscripciones'] = $this->model->GetSuscripciones();
@@ -67,5 +65,6 @@ class SuscripcionController
             exit();
         }
     }
+
 
 }

@@ -39,9 +39,12 @@ class ModuleInitializer
     public function createHomeController()
     {
         include_once("model/HomeModel.php");
+        include_once("model/SuscripcionModel.php");
         include_once("controller/HomeController.php");
 
-        $model = new HomeModel($this->database);
+        $model['home'] = new HomeModel($this->database);
+        $model['suscripcion'] = new SuscripcionModel($this->database);
+
         return new HomeController($model, $this->renderer);
     }
 
