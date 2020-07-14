@@ -20,7 +20,7 @@
     <!-- Top Menu  -->
     <ul class="topheader">
         <li class="top"><a>14 de Julio de 2020</a></li>
-        <li class="top"><a href="#">13.5° Capital Federal</a></li>
+        <li  class="top"><a href="#">13.5° Capital Federal</a></li>
 {{#botones}}
         <a href="./{{link}}" class="w3-button w3-white w3-hover-blue" style="float: right">{{palabra}} </a>
 {{/botones}}
@@ -36,16 +36,6 @@
         {{/menu}}
     </div>
 
-
-
-    <!-- Logo   -->
-    <h1 class="tituloheader w3-center">
-        <a href="index" class="formatolink">
-            <b>
-                <img class="logo" src="view/img/logo.png" alt="INFONETE"></img>
-            </b>
-        </a>
-      </h1>
     <!-- Page Content -->
     <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
@@ -55,19 +45,29 @@
         <div class="w3-container">
 
 
-            <script>
-                function w3_open() {
-                    document.getElementById("mySidebar").style.display = "block";
-                    document.getElementById("myOverlay").style.display = "block";
-                }
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
 
-                function w3_close() {
-                    document.getElementById("mySidebar").style.display = "none";
-                    document.getElementById("myOverlay").style.display = "none";
-                }
-            </script>
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+    </script>
         </div>
     </div>
+
+    <!-- Logo   -->
+    <h1 class="tituloheader w3-center">
+        <a href="index" class="formatolink">
+            <b>
+                <img class="logo" src="view/img/logo.png" alt="INFONETE"></img>
+            </b>
+        </a>
+      </h1>
+
     <article class="menu w3-hide-small w3-hide-medium ">
         {{#menu}}
                 <a href="./seccion/{{descripcion}}" class="w3-button w3-border-bottom w3-border-green w3-hover-blue">{{descripcion}}</a>
